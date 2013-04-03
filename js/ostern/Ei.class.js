@@ -54,8 +54,8 @@ var Ei = new Class({
 	initialize: function(kringel, text, top, left, height, width) {
 		this.top = top;
 		this.left = left;
-		if($chk(height)) this.height = height;
-		if($chk(width)) this.width = width;
+		if(height) this.height = height;
+		if(width) this.width = width;
 		this.kringelpfad = "../../img/ostern/" + kringel;
 		this.text = text;
 	},

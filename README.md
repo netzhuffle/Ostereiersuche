@@ -1,6 +1,6 @@
-Osterprojekt des Hauses Hufflepuff im HP-FC
-===========================================
-[http://www.huffle-home.de/ostern2011/de/ostern/]
+Osterprojekt 2012 des HP-FC
+===========================
+(Link unbekannt)
 
 Lizenz
 ------

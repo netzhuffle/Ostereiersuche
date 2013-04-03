@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	background: #ebebeb url('images/bg.jpg');
+	background: #ebebeb url('../img/allbg.jpg');
 }
 
 #text {
@@ -13,7 +13,7 @@ body {
 	padding-bottom: 100px;
 	background-color: #000;
 	width: 100%;
-	background-image:url(images/close.png);
+	background-image:url(../img/ostern/close.png);
   	background-repeat:no-repeat;
   	background-position: bottom center;
 
@@ -22,11 +22,11 @@ body {
 
 #text img {
     margin: 5px;
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .text {
-	width: 70%;
+	max-width: 70%;
 	margin: auto;
 }
 
@@ -71,11 +71,16 @@ body {
     text-align: center;
 }
 
-img .left {
-	float: left;
+img.left {
+	float: left!important;
 }
-img .right {
-	float: right;
+img.right {
+	float: right !important;
+}
+img.center {
+	margin-left: auto !important;
+    margin-right: auto !important;
+    display: block; 
 }
 
 #geschichten {

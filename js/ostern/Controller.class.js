@@ -8,10 +8,6 @@
  */
 var Osterprojekt = new Class({
 	/**
-	 * Transparenz der Texte in Prozent
-	 */
-	transparenz: 15,
-	/**
 	 * Array für alle Bilder
 	 * @type array
 	 */
@@ -72,12 +68,12 @@ var Osterprojekt = new Class({
 	
 	/**
 	 * Bringt das gewünschte Bild auf die Bühne.
-	 * Falls keines definiert ist, das chronoligisch folgende.
+	 * Falls keines definiert ist, das chronologisch folgende.
 	 * Falls -1, wird das letzte angezeigt.
 	 * @param id	integer	Nummer des Bildes im Bilder-Array (optional)
 	 */
 	bild: function(id) {
-		if($chk(id)) {
+		if(id || id === 0) {
 			if(id == -1) {
 				if(this.jetzt > 0) this.jetzt--;
 				else return;
@@ -89,10 +85,10 @@ var Osterprojekt = new Class({
 			this.jetzt++;
 		} else return;
 		var bild = this.bilder[this.jetzt];
-		var bildcontainer = $("bild");
+		var bildcontainer = document.id("bild");
 		bildcontainer.empty();
 		bildcontainer.grab(bild.getBild());
-		$("titel").set("text", bild.titel);
+		document.id("titel").set("text", bild.titel);
 		bild.loadKringel();
 		this.checkPfeile();
 	},
@@ -104,15 +100,14 @@ var Osterprojekt = new Class({
 	 * @param id	integer	Nummer des Eis im Array des Bildes (optional - wird nicht gespeichert falls nicht angegeben)
 	 */
 	gefunden: function(ei, id) {
-		if($chk(id)) this.speichern(id);
-		var hintergrund = $("text");
+		if(id || id === 0) this.speichern(id);
+		var hintergrund = document.id("text");
 		var text = ei.getText();
 		hintergrund.empty();
 		hintergrund.grab(text);
-		text.tween("opacity", 0, 1);
-		var transparenz = 1 - this.transparenz / 100;
-		hintergrund.tween("opacity", 0, transparenz);
-		$("titel").set("text", ei.getTitel());
+		text.fade("in"); // needed?
+		hintergrund.fade("in");
+		document.id("titel").set("text", ei.getTitel());
 		this.checkPfeile(true);
 	},
 	
@@ -123,28 +118,30 @@ var Osterprojekt = new Class({
 	 */
 	checkPfeile: function(highlight) {
 		if(this.jetzt > 0) {
-			$("zurueck").setStyle("visibility", "visible");
-			$("zurueck").removeEvents("click");
-			$("zurueck").addEvent("click", (function() {
+			document.id("zurueck").setStyle("visibility", "visible");
+			document.id("zurueck").removeEvents("click");
+			document.id("zurueck").addEvent("click", (function() {
 				this.bild(-1);
 			}).bind(this));
 		} else {
-			$("zurueck").removeEvents("click");
-			$("zurueck").setStyle("visibility", "hidden");
+			document.id("zurueck").removeEvents("click");
+			document.id("zurueck").setStyle("visibility", "hidden");
 		}
 		
 		var alleGefunden = this.bilder[this.jetzt].eier.every(function(ei) {
 			return ei.gefunden;
 		});
 
-		var vor = $("vor");
+		var vor = document.id("vor");
 		if(alleGefunden && this.jetzt+1 < this.bilder.length) {
 			this.bilder[this.jetzt+1].gefunden = true;
 			if(highlight) {
 				vor.fade("in");
 				vor.get("tween").removeEvents("complete");
 				vor.get("tween").addEvent("complete", function() {
-					vor.fade("toggle");
+					(function() {
+						vor.fade("toggle");
+					}).delay(1); // da sonst noch der alte toggle-Wert gesetzt ist (eingeblendet/ausgeblendet)
 				});
 			} else {
 				vor.get("tween").removeEvents("complete");
@@ -172,20 +169,18 @@ var Osterprojekt = new Class({
 	 * Startet das Programm
 	 */
 	start: function() {
-		var texthintergrund = $("text");
-		texthintergrund.setStyle("opacity", "0");
-		texthintergrund.setStyle("visibility", "hidden");
+		var texthintergrund = document.id("text");
+		texthintergrund.fade("hide");
 		texthintergrund.addEvent("click", function() {
-			var transparenz = 1 - projekt.transparenz / 100;
-			this.tween("opacity", transparenz, 0);
+			this.fade("out");
 			this.getChildren().each(function(text) {
-				text.tween("opacity", 1, 0);
+				text.fade("out"); // needed?
 				text.get("tween").addEvent("complete", (function(e) {
 					this.destroy();
 				}).bind(text));
 			});
 			var bildtitel = projekt.bilder[projekt.jetzt].titel;
-			$("titel").set("text", bildtitel);
+			document.id("titel").set("text", bildtitel);
 		});
 		
 		this.laden();

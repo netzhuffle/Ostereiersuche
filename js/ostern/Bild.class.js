@@ -52,7 +52,7 @@ var Bild = new Class({
 		this.eier.each(function(ei) {
 			if(ei.gefunden) {
 				var kringel = ei.getKringel();
-				$("bild").grab(kringel);
+				document.id("bild").grab(kringel);
 			}
 		});
 	},
@@ -71,7 +71,7 @@ var Bild = new Class({
 				if(!ei.gefunden) {
 					ei.gefunden = true;
 					var kringel = ei.getKringel();
-					$("bild").grab(kringel);
+					document.id("bild").grab(kringel);
 				}
 				projekt.gefunden(ei, i);
 			}
@@ -111,7 +111,7 @@ var Bild = new Class({
 				if(!ei.gefunden) {
 					ei.gefunden = true;
 					var kringel = ei.getKringel();
-					$("bild").grab(kringel);
+					document.id("bild").grab(kringel);
 				}
 				projekt.gefunden(ei, i);
 			});

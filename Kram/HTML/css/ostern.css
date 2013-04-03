@@ -1,0 +1,127 @@
+@charset "UTF-8";
+
+body {
+	background: #ebebeb url('images/bg.jpg');
+}
+
+#text {
+	color: #fff;
+	position: absolute;
+	top: 160px;
+	left: 0px;
+	padding: 10px;
+	padding-bottom: 100px;
+	background-color: #000;
+	width: 100%;
+	background-image:url(images/close.png);
+  	background-repeat:no-repeat;
+  	background-position: bottom center;
+
+	/* Hintergrund-Transparenz ist im JavaScript, Controller.class.js:gefunden() definiert */
+}
+
+#text img {
+    margin: 5px;
+    opacity: 1;
+}
+
+.text {
+	width: 70%;
+	margin: auto;
+}
+
+#head {
+    height: 200px;
+}
+
+#head h1, td {
+	text-align: center;
+	margin: auto;
+    border: 2px solid #74090B;
+   	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #dbae71;
+}
+
+#head h1 {
+    font: 30px bold;
+}
+
+#logo {
+    margin: auto;
+    text-align: center;
+}
+
+#bild {
+	width: 600px;
+    position: absolute;
+}
+
+#stage {
+    width: 610px;
+    height: 430px;
+    border: 2px solid #74090B;
+	padding: 10px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	background-color: #E9CB9D;
+	margin: auto;
+    text-align: center;
+}
+
+img .left {
+	float: left;
+}
+img .right {
+	float: right;
+}
+img .center {
+	margin-left: auto; margin-right: auto; display: block; 
+}
+
+#geschichten {
+	display: none;
+}
+
+#zurueck {
+    float: left;
+    
+}
+
+#navi {
+    width: 610px;
+    margin: auto;
+}
+#vor {
+    float: right;
+}
+
+#links {
+    margin: auto;
+    margin-top: 5px;
+    width: 50px;
+    font-size: larger;
+}
+
+.texte {
+    color: #EE4000;
+}
+
+.bilder{
+    color: #8B4513;
+}
+
+table {
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+.small {
+	width: 550px;
+}
+

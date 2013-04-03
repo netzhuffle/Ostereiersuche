@@ -25,7 +25,7 @@ var Text = new Class({
 	 */
 	initialize: function(name, id) {
 		this.name = name;
-		this.element = $(id);
+		this.element = document.id(id);
 	},
 	
 	/**
@@ -40,7 +40,6 @@ var Text = new Class({
 		text.set("html", neu);
 		text.set("class", "text");
 		text.setStyle("opacity", "0");
-		text.setStyle("visibility", "hidden");
 		return text;
 	}
 });
