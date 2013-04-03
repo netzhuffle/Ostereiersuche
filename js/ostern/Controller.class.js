@@ -32,7 +32,7 @@ var Osterprojekt = new Class({
 	 * Lädt die gefunden Ostereier aus dem Cookie
 	 */
 	laden: function() {
-		var speicher = Cookie.read("osterprojekt");
+		var speicher = Cookie.read("ostereiersuche");
 		if(speicher == null) {
 			this.speicher = [];
 			this.speicher[0] = [];
@@ -63,7 +63,8 @@ var Osterprojekt = new Class({
 		}
 		this.speicher[this.jetzt].include(ei);
 		var speicher = JSON.encode(this.speicher);
-		Cookie.write("osterprojekt", speicher, {duration: 365});
+		var path = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
+		Cookie.write("ostereiersuche", speicher, {path: path, duration: 365});
 	},
 	
 	/**
