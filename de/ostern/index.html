@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Huffle-Osterprojekt</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<link rel="stylesheet" type="text/css" href="../../style/ostern.css" />
+		<script type="text/javascript" src="../../js/ostern/mootools.js"></script>
+		<script type="text/javascript" src="../../js/ostern/Bild.class.js"></script>
+		<script type="text/javascript" src="../../js/ostern/Ei.class.js"></script>
+		<script type="text/javascript" src="../../js/ostern/Text.class.js"></script>
+		<script type="text/javascript" src="../../js/ostern/Controller.class.js"></script>
+		<script type="text/javascript"><!--
+			window.addEvent("domready", function() {
+				new Bild("Magisches Wohnzimmer", "../../img/ostern/suchbild1.jpg", [
+					// zu den Parametern von new Ei() siehe Ei.class.js->inizialize();
+                    new Ei("kringel_blau.png",		new Text("Das Ostergedicht",			"gedicht"),			41.5, 85, 23, 12),
+					new Ei("kringel_rot.png",		new Text("Ein Aprilscherz",				"aprilscherz"),		159.5, 177.5, 15, 23),
+					new Ei("kringel_gelb.png",		new Text("Die Rettung",					"rettung"),			244, 58, 20, 26),
+					new Ei("kringel_gruen.png",		new Text("Das riesige Osterproblem",	"riesenproblem"),	184.5, 285.5, 11, 15),
+					new Ei("kringel_schwarz.png",	new Text("Der Zauber der Osternacht",	"verbotenerwald"),	162, 488, 12, 18)
+				]);
+				new Bild("Muggelgarten", "../../img/ostern/suchbild2.jpg", [
+                    new Ei("kringel_schwarz.png",   new Text("Aufruhr im Hühnerstall",			"huehnerstall"),    276, 64, 8, 12),
+                    new Ei("kringel_rot.png",       new Text("Bastelanleitung Wollküken",			"wollkueken"),      241, 169, 12, 10),
+                    new Ei("kringel_gelb.png",      new Text("Küken aus Putzlappen",			"putzlappen"),      354.5, 243.5, 15, 17),
+                    new Ei("kringel_gruen.png",     new Text("Der kleine Osterhase Daniel",			"daniel"),          258.5, 406.5, 11, 15),
+                    new Ei("kringel_blau.png",      new Text("Danke",			"danke"),           235.5, 553, 11, 16)
+				]);
+				new Bild("Idylle", "../../img/ostern/suchbild3.jpg", [
+                    new Ei("kringel_schwarz.png",   new Text("Der Mythos Osterhase in der Zauberwelt",     "zauberwelt"),               198.5, 105.5, 15, 21),
+                    new Ei("kringel_blau.png",      new Text("Der Osterhase macht Urlaub",     "urlaub"),                   269, 174.5, 14, 15),
+                    new Ei("kringel_rot.png",       new Text("Der Tollpatsch Stubs",     "stubs"),                    400.5, 549.5, 17, 15),
+                    new Ei("kringel_gelb.png",      new Text("Der ungewöhnliche Osterbaum",     "osterbaum"),                325, 220, 16, 14),
+                    new Ei("kringel_gruen.png",     new Text("Die Erschaffung des Osterhasen",     "erschaffung"),              266, 352, 14, 14)
+                ]);
+				new Bild("Hasengarten", "../../img/ostern/suchbild4.jpg", [ 
+                    new Ei("kringel_gelb.png",      new Text("Edle Ostereier Im Nu gemischt, geformt und aufgegessen",     "edleostereier"),            265.5, 84.5, 29, 17),
+                    new Ei("kringel_lila.png",   new Text("Eine Torte für die Ewigkeit",     "ewigkeit"),                 193, 144, 16, 22),
+                    new Ei("kringel_blau.png",      new Text("Purzels Lieblingsrezept - Geflochtene Nestchen",     "geflochten"),               252.5, 174.5, 29, 23),
+                    new Ei("kringel_schwarz.png",   new Text("Gefüllte Ostereier",     "gefuellt"),                 130, 411.5, 26, 27),
+                    new Ei("kringel_gruen.png",     new Text("Mythos Osterhase",     "mythos"),                   214.5, 480.5, 17, 19),
+                    new Ei("kringel_rot.png",       new Text("Oma Osterhases Osterüberraschung",     "omaosterhase"),             315.5, 507.5, 39, 33)
+                ]);
+				new Bild("Ostern im Wald", "../../img/ostern/suchbild5.jpg", [ 
+                    new Ei("kringel_blau.png",      new Text("Lieblingskuchen des Osterhasen",     "lieblingskuchen"),          156.5, 458, 17, 12),
+                    new Ei("kringel_schwarz.png",   new Text("Eier ausblasen",     "ausblasen"),                51.5, 239, 19, 16),
+                    new Ei("kringel_rot.png",       new Text("Osterfeier der Hogwartsgeister",     "hogwartsgeister"),          397, 261, 18, 18),
+                    new Ei("kringel_gruen.png",     new Text("Ostergedicht",     "ostergedicht"),             295.5, 247, 21, 16),
+                    new Ei("kringel_gelb.png",      new Text("Rezept für Muffins",     "muffins"),                  323, 560.5, 12, 13)
+                ]);
+				new Bild("Osterteich", "../../img/ostern/suchbild6.jpg", [ 
+                    new Ei("kringel_gelb.png",      new Text("Ostern bei Familie Adler",     "adler"),                    281, 461.5, 30, 31),
+                    new Ei("kringel_schwarz.png",   new Text("Ostern bei Familie Dachs",     "dachs"),                    262, 96, 26, 14),
+                    new Ei("kringel_blau.png",      new Text("Ostern bei Familie Löwe",     "loewe"),                    37, 574, 30, 40),
+                    new Ei("kringel_gruen.png",     new Text("Ostern in Hogwarts",     "hogwarts"),                 67.5, 417.5, 13, 17),
+                    new Ei("kringel_rot.png",       new Text("Weiße Ostern – Ein Osterfest im Schnee",     "weiss"),                   53.5, 283, 29, 24)
+                ]);
+                new Bild("Ende", "../../img/ostern/ende.jpg", [
+                new Ei("trans.png", new Text("Frohe Ostern", "ende"), 192, 203.5, 326, 213),
+                ]);
+				projekt.start();
+			});
+		// -->
+		</script>
+	</head>
+	<body>
+        <div id="head"><div id="logo"><img src="../../img/ostern/logo.gif" alt="" style="border: none;" /></div><h1 id="titel"></h1></div>
+		
+		<div id="stage"><div id="bild"></div></div>
+		<div id="navi">
+			<img id="zurueck" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen" />
+			<img id="vor" src="../../img/ostern/pfeil-vor.png" alt="N&auml;chstes Bild anzeigen" />
+            <div id="links"><a href="impressum.html">Impressum</a></div>
+		</div>
+		<div id="text"></div>
+		<div id="geschichten">
+		
+			<div id="aprilscherz">
+			<p>Der Osterhase war dieses Jahr besonders im Stress, denn Ostern war dieses Jahr zwar erst Mitte April, aber es hatte auch sehr lange Schnee gelegen, sodass sie nicht viel tun konnten. Als alles fertig war, mussten die Eier nur noch verteilt werden und sie lagen gut in der Zeit, denn es war nur noch zwei Tage bis Ostern. <br />
+Als der Tag gekommen war freute sich der Osterhase und fing an die Eier zu verteilen. Am n&auml;chsten Morgen schauten die Menschen aber sehr verdutzt drein. &Uuml;berall lagen Ostereier. Doch es war doch noch gar nicht Ostern. Alle waren sehr verwirrt schauten aufs Datum und lachten. Da hatte sich der Osterhase wohl einen Aprilscherz erlaubt. Sie lie&szlig;en die Eier liegen und dachten sich, dass sie morgen wohl wieder weg waren. Andere Menschen dachten sie schauten nicht richtig und glaubten an eine Fata-Morgana. Der Osterhase hatte gar nicht bemerkt, dass er zu fr&uuml;h dran war.<br /> 
+Heute wollte er sehen, ob die Menschen sich gefreut hatten, doch als er ankam, sah er nur in verwirrte und lachende Gesichter. Der Osterhase war verwundert und hoppelte die ganze Stadt ab. Aber &uuml;berall lagen die Ostereier noch herum und die Menschen schauten nur ganz verdutzt. Er h&ouml;rte das Getuschel. „Ist der Osterhase krank? Was hat der sich dabei gedacht?“ waren die S&auml;tze, die er h&ouml;rte. Keine Freude, sondern nur Erstaunen und Vorw&uuml;rfe waren zu h&ouml;ren. Traurig hoppelte der Osterhase nach Hause und setzte sich mit seiner Pfeife vor den Kamin. Er rauchte sie in Ruhe und &uuml;berlegte, was denn dieses Jahr blo&szlig; schief gelaufen war. <br />
+Zuf&auml;llig fiel sein Blick auf den Kalender. Es traf ihn wie ein Schlag. Er war zu fr&uuml;h dran gewesen. Es waren noch ganze zwei Wochen bis Ostern. Was sollte er tun? Einsammeln konnte er die Ostereier ja schlecht oder doch? Auf jeden Fall h&auml;tte er nicht mehr genug Zeit neue Nester und Ostereier herzustellen. Er &uuml;berlegte fieberhaft, aber es wollte ihm nichts einfallen.<br />
+Nachts sammelte er erst mal alles ein. Eine bessere Idee hatte er nicht. Irgendwie wollte er seinen Fehler aber wieder gut machen. <br />
+{{img src="../../img/ostern/text/aprilscherz.jpg" alt="" style="float:left;" }}
+Die Tage gingen ins Land. Die Menschen hatten sich beruhigt und taten es als Aprilscherz ab, denn der Osterhase hatte sich ausgerechnet den 1. April ausgesucht. Eines Tages fiel ihm ein, was er machen konnte. Die Idee schlug ein wie ein Blitz und er machte sich daran sie umzusetzen. Der Osterhase arbeitete fieberhaft an seiner Oster&uuml;berraschung f&uuml;r die Menschen, denen er die Eier zu fr&uuml;h gebracht hatte und damit so verwirrt hatte. Schlie&szlig;lich hatte er nicht mehr viel Zeit und es sollte alles fertig sein und sch&ouml;n aussehen. Am richtigen Ostertag brachte er die Nester noch einmal und schaute was passierte.<br />
+Bei einer Familie blieb er, nach getaner Arbeit sitzen und wartete ab. Die Kinder kamen heraus und suchten ihre Nester. &Uuml;berall war zus&auml;tzlich eine Karte drin, in der er sich f&uuml;r diesen Fehler entschuldigte und versprach, dass so etwas nie wieder passieren w&uuml;rde. Au&szlig;erdem war &uuml;berall ein kleines K&auml;stchen drin.<br />
+Die Kinder schauten ganz verdutzt und &ouml;ffneten das K&auml;stchen. <br />
+Das eine M&auml;dchen lief freudig zu seiner Mutter und zeigte ihr das K&auml;stchen. Die Mutter schaute hinein und sah eine kleine Eierbrosche mit dem Schriftzug „April, April“. <br />
+Bei den Jungs war ein Osterhasenanh&auml;nger drin, mit dem gleichen Schriftzug. Die Mutter rief: "Danke Osterhase, das ist eine sch&ouml;ne &Uuml;berraschung." <br />
+Der Osterhase freute sich und die Entschuldigung wurde scheinbar &uuml;berall gut angenommen. Er hoppelte zufrieden nach Hause, z&uuml;ndete seine Pfeife an und setzte sich vor den Kamin.<br />
+N&auml;chstes Jahr w&uuml;rde er besser aufpassen. Das durfte nicht noch mal passieren, schwor er sich und lehnte sich zufrieden zur&uuml;ck.</p>
+</div>
+			
+			<div id="gedicht">
+            {{img src="../../img/ostern/text/gedicht.jpg" alt="" style="float:right;" }}
+            <div style="float: left;">
+				<p>Ist das nicht der Osterhase,<br />
+				der dort hinten sitzt im Grase?<br />
+				Mit seinen Pfoten winzig klein,<br />
+				versteckt er Eier. Ei wie fein!</p>
+				
+				<p>Viele Eier nun gut versteckt,<br />
+				warten, dass man sie entdeckt.<br />
+				Sch&ouml;n bemalt nun liegen sie,<br />
+				ganz bunt getupft, so wie noch nie.</p>
+				
+				<p>Und die Kinder schauen und suchen,<br />
+				hinter Gr&auml;ser, Str&auml;ucher, Buchen.<br />
+				Liegt nicht gleich dort hinten eins?<br />
+				Lauf schnell hin, schon ist es deins!</p>
+				
+				<p>Aus dem weichen Gras und Moos,<br />
+				hebt man die Eier - klein und gro&szlig;.<br />
+				Und die Kinder lachen, springen,<br />
+				wollen gleich vor Freude singen.</p>
+				
+				<p>Gleich hinten &uuml;ber dem Gartenzaun,<br />
+				sieht man noch zwei Ohren schau'n.<br />
+				Flink l&auml;uft er von Haus zu Haus,<br />
+				und teilt weiter Eier aus.</p>
+				
+				<p>N&auml;chstes Jahr zum Osterfest,<br />
+				gibt es auch ein Eiernest.<br />
+				Das der Hase dann gebracht,<br />
+				mal bei Tag und mal bei Nacht.</p>
+                </div>
+			</div>
+			
+			<div id="rettung">
+				<p>
+Der Mond stand hoch &uuml;ber der Osterstadt. Die Sterne leuchteten hell. Es war ganz ruhig in der Stadt und alles schlief. Die H&uuml;hner im Haupthaus schliefen tief und fest. In der Malstation war auch schon lange keiner mehr. In der Schokoladenfabrik wurde jetzt auch nichts hergestellt, denn sie hatten ja noch viel Zeit, um alles fertig zu bekommen. Da konnte man ruhig schon eher Feierabend machen. Der Stress kam noch fr&uuml;h genug. Auch in den H&auml;usern der Helferhasen war alles dunkel. Nur aus einem Haus kam noch ein wenig Licht. Es war das Haus des Oberosterhasen. Der Raum wurde nur von einer Kerze erhellt. Der Oberosterhase sa&szlig; &uuml;ber seinen Unterlagen am Schreibtisch und studierte sie ausgiebig. Kurze Zeit sp&auml;ter lehnte er sich gen&uuml;sslich zur&uuml;ck und stopfte zufrieden seine Pfeife. Dieses Jahr lief die Produktion gut. Wenn es so weiterginge waren sie noch vor Ostern fertig. Auch die Meldungen aus den anderen Osterst&auml;dten der verschiedenen L&auml;nder waren sehr positiv. Der Oberosterhase rauchte seine Pfeife zu Ende und ging ins Bett. <br />
+{{img src="../../img/ostern/text/rettung.jpg" alt="" style="float:right;" }}
+Die Tage gingen ins Land und jeden Abend sa&szlig; der Oberosterhase lange &uuml;ber seinen Unterlagen. Als er eines Morgens erwachte stand die Sonne schon hoch am Himmel. Er hatte sehr lange geschlafen und wunderte sich, dass er keine Ger&auml;usche h&ouml;rte. Keine Hasenkinder spielten im Schnee, kein Geklapper der T&uuml;ren, kein Gerede auf dem Flur. Der Oberosterhase sprang auf und rannte hinaus ins Haupthaus. Den H&uuml;hnern ging es scheinbar gut, denn sie produzierten Eier am laufenden Band. Er ging zur Malstation, doch da war keiner und auch in der Schokoladenfabrik war alles still. Die K&uuml;he muhten laut in ihrem Stall, denn sie wollten die Milch loswerden. Er rannte r&uuml;ber zu den Hasenh&auml;usern, klopfte an und ging hinein, als keiner antwortete. Die gesamte Familie lag noch in ihren Betten und r&ouml;chelte und schnaufte. Die Grippe hatte sie erfasst. Er w&uuml;nschte schnell gute Besserung und wollte zum n&auml;chsten Haus laufen, als der Arzthase ihm entgegen kam. Er gr&uuml;&szlig;te freundlich und fragte was denn los sei. Der Arzt best&auml;tigte seine Vermutung, dass die Grippewelle die Osterstadt erfasst hatte und alle bis auf ein paar Hasen mit Fieber, Husten und Schnupfen krank waren. Der Oberosterhase war geschockt. Es waren nur noch zwei Wochen bis Ostern und sie waren in der Endphase der Produktionen. Es half nichts, er brauchte Hilfe. Allein konnte er es nicht schaffen. Der Arzthase ging zum n&auml;chsten Patienten, auch er wusste nicht wie er es schaffen sollte. So viele waren noch nie auf einmal krank gewesen. Als erstes schickte er Eulen in alle Herrenl&auml;nder aus und bat um Hilfe. Doch auch hier hatte die Grippewelle zugeschlagen und sie konnten nur sehr langsam produzieren. Selbst Afrika war davon erfasst und da war es doch warm. Er gr&uuml;belte lange und &uuml;berlegte was er tun sollte. Wer k&ouml;nnte ihm wohl helfen? Wer hatte jetzt wohl Zeit? 
+</p>
+<p>
+Der Weihnachtsmann - Santa Claus, Nikolaus, er hatte viele Namen - sa&szlig; wie jedes Jahr am warmen Strand in der Karibik. Er hatte sich seinen Urlaub verdient. Doch dieses Jahr war ihm einfach nur langweilig. Alles war so eint&ouml;nig und &ouml;de. Dabei hatte sein Urlaub doch erst vor vier Wochen begonnen. Pl&ouml;tzlich landete eine Eule auf seinem Fu&szlig;. Er erschrak, denn er hatte gerade sein Mittagsschl&auml;fchen eingelegt und war gerade eingeschlafen. Er wollte die Eule verscheuchen, doch sie kam immer wieder zur&uuml;ck. Als es der Eule zu dumm wurde, pickte sie Santa in die Hand und gab nicht eher Ruhe, bis er ihr das Pergament abnahm. Es war ein Hilferuf aus der Osterstadt. Santa packte sofort seine Sachen und reiste ab. Er musste ihm helfen, doch zuvor musste er noch den Elfen Bescheid sagen. Sie hatte sich zwar ihren Urlaub verdient, doch Ostern durfte einfach nicht ausfallen. So reiste er geschwind zum Nordpol und schilderte den Elfen das Problem. Viele waren sofort bereit zu helfen und packten ebenfalls ihre Sachen. Die Elfen mit Familien blieben zu Hause, darauf hatte Santa bestanden, denn die Familien hatten schon genug auf sie verzichtet und brauchten diese Zeit. Santa schickte eine Eule los, dass sie in zwei Tagen ankommen werden und sie noch solange durchhalten sollten. 
+</p>
+<p>
+Der Oberosterhase sah die Eule schon von weitem und hoffte, dass sie eine positive Antwort bringen w&uuml;rde. Er war sehr im Stress und konnte nicht alles selbst machen. Er hatte die K&uuml;he gemolken, gef&uuml;ttert und den Stall sauber gemacht. Er brachte gerade die Milch r&uuml;ber in die Schokoladenfabrik, als er die Eule sah. Sie flog schnell, obwohl sie einen so weiten Weg hinter sich gebracht hatte. Sie landete, schwer au&szlig;er Atem, auf der Milchkarre und sah den Oberosterhasen erwartungsvoll an. Er nahm schnell das Pergament ab und las den Brief. Er gab der Eule etwas zu fressen und schickte sie in den Eulenturm zum Erholen. Sie hatte gute Arbeit geleistet. Zwei Tage musste er noch durchhalten. Das war eine lange Zeit f&uuml;r ihn. Doch er w&uuml;rde es schaffen. Eier bemalen konnte er nicht, aber er w&uuml;rde sich um die Schokoladenproduktion k&uuml;mmern. Das hatte er gemacht, bevor er Oberosterhase wurde. <br />
+Die zwei Tage vergingen wie im Flug und Santa kam mit den Elfen sehr fr&uuml;h morgens an. Sie gingen sofort zum Haupthaus und trafen dort den Oberosterhasen. Er war erleichtert, als er sie sah und er versuchte zu l&auml;cheln. Santa und der Oberosterhase besprachen alles und er zeigte dann den Elfen was sie tun k&ouml;nnten. Zum Gl&uuml;ck lernten sie sehr schnell, so dass sie gut voran kamen. Nur die sch&ouml;nen Malbilder vom Fr&uuml;hling oder die Ostermotive lagen auf Eis. Das mussten die Malhasen selbst machen, denn die Elfen hatten einfach kein H&auml;ndchen daf&uuml;r. Santa war es immer noch langweilig und wollte auch helfen. Also ging er zur Malstation und fing an Eier zu bemalen. Er malte sch&ouml;ne bunte Zickzackmuster, Tupfen oder f&auml;rbte die Eier nur einfarbig ein. Zwei Tage ging alles gut doch dann langweilte auch diese Arbeit ihn. Also fing er an Motive auf die Eier zu malen. Einen sch&ouml;n geschm&uuml;ckten Weihnachtsbaum, Wintermotive und nat&uuml;rlich auch Rentiere, die Schlitten zogen und &uuml;ber die H&auml;user flogen. Als der Oberosterhase das sah war er entsetzt. Zu jedem anderen Zeitpunkt h&auml;tte er dar&uuml;ber gelacht, doch in dieser Situation war ihm nicht zum Lachen zu Mute. Er schickte Santa zur Schokoladenproduktion, damit er ihn im Blick hatte und nichts anstellen konnte. Santa sollte die Osterhasenherstellung beaufsichtigen. Die Maschine lief wie am Schn&uuml;rchen und er hatte bis auf ab und zu Schokolade nachf&uuml;llen nichts zu tun. Es ging auch hier nur zwei Tage gut, dann siegte die Langeweile und er tauschte die Schablonen f&uuml;r die Osterhasen gegen die f&uuml;r die Weihnachtsm&auml;nner aus. Er lachte und machte jedem fertigen Weihnachtsmann eine Glocke um den Hals. Santa hatte richtig Spa&szlig;. Doch der Oberosterhase fand es gar nicht lustig und schickte Santa w&uuml;tend aus der Fabrik. Er sollte nun die Osternester best&uuml;cken und verpacken. Da kann man nichts falsch machen, dachte der Oberosterhase und grinste leicht. Doch er hatte nicht mit der Kreativit&auml;t von Santa gerechnet. Da eint&ouml;nige Arbeit Santa schnell langweilte, &uuml;berlegte er sich auch hier was er tun k&ouml;nnte, um Spa&szlig; an der Arbeit zu haben. So bastelte er aus dem Gras f&uuml;r die Osternester kleine Schlitten und best&uuml;ckte diese mit den Ostereiern und Osterhasen. Er fand es lustig und ging mit Elan an die Arbeit. Der Oberosterhase kam aus dem Staunen nicht raus. St&auml;ndig musste er auf Santa aufpassen, damit er keinen Unsinn machte. Warum konnte er nicht so gut arbeiten wie seine Elfen? Der Oberosterhase war w&uuml;tend und schickte Santa raus. Er solle sp&auml;ter bei der Verteilung helfen, da kann man nichts falsch machen, denn das war ja schlie&szlig;lich auch sein Job. Nur dass er diesmal Eier und Nester verteilte. Santa war traurig und diese letzte Aufgabe wollte er auf jeden Fall richtig und gewissenhaft erledigen. Er k&uuml;mmerte sich die letzten Tage um die noch kranken Hasen und half dem Arzt wo er konnte. In der Hasenpflege war er richtig gut, denn er konnte den Hasenkindern viele Geschichten von der Weihnachtszeit erz&auml;hlen und diese h&ouml;rten begierig zu. Jeden Tag wurde hier und da ein paar Hasen wieder gesund. Aber es waren nicht genug um die Ostersachen zu verteilen. Aus den anderen L&auml;ndern kamen auch positive Nachrichten, denn auch hier wurden sie so nach und nach gesund und konnten ihre Produktivit&auml;t steigern. <br />
+Sie w&uuml;rden es sogar ohne Hilfe schaffen, ihre Ostersachen zu verteilen. Die Nacht vor Ostersonntag brach an und der Oberosterhase erkl&auml;rte Santa was wo hinsollte und wo man die Eier am besten verstecken konnte. Santa nahm sich vor alles richtig zu machen und flog mit seinem Schlitten los. Die Glocken hatte er abgemacht, um sich nicht zu verraten. Er fing an die Osternester zu verstecken und hielt sich genau an die Vorgaben. Doch irgendwann fand er es langweilig, st&auml;ndig neue Verstecke zu suchen und die Eier und die Schokolade zu verstecken. Also stieg er beim n&auml;chsten Haus in den Kamin und legte die Nester vor den Kamin. Einen Weihnachtsbaum gab es nicht, aber es w&uuml;rde auch so gehen. Er hatte wieder Spa&szlig; an der Arbeit und diesmal konnte der Oberosterhase ihn nicht aufhalten. Als er beim drittletzten Haus ankam wurde es schon langsam hell. Es hatte ihn viel Zeit gekostet immer in den Kamin zu steigen. Die Osterhasen hatten eine andere Zeituhr als er, da sie ja nur ein Land und nicht die ganze Welt zu beschenken hatten. Daher beeilte sich Santa mit der Verteilung. Doch in diesem Haus sollte alles anders kommen. Santa stand gerade vor dem Kamin, als eine Stimme hinter ihm rief:" Maaaa mmmmaaaaa, da steht der Nikolaus in unserem Wohnzimmer. Es ist doch Ostern!" Santa wollte den Jungen beruhigen, doch er schaffte es nicht. Als er sich umdrehte und schnell zum Kamin wollte, stand schon die Mutter in der T&uuml;r. Sie konnte es nicht glauben und fiel in Ohnmacht. Der Junge schrie immer lauter und lauter. Bald w&uuml;rde er die ganze Nachbarschaft geweckt haben. Santa musste etwas tun und &uuml;berlegte fieberhaft. Beruhigen lie&szlig; der Junge sich nicht, in den Arm nehmen auch nicht, also musste er hier weg. Santa packte ein Schokoei, packte es aus und steckte es dem Jungen in den Mund. Dann verlie&szlig; er fluchtartig die St&auml;tte des &Uuml;bels. H&auml;tte er auf den Osterhasen geh&ouml;rt, w&auml;re er nicht enttarnt worden. So musste er alles beichten und der Oberosterhase w&uuml;rde nicht begeistert sein. Santa verteilte die letzten Osternester wieder ordentlich und flog mit schlechtem Gewissen zum Oberosterhasen. W&auml;re Weihnachten gewesen h&auml;tte er was tun k&ouml;nnen, doch es war Ostern und er hatte jetzt keine Zauberkraft. Wie er vermutet hatte war der Oberosterhase nicht sehr gl&uuml;cklich. Er sch&uuml;ttelte den Kopf und murmelte: "Typisch Santa, immer macht er Unsinn." Er lie&szlig; sich genau erkl&auml;ren, welche Familie das war und hoppelte dahin. Er lugte durchs Fenster und sah wie der Vater des Jungen sich um die, immer noch ohnm&auml;chtige Mutter k&uuml;mmerte. Er sah wie fassungslos der Junge war, seine Welt war ins Wanken geraten. Nikolaus auf Ostern!!! Nee das ging einfach nicht. Der Oberosterhase streute durch das halbge&ouml;ffnete Fenster ein Pulver und sprach einen Zauberspruch dazu. Das Pulver verf&auml;rbte sich und flog, unsichtbar f&uuml;r die Menschen, durch die Luft. Nachdem alle es eingeatmet hatten, verga&szlig;en sie was passiert war und schauten sich nur verwundert an. Die Mutter erwachte aus der Ohnmacht und sie machten sich verst&ouml;rt ans Fr&uuml;hst&uuml;ck. Sie wussten nicht was passiert war und beschlossen, den Tag einfach normal zu verbringen. Eben wie jedes Jahr. Zufrieden hoppelte der Oberosterhase zur&uuml;ck in die Osterstadt und schwor sich, nie wieder Santa helfen zu lassen. Aber seine Elfen hatten gute Arbeit geleistet und nur ihnen war es zu verdanken, dass zu Ostern alles fertig war. Die anderen Hasen waren alle wieder gesund und sie feierten alle zusammen Ostern, bevor sich ihre Wege wieder trennen w&uuml;rden.
+</p>
+</div>
+			
+			<div id="riesenproblem">
+				<p>
+					Vereinzelte Sonnenstrahlen fanden gerade den Weg in die
+					riesengro&szlig;e Bergh&ouml;hle, als auch schon eine laute Stimme durch
+					das Tal schallte.<br />
+					"Du, Papa? Kommt der Osterhase dieses Jahr wieder zu uns und bringt uns
+					eines dieser bunten Ostereier?" "Ich wei&szlig; es nicht mein Sohn. Der
+					Weg hier herauf ist ziemlich unzug&auml;nglich und beschwerlich.
+					Au&szlig;erdem erinnere dich doch nur einmal an letztes Jahr!"<br />
+					"Ja, aber ich konnte doch wirklich nichts daf&uuml;r. Ich wollte mir
+					doch nur die sch&ouml;ne Bemalung aus der N&auml;he ansehen und habe das
+					Ei wirklich &auml;u&szlig;erst vorsichtig hochgehoben. Aber diese
+					kleinen zerbrechlichen Eier sind nun einmal nicht f&uuml;r die
+					H&auml;nde eines Riesen geeignet."<br />
+					Traurig schaute das Riesenjunge hoch zu seinem Vater. Liebevoll nahm der
+					ihn nun in den Arm und sagte tr&ouml;stend: "Warten wir doch einfach mal
+					ab. Die Sonne muss schlie&szlig;lich noch viermal &uuml;ber den Berg
+					dort hinten wandern bis Ostern ist."
+				</p>
+				<p>{{img src="../../img/ostern/text/riesenproblem.jpg" alt="" style="float:left;" }}
+					W&auml;hrenddessen sa&szlig;en in einem fernen Land sieben Hasen
+					an einem Tisch und diskutieren eifrig. Jedes Jahr zur Osterzeit tagt der
+					Osterhasenrat, der aus den Hasen der verschiedenen Kontinente besteht.
+					Schlie&szlig;lich kann ein Osterhase die ganze Arbeit nicht alleine
+					bew&auml;ltigen. So kam es nun, dass einmal im Jahr der Hasenrat
+					zusammenkam und die Probleme auf jedem der Kontinente besprach.<br />
+					"Und ich sage euch", rief gerade ein &auml;lterer Hase, dessen linkes
+					Ohr nicht mehr so recht in die Luft ragen wollte, "ich werde dieses Jahr
+					keine Ostereier zu den Riesenfamilien bringen. Die wissen solche
+					Geschenke doch gar nicht mehr zu sch&auml;tzen. Ja zu meiner Zeit, da
+					wurden die Ostereier vorsichtig in die Hand genommen. Aber die Kinder
+					heutzutage..." "Aber das kannst du doch nicht machen!", emp&ouml;rte
+					sich ein j&uuml;ngerer Hase. "Es ist doch Ostern, da bekommt jedes Kind
+					ein buntes Osterei."<br />
+					"Nein, nein und nochmals nein", rief wieder der &Auml;ltere und
+					verschr&auml;nkte seine Pfoten. "Nicht ein einziges Osterei ist heil
+					geblieben. Alle wurden entweder mit den F&uuml;&szlig;en oder mit den
+					H&auml;nden zerdr&uuml;ckt. Es ist Zeitverschwendung f&uuml;r die
+					Riesenkinder Eier zu bemalen und sie ihnen hoch in die Berge zu bringen.
+					Au&szlig;erdem ist der Weg doch recht beschwerlich f&uuml;r so einen
+					alten Hasen wie mich." Der kleinste Hase in der Runde wippte
+					w&auml;hrenddessen aufgeregt mit seinem Stuhl umher. "Aber gefreut haben
+					sie sich bestimmt &uuml;ber die Ostereier", warf er ein und erntete
+					daf&uuml;r zustimmendes Gemurmel.<br />
+					Ganz still wurde es im Hasenbau und man h&ouml;rte nur noch das wippende
+					Ger&auml;usch eines Stuhles. Jeder der sieben Hasen sa&szlig; nun
+					nachdenklich auf seinem Platz und &uuml;berlegte wie man den
+					Riesenfamilien ein sch&ouml;nes Osterfest mit bunt bemalten Eiern
+					bescheren konnte. Denn das war ja schlie&szlig;lich die Aufgabe eines
+					Osterhasen.<br />
+					Pl&ouml;tzlich sprang ein schm&auml;chtiger und nahezu schwarzer Hase
+					auf, der bisher still auf seinem Stuhl gesessen hatte. "Ich habe eine
+					Idee", rief er und seine Augen gl&auml;nzten vor Freude. "In meiner
+					Heimat gibt es nicht so viele H&uuml;hner und wir verwenden die Eier
+					eines gro&szlig;en Vogels, den wir Strau&szlig; nennen. Die Eier sind
+					viel gr&ouml;&szlig;er als ein normales H&uuml;hnerei und nahezu
+					unzerbrechlich. Wir k&ouml;nnten doch diese Eier f&uuml;r die Riesen
+					verwenden."<br />
+					Die anderen Hasen sahen ihn zun&auml;chst erstaunt an, dann aber
+					sprangen sie begeistert von ihren St&uuml;hlen auf und klatschen laut in
+					ihre Pfoten. "Das ist eine gl&auml;nzende Idee", rief einer der
+					Osterhasen &uuml;ber den Tumult hinweg.<br />
+					"Aber der Weg ist doch so beschwerlich und erst recht mit solch
+					gro&szlig;en Eiern", warf da der &auml;ltere Hase wieder ein. Er hatte
+					n&auml;mlich &uuml;berhaupt keine Lust den langen Weg in die Berge auf
+					sich zu nehmen. Doch auch hier wussten die Hasen Rat. "Wir helfen dir,
+					das ist doch Ehrensache", riefen sie im Chor und grinsten sich dabei
+					wissend an.
+				</p>
+				<p>
+					Als nun der Tag des Osterfestes gekommen war, sah man nun sieben
+					Hasen mit riesengro&szlig;en bunt bemalten Eiern den Weg zu den Riesen
+					hinauf hoppeln. "Nun aber leise", ermahnte einer und sie schlichen
+					langsam in die Bergh&ouml;hle der Riesenfamilie. Ganz vorsichtig legten
+					sie eines der Eier in ein Nest aus weichem Moos und versteckten sich
+					hinter einem der Felsbrocken. Als das Riesenjunge nun aufwachte,
+					erblickte es sofort das gro&szlig;e, bunt bemalte Ei und rief: "Papa,
+					Papa. Wach auf! Hier liegt ein riesengro&szlig;es Osterei." Begeistert
+					sprang er in die H&ouml;he, sodass der Erdboden leicht bebte. Doch das
+					Ei lag immer noch unversehrt auf seinem Platz.<br />
+					"Na, da hat das Osterei doch schon seinen ersten H&auml;rtetest
+					bestanden", schmunzelte der schm&auml;chtige Hase. Auch die anderen
+					Osterhasen waren froh dar&uuml;ber, dass nun das Eierproblem bei den
+					Riesen gel&ouml;st war und der &auml;ltere Hase versprach auch in
+					Zukunft den Riesenkindern ihre Ostereier zu bringen. Eilig hoppelten nun
+					die sieben Hasen aus der H&ouml;hle und den Berg hinab, denn
+					schlie&szlig;lich warteten auch noch andere Kinder auf ihre Ostereier.
+				</p>
+			</div>
+			
+			<div id="verbotenerwald">
+				<p>
+					Tief im Verbotenen Wald, dort wo noch nie ein Zauberer oder ein
+					Muggel seinen Fu&szlig; hinein gesetzt hatte, lag eine gro&szlig;e
+					Waldlichtung. Sie lag so versteckt inmitten der B&auml;ume, dass selbst
+					die Tiere nur an einem bestimmten Tag des Jahres hierhin fanden. Dann
+					umgab die Lichtung ein geheimnisvoller Zauber, welcher auch den
+					magischen Gesch&ouml;pfen des Verbotenen Waldes nicht verborgen blieb.
+				</p>
+				<p>{{img src="../../img/ostern/text/verbotenerwald.jpg" alt="" style="float:left;" }}
+					So kam es, dass am Abend vor Ostern ein emsiges Treiben im Wald
+					herrschte. Jedes Gesch&ouml;pf, egal ob gro&szlig; oder klein, alt oder
+					jung folgte einem inneren Ruf. Immer tiefer zog er sie in den Wald
+					hinein, bis der Zug der Tiere schlie&szlig;lich die Lichtung erreicht
+					hatte. Der Mond stand nun gro&szlig; am Himmel und tauchte die Umgebung
+					in ein warmes, freundliches Licht. Nun erst konnte man klar erkennen,
+					wer sich alles hier versammelt hatte.<br />
+					Dicht an dicht standen Chim&auml;ren, Acromantulas, Zentauren,
+					Einh&ouml;rner, Thestrale, Knarle, Riesenraupen und viele andere
+					magische Gesch&ouml;pfe beieinander. Ganz friedlich standen sie
+					beisammen, auch wenn sich die J&uuml;ngeren unter ihnen noch
+					&auml;ngstlich im Dickicht versteckten.
+				</p>
+				<p>
+					Ein Zentaur trat nun in die Mitte der Lichtung und erhob seine
+					Stimme: "Der Mond ist hell und die Nacht rein. Wieder ist die Nacht
+					gekommen, in der uns ein innerer Ruf auf diese Lichtung gef&uuml;hrt
+					hat. Wie ich sehe sind viele gekommen. Lasst uns nun die Magie der Nacht
+					sp&uuml;ren."
+				</p>
+				<p>
+					Die Acromantulas traten nun aus dem dunklen Gestr&uuml;pp hervor
+					und schichteten die mitgebrachten Zweige und &Auml;ste auf. "Macht
+					Platz!", rief da eine herrische Stimme und die nahestehenden
+					Gesch&ouml;pfe sprangen eilig zur Seite. "Ich werde das Feuer
+					entz&uuml;nden", sprach die Chim&auml;re und schon stob ein gro&szlig;er
+					Feuerstrom aus ihrem Mund.<br />
+					Da sprang ein &auml;lterer Drache pl&ouml;tzlich emp&ouml;rt auf.
+					"Bisher war immer ich f&uuml;r das Feuer zust&auml;ndig. Was erlaubst du
+					dir da eigentlich?", br&uuml;llte er emp&ouml;rt und kleine Rauchkringel
+					stoben aus seinen Nasenl&ouml;chern in den Himmel empor.<br />
+					"Ich wollte doch auch nur mal so gerne das Feuer entz&uuml;nden. Du bist
+					schlie&szlig;lich nicht das einzige feuerspeiende Gesch&ouml;pf hier
+					unter uns.", entgegnete die Chim&auml;re. "Schweig!", schrie der Drache
+					erbost. "Sieh nur, was du angerichtet hast." Und er zeigte mit seinem
+					langen Schwanz auf das umstehende Gestr&uuml;pp, welches in Brand
+					geraten war.
+				</p>
+				<p>
+					"Das man aber auch immer so &uuml;bertreiben muss", riefen einige
+					Wassermenschen, die gerade ihre K&ouml;pfe aus einem kleinen T&uuml;mpel
+					streckten. Ihre gr&uuml;ne Haut glitzerte im Mondlicht und wirkte nahezu
+					pechschwarz, als sie sich langsam erhoben und eilig das Feuer
+					l&ouml;schten.
+				</p>
+				<p>"
+					Wir haben auch leckere Speisen mitgebracht", beeilten sich die
+					Hauselfen zu sagen um blo&szlig; keinen Streit entfachen zu lassen und
+					sie eilten emsig zwischen den Gesch&ouml;pfen hin und her.
+				</p>
+				<p>
+					"Ihr habt schon ohne mich angefangen?", zischte da eine
+					Aschwinderin, deren glutrote Augen unheilvoll in der Nacht gl&uuml;hten.
+					Schl&auml;ngelnd bewegte sie sich in die Mitte der Lichtung. "Ihr wisst
+					doch das ich h&ouml;chstens die Lebensdauer einer Stunde habe, da werde
+					ich mir doch wohl ein solches Ereignis nicht entgehen lassen", rief sie
+					emp&ouml;rt.<br />
+					"Aber nein", warf da Tenebrus, einer der Thestrale ein und schritt auf
+					die Aschwinderin zu. "Wir haben nur das Feuer entz&uuml;ndet und Fawkes
+					ist doch auch noch nicht da." Kaum hatte der Thestral zu Ende gesprochen
+					erklang auch schon ein melodischer Gesang und der flammenrote
+					Ph&ouml;nix stie&szlig; vom Himmel herab.
+				</p>
+				<p>
+					"Jetzt bricht bald der neue Tag heran", wisperte eine
+					Einhornmutter zu ihrem Kind, welches bisher stumm dem Treiben zugesehen
+					hatte. "Nur in dieser Nacht kommen alle Magischen Gesch&ouml;pfe hier
+					auf dieser Lichtung zusammen um gemeinsam den neuen Tag zu
+					begr&uuml;&szlig;en. Und nur in diesen wenigen Stunden k&ouml;nnen wir
+					alle friedlich beisammen sein", erkl&auml;rte sie ihrem Jungen.<br />
+					"Das ist der Zauber der Osternacht", warf da ein alter Zentaur ein, der
+					die Erkl&auml;rung mitgeh&ouml;rt hatte.
+				</p>
+				<p>
+					Pl&ouml;tzlich erhob sich der sch&ouml;ne Ph&ouml;nix in die
+					L&uuml;fte und ein wundervoller Gesang ert&ouml;nte auf der Lichtung.
+					Ehrfurchtsvoll schauten die Tiere dem Ph&ouml;nix zu, der nun
+					spiralf&ouml;rmig dem Himmel entgegen strebte. Doch dann brach ein solch
+					gewaltiger L&auml;rm los, dass das Einhornjunge erschrocken hinter
+					seiner Mutter Schutz suchte.<br />
+					"Frohe Ostern", riefen die Magischen Gesch&ouml;pfe sich gegenseitig zu,
+					denn nun hatte die erste Stunde des neuen Tages begonnen.
+				</p>
+			</div>
+      <div id="huehnerstall">
+<p>
+Es war endlich wieder Fr&uuml;hling.<br />
+Der Winter war vor&uuml;ber und die Sonne zeigte ihre ersten Strahlen. Im H&uuml;hnerstall der Henne Berta war jetzt die Zeit gekommen, in der sie besonders viele Eier legten. Jetzt, wo die Wiesen noch nass vom Tau waren, aber die Abende nicht mehr zu kalt, war der perfekte Zeitpunkt gekommen, um kleine K&uuml;ken zur Welt zu bringen. <br />
+Auch der Hahn war stolz auf seine gefiederten Frauen. Den ganzen Winter lang hatte er nichts zu tun, und nun endlich war er der Boss. Er war gefragt bei allen von ihnen. <br />
+Doch ging jedes Jahr um die Fr&uuml;hlingszeit auch etwas Merkw&uuml;rdiges im H&uuml;hnerstall vor. Und so sollte es auch in diesem Jahr sein.
+</p>
+<p>
+Berta hatte es sich gerade zur Nacht bequem gemacht, ihre Eier gut beh&uuml;tet und bebr&uuml;tet unter ihren Bauch liegend, wollte sie nun schlafen. Den Eiern w&uuml;rde schon nichts passieren, dachte sie sich, und schloss letztendlich ihre Augen. <br />
+Doch als sie am n&auml;chsten Morgen erwachte, fehlten zwei aus ihrer Brut. Ganz aufgeregt rannte sie umher und suchte jede Ecke ab. Wie konnte das gesehen? Waren die K&uuml;ken doch eigentlich noch nicht in der Lage, ihren Platz zu verlassen. <br />
+Aber Berta war nicht die Einzige, die ein paar ihrer hei&szlig;geliebten Eier vermisste. Alle H&uuml;hner aus dem H&uuml;hnerstall hatten das Gleiche zu berichten. Wie wild gackerten die Hennen durcheinander.  Man konnte kein Wort verstehen. Nur Bruchst&uuml;cke waren aus dem Chaos zu vernehmen. So z.B. "Wer war das…?" "Ein Fuchs…?" "Meine armen…"<br />
+Wer genau jedoch den n&auml;chtlichen Diebstahl begangen hatte, das wusste keiner. Niemand hatte den Eindringling gesehen. <br />
+Erst am sp&auml;ten Abend hatte die H&uuml;hnerschar sich beruhigt und kuschelte sich, samt der &uuml;brig gebliebenen Eier, in ihre Nester. <br />
+Doch am n&auml;chsten Morgen dasselbe Drama, wieder fehlten einige der Eier, heimlich des Nachts aus den Nestern geklaut. Doch hatte der R&auml;uber sich diesmal nicht klug genug angestellt. <br />
+{{img src="../../img/ostern/text/huehnerstall.jpg" alt="" style="float:right;" }}
+&Uuml;berall im Stall waren rote und gelbe Farbtupfen zu sehen. Dieses Farbenwirrwarr setzte sich auf den Wegen vor dem Stall fort, bis zu einer kleinen H&uuml;tte in der N&auml;he des Hofes. Die Hennen brauchten nur noch den Spuren zu folgen, und schon w&uuml;rden sie den Dieb entlarven k&ouml;nnen. <br />
+Ganz &uuml;berrascht waren sie, als sich dieser als ein kleiner Hase herausstellte, welcher vor einen gro&szlig;en Berg halb bemalter Eier sa&szlig;, in der einen Pfote einen Pinsel, in der anderen einen
+Tuschkasten. "Was machst du da mit unseren Eiern?", fragte Berta den M&uuml;mmelmann. Dieser erschrak und h&auml;tte beinahe seine Farbpalette fallen lassen. <br />
+"Aber es ist doch bald Ostern," entgegnete der Hase. "Die Kinder wollen bemalte Ostereier suchen! Und dazu brauche ich eure Eier. Woher sonst soll ich sie bekommen?" Das H&auml;schen guckte so verzweifelt, dass Berta Mitleid bekam. <br />
+"Ich verstehe dich, mein Lieber!", sagte sie. "Doch kannst du sie uns nicht einfach so stehlen. H&auml;ttest du uns nicht fragen k&ouml;nnen? Wir h&auml;tten dir sicher gern geholfen." <br />
+"Und was machen wir jetzt? Wie kann ich das wieder gut machen." Dem Osterhasen tat Leid, was er getan hatte. <br />
+Die H&uuml;hner beratschlagten sich und kamen zu folgenden Entschluss: <br />
+"Behalte diese Eier. Wir schenken sie dir. Und beim n&auml;chsten Mal sagst du uns eher Bescheid. Wir werden dann jeden Tag ein Ei nur f&uuml;r dich und die Kinder legen. So erh&auml;ltst du dann deine Ostereier." <br />
+Jetzt war der Hase wieder fr&ouml;hlich. Wild sprang er zwischen den H&uuml;hnern umher. 
+"Danke, liebe Hennen, vielen Dank!", rief er immer und immer wieder. <br />
+Jetzt w&uuml;rde er immer gen&uuml;gend Eier erhalten und hatte auch noch mehr Zeit,
+diese zu bemalen. M&uuml;sste er doch nicht mehr nachts heimlich in den H&uuml;hnerstall schleichen.
+</p>
+</div>
+
+<div id="wollkueken">
+<p>
+<b>Ihr ben&ouml;tigt f&uuml;r die K&uuml;ken folgende Materialien:</b><br />
+</p>
+{{img src="../../img/ostern/text/wollkueken/material.jpg" alt="" style="float:left; margin-right: 25px;" }}
+<ul>
+<li>gelbe Wolle</li>
+<li>Pappe</li>
+<li>kleine, spitze Schere</li>
+<li>Kleber</li>
+<li>bunter Bastelkarton</li>
+<li>buntes Moosgummi</li>
+<li>Wackelaugen</li>
+</ul>
+<p style="clear: left;">
+{{img src="../../img/ostern/text/wollkueken/schritt1.jpg" alt="" style="float:right;" }}
+<b>Schritt 1</b><br />
+Schneide Dir aus der Pappe 2 gleich gro&szlig;e Pappringe aus<br />
+Schneide Dir vom Wollkn&auml;uel 6 bis 8 etwa 2m lange F&auml;den ab<br />
+Lege die F&auml;den &uuml;bereinander und wickle sie anschlie&szlig;end gleichm&auml;&szlig;ig und fest um die &uuml;bereinander gelegten Pappscheiben, bis in der Mitte nur noch ein ganz kleines Loch ist 
+</p>
+
+<p style="clear: right;">
+
+<b>Schritt 2</b>
+</p>
+<div style="margin: auto;">{{img src="../../img/ostern/text/wollkueken/schritt3.jpg" alt="" }}
+{{img src="../../img/ostern/text/wollkueken/schritt4.jpg" alt="" }}
+{{img src="../../img/ostern/text/wollkueken/schritt5.jpg" alt="" }}
+{{img src="../../img/ostern/text/wollkueken/schritt6.jpg" alt="" }}</div>
+<p>
+Schneide mit der spitzen Schere an einer Stelle die F&auml;den auseinander, bis Du auf die Pappscheiben st&ouml;&szlig;t<br />
+
+
+Schneide nun an der Kante zwischen den Pappscheiben entlang die F&auml;den komplett auseinander<br />
+
+
+F&uuml;hre zwischen die Pappscheiben einen doppelten Wollfaden hindurch und knote ihn auf der anderen Seite zusammen<br />
+
+
+Ziehe die Pappscheiben rechts und links von der Wolle herunter und wuschel das entstandene Kn&auml;uel durcheinander<br />
+Schneide &uuml;berstehende F&auml;den ab (bis auf 2, um eine Schlaufe zum Anh&auml;ngen an den Osterstrauch zu knoten) und lass eine sch&ouml;ne Kugel entstehen
+
+</p>
+<p>
+{{img src="../../img/ostern/text/wollkueken/schritt7.jpg" alt="" style="float:left;" }}
+<b>Schritt 3</b><br />
+Schneide Dir aus der Pappe eine Schablone f&uuml;r den Schnabel (in Form einer Raute), die Fl&uuml;gel und die F&uuml;&szlig;chen Deines K&uuml;kens<br />
+&Uuml;bertrage die Form f&uuml;r den Schnabel auf ein St&uuml;ck roten Bastelkarton und scheide die Raute aus<br />
+Wenn Du die Raute in der Mitte zu einem Dreieck zusammenfaltest, entsteht der Schnabel, den Du an die Wollkugel ankleben kannst<br />
+Klebe die Wackelaugen rechts und links oberhalb des Schnabels an (als Ersatz f&uuml;r die Wackelaugen kannst Du auch aus wei&szlig;em Bastelkarton mit einem Locher 2 kleine Kreise ausstanzen und die aus schwarzem Bastelkarton angefertigten Pupillen darauf kleben) <br />
+&Uuml;bertrage die Form der F&uuml;&szlig;e auf rotes Moosgummi und schneide sie aus<br />
+Trage etwas Kleber auf die Oberseite der F&uuml;&szlig;e und klebe sie so unter das K&uuml;ken, dass sie noch ein kleines St&uuml;ck unter dem K&ouml;rper hervorschauen<br />
+&Uuml;bertrage die Form der Fl&uuml;gel jeweils 2x auf gelbes und orangefarbenes Moosgummi<br />
+Klebe das gelbe Moosgummi etwas aufgef&auml;chert auf das orangefarbene und achte darauf, dass die Fl&uuml;gel mit der Spitze immer nach vorn zeigen m&uuml;ssen (wenn Du Dir unsicher bist, halte die Fl&uuml;gel vorher an, damit Du sie in der richtigen Reihenfolge zusammen klebst)
+</p>
+</div>
+
+<div id="putzlappen">
+<p>
+<b>Was ihr alles daf&uuml;r braucht:</b>
+</p>
+{{img src="../../img/ostern/text/lappenkueken/001.jpg" alt="" style="float:left; margin-right: 25px" }}
+<ul>
+<li>Schere</li>
+<li>Cuttermesser</li>
+<li>1 gro&szlig;en gelben Putzlappen</li>
+<li>roten und schwarzen Bastelkarton</li>
+<li>kleine Federn</li>
+<li>Locher</li>
+<li>Kleber</li>
+<li>Nadel &amp; Faden</li>
+<li>Lineal</li>
+<li>Bleistift</li>
+</ul>
+<p>
+
+
+
+<b>Schritt 1:</b><br />
+{{img src="../../img/ostern/text/lappenkueken/002.jpg" alt="" style="float:left;" }}
+Zun&auml;chst schneidet ihr einen etwa 1,5 cm breiten Streifen aus dem Lappen. Daf&uuml;r k&ouml;nnt ihr entweder ein Lineal und ein Cuttermesser zu Hilfe nehmen (Achtung: immer eine Unterlage unterlegen, bevor ihr mit dem Cuttermesser schneidet!), oder ihr zeichnet euch eine Linie mit Bleistift vor und schneidet den Streifen mit der Schere ab. Der zweite Streifen muss etwas schmaler sein als der erste und auch etwa 3 - 5cm k&uuml;rzer.
+</p>
+<p style="clear:left;">
+
+
+<b>Schritt 2:</b><br />
+{{img src="../../img/ostern/text/lappenkueken/004.jpg" alt="" style="float:right;" }}
+Gebt einen kleinen Klecks Kleber auf das untere Ende des breiten gelben Streifens und rollt ihn dann gleichm&auml;&szlig;ig auf. Ein paar Klebepunkte in der Mitte erh&ouml;hen hier die Stabilit&auml;t und der Streifen rollt sich auch nicht so leicht wieder ab. Am Ende des Streifens noch einen Klecks Kleber hingeben und die kleine Rolle fixieren, bis der Kleber getrocknet ist. Ebenso verfahrt ihr mit dem schmaleren Streifen.
+</p>
+<p style="clear:left;">
+
+
+<b>Schritt 3:</b><br />
+{{img src="../../img/ostern/text/lappenkueken/005.jpg" alt="" style="float:left;" }}
+Sind beide Rollen getrocknet, klebt sie bitte aneinander und lasst den Kleber wieder gut trocknen. Hier ist es sehr praktisch die "Nahtstellen" aufeinander zu kleben.
+</p>
+<p style="clear:left;">
+
+
+<b>Schritt 4:</b><br />
+{{img src="../../img/ostern/text/lappenkueken/006.jpg" alt="" style="float:right;" }}
+Stanzt euch mit dem Locher aus dem schwarzen Bastelkarton die Augen und schneidet euch aus dem roten Karton einen kleinen Schnabel aus. Den Schnabel bekommt man ganz leicht hin, wenn man einen 1,5 cm langen und 0,5 cm breiten Streifen ausschneidet, in der Mitte faltet, an der offenen Seite die Mitte markiert und von der geschlossenen Seite her zur Markierung hin den Schnabel als spitzes Dreieck ausschneidet.
+</p>
+<p style="clear:left;">
+
+
+<b>Schritt 5:</b><br />
+{{img src="../../img/ostern/text/lappenkueken/008.jpg" alt="" style="float:left;" }}
+Setzt einen Klebepunkt schr&auml;g hinter den Kopf des K&uuml;kens an die gr&ouml;&szlig;ere Rolle und klebt dort eine oder mehrere kleine Federn an. Auch seitlich an der gr&ouml;&szlig;eren Rolle k&ouml;nnen kleine Federn als Fl&uuml;gelchen angeklebt werden. Klebt nun die Augen seitlich und den Schnabel mittig vorn an der kleineren Rolle an. Lasst alles gut trocknen.
+</p>
+<p style="clear:left;">
+
+
+<b>Schritt 6:</b><br />
+{{img src="../../img/ostern/text/lappenkueken/009.jpg" alt="" style="float:right;" }}
+F&auml;delt einen d&uuml;nnen Garnfaden auf die Nadel auf und befestigt den Faden mittig am Kopf des K&uuml;kens. Damit kann das K&uuml;ken ganz leicht am Osterstrauch angebunden werden. Alternativ kann man dem K&uuml;ken auch kleine F&uuml;&szlig;chen basteln und es dann zu Ostern dekorativ aufstellen.
+</p>
+</div>
+
+<div id="daniel">
+<p>
+Daniel war bei der Geburt schon das kleinste und schw&auml;chste Hasenkind. Er wuchs nur sehr langsam und war st&auml;ndig krank. Deswegen war es auch verst&auml;ndlich, dass ihm keiner was zutraute. Eines Tages in der Hasenschule wurden die Hasenkinder von der Lehrerin gefragt was sie werden m&ouml;chten. Jeder hatte genaue Vorstellungen. Der Eine wollte ein Feuerwehrhase werden, der Andere Polizeihase. Als Daniel an der Reihe war, schaute er nach unten und murmelte ganz leise: "Osterhase". Keiner verstand ihn und so wurde noch einmal nachgefragt. "Osterhase" kam es etwas lauter, aber sehr zaghaft. Alle lachten. Ausgerechnet der kleine und schm&auml;chtige Daniel wollte Osterhase werden. Da konnte sich selbst die Lehrerin ein Lachen nicht verkneifen. Daniel rannte traurig aus der Klasse.<br />
+Als er nach Hause kam, merkte seine Mutter, dass etwas mit Daniel nicht stimmte. Normalerweise kam er nicht so fr&uuml;h nach Hause und er rannte sofort auf sein Zimmer. Sie ging mit einigen Keksen und M&ouml;hrensaft hinterher. Sie setzte sich neben Daniel aufs Bett und fragte, was denn los sei. Daniel erz&auml;hlte unter Tr&auml;nen was passiert war. Seine Mutter wollte ihn tr&ouml;sten, doch bei dem Gedanken, dass ausgerechnet Daniel Osterhase werden wollte, musste auch sie lachen. Daniel weinte noch mehr und war den ganzen Tag nicht aus seinem Zimmer zu bewegen. Keiner traute ihm etwas zu, aber denen w&uuml;rde er es schon zeigen. Nachdem sich Daniel beruhigt hatte, &uuml;berlegte er fieberhaft, was er tun k&ouml;nnte. Sp&auml;t in der Nacht fiel es ihm ein und er konnte mit einem L&auml;cheln einschlafen. Am n&auml;chsten Morgen war schulfrei und er machte sich auf den Weg zur Osterweide. Diese Zweige brauchte er, um Osternester zu flechten. Das hatte er schon &ouml;fter gemacht und ging mit einem riesigen Bund nach Hause. W&auml;hrend er die &Auml;ste s&auml;uberte &uuml;berlegte Daniel, was er in die Nester tun k&ouml;nnte. Nat&uuml;rlich kamen bemalte Eier hinein, diese waren auch nicht schwer zu bekommen, aber was denn noch? Erst am Abend konnte er anfangen mit Flechten und es ging auch ganz gut. Er a&szlig; den ganzen Tag nichts und abends kam seine Mutter herein. Sie wollte wissen, was Daniel so machte und bestand darauf, dass er zum Abendessen kommt. Daniel versteckte alles schnell unterm Bett und ging zum Abendessen. <br />
+Nat&uuml;rlich war es Gespr&auml;chsthema Nr. 1, dass Daniel Osterhase werden wollte. Alle lachten, doch diesmal st&ouml;rte es ihn nicht. Er w&uuml;rde es allen zeigen. Daniel a&szlig; sein Abendessen stillschweigend und selbstzufrieden. Er hatte noch zwei Wochen bis Ostern und er war sich sicher, dass er alles bis dahin fertig haben w&uuml;rde. Mit den Nestern kam er am Wochenende gut voran und hatte bis auf eins alle fertig bekommen. Das letzte Nest war f&uuml;r seine Familie und damit das gr&ouml;&szlig;te Nest. Die folgenden Abende sa&szlig; er daran das Nest zu flechten, als pl&ouml;tzlich bei der letzen Reihe der Weidenast zur&uuml;ckschlug und  in seinem Gesicht landete. Er hatte einen riesigen roten Streifen quer durchs Gesicht gezogen. Als das seine Mutter am n&auml;chsten Morgen sah, fragte sie entsetzt was passiert sei, doch er antwortete nicht. Er wollte die &Uuml;berraschung nicht verderben. Daniel bekam eine Salbe auf die Wunde und schon tat sie nicht mehr so weh. In der Schule fragten auch alle, aber er sagte nichts. Das Eier bemalen ging sehr schnell und sah wundersch&ouml;n aus. Auf die H&auml;lfte der Eier malte er einfache Muster, wie Zickzack oder Punkte. Auf die andere H&auml;lfte malte er sch&ouml;ne Oster- und Fr&uuml;hlingsmotive. Er hatte zwei Eier pro Nest geplant. Er arbeitete bis sp&auml;t in die Nacht hinein und stellte sie unter sein Bett zum Trocknen. Daniel schaute am n&auml;chsten Morgen nochmal nach, aber die Eier standen immer noch so wie er sie hingestellt hatte. Nun &uuml;berlegte er den ganzen Tag, was er noch in die Nester legen k&ouml;nnte. Normalerweise kamen noch Schokoladenosterhasen hinein, doch diese konnte er nicht herstellen. Er kam zu dem Schluss, kleine Osterhasen aus Stroh zu basteln. Er &uuml;berredete einen Bauernhasen ihm etwas Stroh zu &uuml;berlassen. Doch auf die Frage wof&uuml;r er es brauchte, bekam auch der Bauernhase keine Antwort. Daniel w&uuml;rde es niemanden sagen, denn keiner sollte ihn auslachen. Seine Mutter machte sich Sorgen um Daniel, denn er wurde immer blasser. Auch in der Schule schlief er immer &ouml;fter ein. Er konnte sich einfach nicht auf den Unterricht konzentrieren. Der Gedanke, es allen zu zeigen, hatte alles andere unwichtig gemacht. Die Herstellung der Strohosterhasen ging nur schleppend voran. Er hatte einfach noch nicht den Bogen raus. Die Zeit dr&auml;ngte, denn Ostern kam immer n&auml;her. So arbeitete er immer &ouml;fter die Nacht durch, bis er es fertig bekam. Eines Nachts fiel ihm ein, dass er auch noch Ostergras brauchte. Doch dieses wuchs nur oben in den Bergen. Er &uuml;berlegte und gr&uuml;belte. Wie sollte er unbemerkt dahin kommen? Die N&auml;chte in seinem Zimmer durchzuarbeiten, war was anderes als in die Berge zu gehen und das ausgerechnet auch noch nachts. Das traute er sich nicht. Sollte seine ganze Arbeit umsonst sein? "Nein" rief ein Gedanke. Er musste es besorgen, zur Not auch mitten in der Nacht. Daniel schlief sehr unruhig in der Nacht. Er hatte Alptr&auml;ume, von Bergabst&uuml;rzen oder Lawinen. Die Angst vor den Bergen war &uuml;berm&auml;chtig und verfolgte ihn. <br />
+Am n&auml;chsten Morgen ging Daniel normal zur Schule und dort wartete eine &Uuml;berraschung auf ihn. Die Lehrerin erz&auml;hlte, dass sie einen Ausflug machen w&uuml;rden, da der Schnee in diesem Jahr schneller schmolz als sonst, konnten sie den Osterausflug vorverlegen und ihn jetzt kurz vor Ostern machen. Daniel stutzte. Wo sollte der Ausflug hingehen? Doch nicht etwa…. <br />
+Die Lehrerin erkl&auml;rte, dass es diesmal in die Berge zu einer bestimmten Alm gehen sollte. Dort in der N&auml;he wuchs das Ostergras, doch die H&auml;nge waren sehr gef&auml;hrlich, deswegen k&ouml;nnten sie da nicht hin. Was f&uuml;r ein gl&uuml;cklicher Zufall, dachte Daniel und freute sich. In zwei Tagen sollte es losgehen. Daniel musste bis dahin die Figuren fertig haben, denn er w&uuml;rde noch Zeit brauchen, um die Nester zu schm&uuml;cken, eine Karte zu malen und diese auch noch zu verteilen. Die Tage vergingen wie im Fluge und er stand an dem Morgen sehr fr&uuml;h auf, packte seine Tasche und ging zur Schule. Alle anderen Hasensch&uuml;ler waren auch schon da, sogar die, die normalerweise immer zu sp&auml;t zur Schule kamen. Die Lehrerin freute sich und es konnte losgehen. Der Tag war wundersch&ouml;n und verging wie im Fluge. Bald begann der Abstieg und Daniel hatte noch kein Ostergras. So musste er sich jetzt beeilen und schlich sich von seiner Gruppe weg zu den Ostergrash&auml;ngen. Er erntete etwas Gras und packte es in die Tasche. Pl&ouml;tzlich gab der Boden unter ihm nach und er landete in einem riesigen Loch. Daniel bekam Angst und rief ganz laut. Doch keiner h&ouml;rte ihn. <br />
+Die Lehrerin bemerkte erst beim Durchz&auml;hlen, dass Daniel fehlte und machte sich mit den Leuten von der Alm auf die Suche. Daniel hatte in diesem tiefen, dunklen Loch Angst. Au&szlig;erdem tat sein Bein weh. Er hatte es wahrscheinlich sogar gebrochen. Pl&ouml;tzlich h&ouml;rte er Rufe. Er rief zur&uuml;ck, doch sie h&ouml;rten ihn nicht. Oder doch? Er wartete ab und rief dann wieder. Immer wieder rief er. Die Angst packte ihn. Er fing an zu weinen. Einer der Almarbeiter hatte etwas ganz schwach geh&ouml;rt und kam immer n&auml;her. Doch Daniel bemerkte es nicht, denn er weinte zu sehr. Der Arbeiter schaute sich um und sah dieses riesige Loch, das sonst nicht da war. Er ging hin und schaute hinunter. Ganz unten konnte er Daniel sehen. Der Arbeiter beruhigte Daniel erst einmal und lie&szlig; dann ein Seil hinunter. Daniel packte das Seil und er wurde hinausgezogen. Zusammen gingen sie zur&uuml;ck zur Alm. W&auml;hrend sie gingen erz&auml;hlte Daniel dem Arbeiter was er vor hatte und dieser versprach zu Schweigen, denn er fand die Idee toll und traute es ihm auch zu. <br />
+{{img src="../../img/ostern/text/daniel.jpg" alt="" style="float:left;" }}
+So erz&auml;hlte Daniel nur, dass er sich verlaufen h&auml;tte und pl&ouml;tzlich bei den Feldern war. Sein Bein tat immer noch h&ouml;llisch weh. Doch die Lehrerin meinte, dass es wohl nur verstaucht sei  und er sich keine Sorgen zu machen br&auml;uchte. Doch die Mutter brachte Daniel trotzdem noch zum Arzt und auch dieser stellte nur eine Verstauchung fest. Daniel musste jetzt im Bett bleiben und war da auch nicht b&ouml;se drum, denn erstens hatte er jetzt das fehlende Ostergras und konnte die Nester fertig flechten und zweitens konnte er die restlichen Osterstrohhasen fertig machen. Es war noch viel Arbeit und am Abend vor dem Ostersonntag war er endlich fertig. Er schaute sich die Nester an und war sehr froh und gl&uuml;cklich &uuml;ber seine Arbeit. Daniel packte die fertigen Nester in seine Tasche. Nur das gr&ouml;&szlig;te Nest stellte er auf den Tisch im Wohnzimmer, denn es war f&uuml;r seine Familie. Er hatte f&uuml;r jeden zwei Eier bemalt und jeweils eine Osterhasenfigur hineingelegt. Au&szlig;erdem steckte er eine Karte hinein, die zeigte, dass er das alles selbst gemacht hatte und frohe Ostern w&uuml;nschte. Er hoppelte leise aus dem Haus und verteilte die Osternester. Er hoppelte zu jedem Schulkameraden und stellte dort ein Nest vor die T&uuml;r. Ganz zum Schluss kam er zum Haus der Lehrerin. Dort brannte noch Licht und er hoppelte ganz leise zur T&uuml;r. Als er unter einem Fenster stand, h&ouml;rte er ein leises St&ouml;hnen. Er schaute vorsichtig hinein und er sah, dass die Lehrerin die Treppe heruntergefallen war und am Fu&szlig; der Treppe lag. Er hoppelte so schnell er konnte zum Arzthasen und erkl&auml;rte aufgeregt was er gesehen hatte. Der Arzthase wollte Daniel wegschicken und glaubte ihm kein Wort. Doch Daniel blieb hartn&auml;ckig und schlie&szlig;lich kam der Arzthase mit. Als sie am Haus ankamen, gingen sie zur T&uuml;r hinein. Der Arzthase sah sofort, dass es der Lehrerin sehr schlecht ging und trug sie auf die Couch. Er schickte Daniel weg und er sollte nach Hause gehen. Doch das konnte er nicht. Erst wollte er sicher sein, dass es der Lehrerin besser ging. Er konnte dem Arzthasen mit kleinen Handreichungen helfen. Der Arzthase blieb die ganze Nacht bei der Lehrerin. Daniel stellte das Osternest auf den Tisch und hoppelte nach Hause. Die Lehrerin schlief tief und fest und musste sich erholen. Daniel war erleichtert, dass es ihr besser ging. <br />
+Am n&auml;chsten Morgen wirkte die Lehrerin richtig erholt und erz&auml;hlte, dass ihr schwindlig wurde und sie die Treppe herunterfallen sei. Sie hatte sich gewundert, dass der Arzthase da war und dieser erz&auml;hlte was Daniel getan hatte. Au&szlig;erdem zeigte er auf das Osternest, dass Daniel gemacht hatte. Die Lehrerin war sehr erstaunt und freute sich richtig dar&uuml;ber. Sie war die Erste die der Meinung war, dass Daniel doch ein richtiger Osterhase werden konnte. Die Eltern von Daniel staunten nicht schlecht, als sie dieses riesige und wundersch&ouml;ne Nest sahen. Sie konnten kaum glauben, dass das Daniel gemacht hatte. Pl&ouml;tzlich klopfte es und der Arzthase stand vor der T&uuml;r. Er erz&auml;hlte was Daniel nachts geleistet und getan hatte. Die Eltern waren sehr stolz auf ihren Sohn. Die Geschichte machte nat&uuml;rlich schnell die Runde und jeder war jetzt der Meinung, dass Daniel ein richtiger Osterhase war und keiner h&auml;nselte ihn mehr.
+</p>
+</div>
+
+<div id="danke">
+<div class="small">
+{{img src="../../img/ostern/text/danke.jpg" alt="" style="float:left;" }}
+<div style="float: right;"><p>
+Hey du kleiner Osterhas',<br />
+hast dich da versteckt im Gras<br />
+und den Korb mit Eiern voll. <br />
+Wie ich dir nur danken soll? <br />
+F&uuml;r die Nester, bunt und sch&ouml;n, <br />
+herrlich sind sie anzuseh'n. <br />
+Und die Hasen aus Schokolade, <br />
+zum vernaschen viel zu schade. <br />
+Gut versteckt in Wald und Strauch, <br />
+und auf unsrer Wiese auch. <br />
+Eier mit der Farbe gr&uuml;n, <br />
+sind bei Blumen, die jetzt bl&uuml;h'n. <br />
+Mutter, Vater, Tochter, Sohn<br />
+Suchen auf der Wiese schon, <br />
+haben alle sehr viel Spa&szlig;, <br />
+denn ein jeder findet was.
+</p>
+</div>
+</div>
+</div>
+
+<div id="zauberwelt">
+{{img src="../../img/ostern/text/zauberwelt.jpg" alt="" style="float:left;" }}
+Bringt er die Geschenke wirklich?
+<p>
+In den Gegenden von England, wo die Zauberer besonders h&auml;ufig zu finden sind, leben meistens auch Muggel. Es entstehen Freundschaften und zwangsl&auml;ufig werden auch Gespr&auml;che mit ihnen gef&uuml;hrt.<br />
+Meistens taucht in den Gespr&auml;chen zwischen M&auml;rz und April sehr oft das Wort "Osterhase" auf. Nat&uuml;rlich ist es den Muggelkindern ein Begriff, nicht jedoch den Kindern der angesiedelten Zauberfamilien. Die meisten Kinder fragen dann ihre Eltern, was es damit auf sich hat, dass der "Osterhase kommt". Die Eltern kommen in Erkl&auml;rungsnot, denn davon haben sie auch nur sehr wenig geh&ouml;rt. Die Mehrzahl aller Eltern versucht es folgenderma&szlig;en zu erkl&auml;ren: <br />
+<i>Der Osterhase ist ein erfundenes Gesch&ouml;pf aus der Fantasie der Muggel, um ihren Kindern eine Gestalt vorgaukeln zu k&ouml;nnen, die ihnen die Geschenke zu Ostern bringt. Ihr habt doch bestimmt schon die Ostereier der Kinder gesehen oder? Diese legen die Eltern selbst in die Nester. Bei uns bringen die Kniesel die Geschenke. Wenn ihr in der Nacht zu Ostern ganz leise seid und aus dem Fenster schaut, k&ouml;nnt ihr sie vielleicht sehen, wie sie umhergehen und die Geschenke vor die T&uuml;ren legen.</i><br />
+Dann warten die Kinder an dem besagten Tagen vor den Fenstern und sind mucksm&auml;uschenstill. W&auml;hrend sie warten, schlafen sie ein. Wenn es soweit ist, gehen die Eltern in ihr Geheimversteck, holen die Geschenke heraus und legen, genau wie die Muggeleltern, die Geschenke vor die T&uuml;re.
+</p>
+</div>
+
+<div id="urlaub">
+<p>
+Ostern war schon lange vorbei und der Osterhase lag immer noch m&uuml;de und geschafft in seinem Bett. Er konnte einfach nicht aufstehen. Am sp&auml;ten Nachmittag meldete sich allerdings sein Magen. Er knurrte laut und erst jetzt bemerkte er, dass er Hunger hatte. Er stand m&uuml;hsam auf und machte sich einen M&ouml;hrenkaffee. Der sollte ihn wach machen. Au&szlig;erdem bereitete er sich ein M&ouml;hrenm&uuml;sli zu und setzte sich, mit dem fertigen Kaffee, an den Tisch. Nach dem Essen setzte er sich mit einem Glas M&ouml;hrensaft auf die Veranda vor sein Haus und schaute den V&ouml;geln zu. "Urlaub! Das konnte er jetzt gebrauchen," dachte er bei sich. Pl&ouml;tzlich kam rasend schnell eine Eule auf ihn zugeflogen. Er erschreckte sich, als sie mit einem riesigen Purzelbaum auf seiner Veranda landete. Die Eule rappelte sich auf und flog verwirrt zu dem Osterhasen. Sie hatte einen Brief am Bein und hielt dem Osterhasen das Bein hin. Er nahm den Brief ab, legte ihn aber zuerst zur Seite und k&uuml;mmerte sich um die Eule. Sie schien unverletzt zu sein. Er holte etwas Wasser und einen Keks aus dem Haus und stellte es ihr hin. Die Eule nahm diese Geste freudig an und trank in Ruhe. Nachdem sie sich etwas erholt hatte, nahm sie den Brief in den Schnabel und gab ihn dem Osterhasen. Dieser hatte den Brief schon vergessen gehabt und las: 
+</p>
+<p>
+Lieber Osterhase, 
+</p>
+<p>
+jedes Jahr lade ich Dich zu mir ans Meer ein. Jedes Jahr sagst Du nein, doch diesmal lasse ich <br />kein Nein gelten, denn ich bin mir sicher, dass Du den Urlaub gut gebrauchen kannst. <br />Ich freue mich schon auf Dich und hoffe Du kommst diesmal auch wirklich. 
+</p>
+<p>
+Liebe Gr&uuml;&szlig;e Santa Claus <br />
+
+PS: Meine Elfen holen dich morgen fr&uuml;h ab. 
+</p>
+<p>
+{{img src="../../img/ostern/text/urlaub.jpg" alt="" style="float:right;" }}
+Der Osterhase musste den Brief mehrmals lesen, um zu begreifen, was er da las. Santa hatte ihn wirklich jedes Jahr nach &Auml;gypten eingeladen, doch er konnte nicht weg. Er musste doch das Ostern f&uuml;r das n&auml;chste Jahr vorbereiten und wenn er weg wollte, wie sollte er nur dahin kommen? Er besa&szlig; zwar ein bisschen Magie, aber f&uuml;r so eine weite Reise w&uuml;rde es nicht reichen. Er las den Brief immer und immer wieder. Pl&ouml;tzlich traf ihn der Schlag, da stand es ja. Die Elfen w&uuml;rden ihn abholen. Ihm viel ein Stein vom Herzen, denn die Elfen hatten das ganze Jahr &uuml;ber viel Magie. Nicht so wie er, der die meiste Magie nur an Ostern hatte. Freudig fing er an zu packen. Von M&uuml;digkeit war nichts mehr zu sp&uuml;ren. Er a&szlig; noch schnell was und ging zu Bett. Morgen fr&uuml;h w&uuml;rden sie ihn abholen und er schlief zufrieden ein. Der Osterhase hatte das Gef&uuml;hl gerade erst eingeschlafen zu sein, als es pl&ouml;tzlich an der T&uuml;r klopfte. Verschlafen &ouml;ffnete er die T&uuml;r. Da standen zwei Elfen. - Tinky und Blinky. Er kannte die Zwillinge schon. Sie waren sehr zuverl&auml;ssig, hatten aber immer nur Unsinn im Kopf. "Guten Morgen Osterhase", sagte Tinky. "Wir sollen dich abholen", sprach Blinky. "Warum bist du noch nicht fertig?" Der Osterhase zog sich schnell an, schnappte sich seine Tasche und es konnte losgehen. Die Elfen nahmen ihn in die Mitte, drehten sich auf der Stelle mit ihm und schon waren sie in &Auml;gypten. Dem Osterhasen war noch ganz schwindelig, als Santa Claus auf ihn zugest&uuml;rzt kam und ihn freudig begr&uuml;&szlig;te. Der Osterhase lie&szlig; alles &uuml;ber sich ergehen, denn er merkte, dass er Hunger hatte und der Schwindel war auch noch nicht ganz weg. Diese Art zu Reisen kannte er nicht. Santa redete und redete auf den Osterhasen ein und f&uuml;hrte ihn zum Fr&uuml;hst&uuml;cksraum. Dort erz&auml;hlte er dem Osterhasen, was sie alles vorhatten und das er ihn deswegen fr&uuml;her hatte abholen lassen. Der Osterhase st&uuml;rzte sich auf das Essen. Als sein Bauch voll war, h&auml;tte er sich am liebsten hingelegt, doch das ging nicht. Santa Claus und er gingen zu einem Kamelh&auml;ndler und liehen sich zwei Kamele aus. Sie ritten los zu den Pyramiden. Dem Osterhasen wurde ganz schlecht auf dem Kamel und er war froh als sie endlich ankamen. Er war &uuml;berw&auml;ltigt von der Gr&ouml;&szlig;e und Sch&ouml;nheit der Pyramiden. Im Inneren war es richtig kalt, im Gegensatz zu der Hitze der W&uuml;ste. Der Osterhase genoss die F&uuml;hrung und nach drei Stunden waren sie wieder drau&szlig;en. Sie ritten zur&uuml;ck und gingen auf einen typischen &auml;gyptischen Basar. Dort a&szlig;en sie mehrere Kleinigkeiten und sahen sich die seltsamsten Sachen an. Sp&auml;t am Abend gingen sie zum Meer und genossen den Sonnenuntergang. Der Osterhase hatte schon so viel gesehen, aber dieses riesige Meer noch nie. Er war fasziniert von der Weite des Meeres und hatte das Gef&uuml;hl von unendlicher Freiheit. Hier k&ouml;nnte er den ganzen Tag sitzen und das Meer genie&szlig;en. Die folgenden Tage ruhten sich Santa und er aus und unternahmen nur selten was. Der Tag der Abreise war gekommen und der Osterhase schwor n&auml;chstes Jahr wieder zu kommen. Das Meer hatte ihn beruhigt und ihm das Gef&uuml;hl der Freiheit geschenkt. Diese unendliche Weite w&uuml;rde er in seinem Herzen tragen.
+</p>
+</div>
+
+<div id="stubs">
+<p>
+Stubs war ein kleiner Hase und wollte unbedingt dem Osterhasen helfen. Er ging zu ihm hin und bewarb sich. Doch als er vor der T&uuml;r stand, &ouml;ffnete sich diese und traf ihn mitten auf die Nase. Der Osterhase schaute den armen Stubs an, der sich vor Schmerzen kr&uuml;mmte. Er half ihm hinein und versorgte seine Wunde. Nach einiger Zeit konnte Stubs sagen was er wollte und da der Osterhase ein schlechtes Gewissen hatte, stellte er ihn ein. Stubs sollte die Eier von der H&uuml;hnerfarm zum Malen bringen. Stubs ging hin und wollte dem ersten Huhn die Eier wegnehmen. So kletterte er unter ihren Bauch. Berta, das Huhn, dachte Stubs w&auml;re ein Ei und fing an ihn auszubr&uuml;ten. Stubs dr&uuml;ckte und presste, doch Berta stand einfach nicht auf. Ein anderer Hase kam hinein und h&ouml;rte Stubs rufen. Er verscheuchte Berta und so konnte Stubs die Eier nehmen und zum Malen bringen. Doch auf dem Weg dahin stolperte er &uuml;ber seine zu gro&szlig;en F&uuml;&szlig;e und fiel mit den ganzen Eiern auf die Nase. Stubs war &uuml;ber und &uuml;ber mit Ei bekleckert. Die anderen Hasen lachten ihn aus. Stubs hatte ein schlechtes Gewissen und wollte es wieder gut machen. So ging er zur&uuml;ck und holte noch mehr Eier. Diesmal kam er beim Malen an und machte sich gleich an die Arbeit, um die verlorene Zeit aufzuholen. Er nahm den Pinsel in die Hand und wippte damit auf dem Stuhl herum. Er fand das total lustig und so kam es wie es kommen musste. Er landete mit dem Stuhl auf dem Boden, traf mit dem Farbpinsel den Farbeimer und dieser landete falschherum auf seinem Kopf. Die ganze rote Farbe lief &uuml;ber Stubs und er sah aus wie ein Ampelm&auml;nnchen. Alle lachten. Stubs hoppelte nach Hause und machte sich sauber. <br />
+{{img src="../../img/ostern/text/stubs.jpg" alt="" style="float:left;" }}
+Wieso passierte sowas immer ihm? Er war ganz traurig dar&uuml;ber. Der Osterhase war gar nicht erfreut &uuml;ber diese Tollpatschigkeit und &uuml;berlegte, welche Aufgabe er Stubs geben konnte, damit er nicht noch mehr anstellte. Er schickte Stubs zu den K&uuml;hen zum Melken. Hier konnte er doch bestimmt nichts falsch machen. Jeder konnte schlie&szlig;lich K&uuml;he melken. Doch Stubs hatte keine Ahnung, wie er es anstellen sollte. Der Bauernhase zeigte es ihm bei der ersten Kuh, bei der Zweiten und bei der Dritten sollte Stubs es selbst versuchen. Stubs setzte sich auf den Schemel und stellte den Eimer unter den Euter. Er griff nach den Zitzen und begann zu melken. Doch der Kuh gefiel das nicht und wedelte heftig mit dem Schwanz. Stubs traf der Schwanz mitten im Gesicht und er landete mit dem Hintern im Mist. Der Bauernhase lachte und sagte: "Das macht doch nichts, Theresa ist eben ein bisschen empfindlich. Versuche es bei der N&auml;chsten nochmal, diese mache ich selbst." Also ging Stubs zur n&auml;chsten Kuh und begann sofort zu melken. Alles schien zu klappen. Doch als er mit dem Eimer aufstehen wollte, stolperte er &uuml;ber den Schemel und landete mit dem Gesicht mitten im Dung und der Eimer mit Milch landete auf dem Kopf vom Bauerngehilfen. "Geh" schrie der Bauernhase, "hier k&ouml;nnen wir dich nicht gebrauchen." Stubs ging mit h&auml;ngendem Kopf. <br />
+Er hoppelte &uuml;ber die Wiesen und Felder. "Wieso musste ihm immer etwas passieren?", fragte er sich. Nat&uuml;rlich war die ganze Geschichte schon bei seinen Eltern angekommen und sie standen in der T&uuml;r als er zu Hause ankam. An den Gesichtern konnte er ablesen, dass sie nicht erfreut waren und es jetzt ein Donnerwetter geben w&uuml;rde. Genauso kam es und er wurde ohne Essen auf sein Zimmer geschickt. Stubs war ganz traurig und weinte sich in den Schlaf. Er wollte immer alles besonders gut machen und st&auml;ndig ging ihm was schief. Am n&auml;chsten Morgen erschien er ganz normal zur Arbeit und nahm sich vor, dass heute alles klappen w&uuml;rde. Der Osterhase wusste nicht, was er mit Stubs machen sollte. Aber die Zeit lief ihm davon und es war noch so viel zu tun. Schlie&szlig;lich musste heute Nacht alles verteilt werden. Das Ostergras holen, da kann man nichts falsch machen, dachte sich der Osterhase und schickte Stubs zu den Feldern. Stubs war erfreut, dass er doch noch helfen konnte und nahm den gro&szlig;en Korb auf seinen R&uuml;cken. Doch Stubs bekam &Uuml;bergewicht und landete auf dem Korb. Er lag da wie ein K&auml;fer auf dem R&uuml;cken. Die anderen Hasen lachten, aber einer erbarmte sich und half ihm wieder hoch. Stubs hoppelte zu den Feldern und erntete das Gras. <br />
+Es dauerte den ganzen Tag, bis der Korb voll war. Er wollte sich gerade den Korb auf den R&uuml;cken binden, als er ein Ger&auml;usch h&ouml;rte. Er lie&szlig; alles stehen und liegen und ging dem Ger&auml;usch hinterher. Pl&ouml;tzlich sah er auf einer Lichtung im Wald einen Hasen in einer Schlingenfalle sitzen. Er wollte dem Hasen helfen, stolperte aber mal wieder &uuml;ber seine gro&szlig;en F&uuml;&szlig;e und landete kopf&uuml;ber an dem Baum, wo das Seil angebunden war. Stubs sah nur Sternchen und torkelte herum. Der andere Hase bekam Angst. Wie sollte dieser Tollpatsch ihm nur helfen? Stubs rannte gegen mehrere B&auml;ume und torkelte weiter herum. Auf einmal stie&szlig; er gegen das Seil, das riss, der Ast schleuderte los und warf den gefangenen Hasen &uuml;ber die B&auml;ume hinweg. Er landete auf einem riesigen Strohhaufen und war unverletzt. Stubs sah dem fliegenden Hasen hinterher. Er konnte es gar nicht glauben, ein fliegender Hase. Nachdem Stubs sich wieder gefangen hatte, hoppelte er zur&uuml;ck zur Wiese, nahm den Korb und ging nach Hause. Alle hatten von der Geschichte geh&ouml;rt und begr&uuml;&szlig;ten ihn freudig. Diesmal hatte seine Tollpatschigkeit was Gutes gehabt. Er hatte einen Hasen aus einer Falle gerettet. Der Osterhase lobte ihn und schickte ihn mit einem besonderen Osternest nach Hause. Den Rest schafften sie allein. Es war ja nicht mehr viel zu tun und er wollte nicht riskieren, dass noch etwas schief ging. Stubs hoppelte zufrieden mit dem Osternest, dass gef&uuml;llt war mit leckeren M&ouml;hren, Ostereiern und Schokolade, nach Hause. Stubs Eltern waren stolz auf ihn und sie feierten Ostern dieses Mal etwas fr&uuml;her.
+</p>
+</div>
+
+<div id="osterbaum">
+<p>
+Es war Anfang M&auml;rz. Weihnachten war schon eine Weile vorbei und das Osterfest r&uuml;ckte mit gro&szlig;en Schritten n&auml;her. Die V&ouml;gel zwitscherten ihre Lieder, die ersten Blumen reckten ihre K&ouml;pfe aus der Erde und die Sonnenstrahlen schienen fr&ouml;hlich auf die mit Tau bedeckten Wiesen. Der letzte Schnee hatte sich schon vor einiger Zeit verabschiedet und die Menschen schlenderten, fr&ouml;hlich jauchzend, durch die Fr&uuml;hlingslandschaft. Alle waren gl&uuml;cklich und zufrieden. Alle bis auf Einen! <br />
+{{img src="../../img/ostern/text/osterbaum.jpg" alt="" style="float:right;" }}
+Der kleine Tannenbaum standtraurig im Garten und betrachtete das Geschehen. Bis vor wenigen Wochen war er der Star des Gartens gewesen. Mit seinen Lichtern und seinen Kugeln hatte er im Winter Tag f&uuml;r Tag und Nacht f&uuml;r Nacht die Gartenfl&auml;che beleuchtet und viele Menschen begl&uuml;ckt. Alle hatten nur auf ihn geblickt und waren, mit einem faszinierten Gl&auml;nzen in den Augen, am Gartenzaun stehen geblieben, nur um ihn zu sehen.
+Doch jetzt, nachdem die Kerzen abgebrannt und die Kugeln im Keller verstaut worden waren, betrachtete ihn niemand mehr. Schlie&szlig;lich war ein kleiner, immergr&uuml;ner Tannenbaum bei weiten nicht so interessant, wie ein Schneegl&ouml;ckchen oder ein Krokus. Die kleinen Fr&uuml;hjahrsbl&uuml;her stahlen ihm einfach die Show. Und genau das war der Punkt, welcher den kleinen Baum so ungl&uuml;cklich machte. <br />
+
+Entt&auml;uscht musste er sich mit ansehen, wie die anderen B&auml;ume in den umliegenden G&auml;rten mit Ostereiern behangen wurden, und im Stillen tr&auml;umte er davon, ebensolche Plastikeier in seinen Zweigen h&auml;ngen zu haben. Dabei sch&uuml;ttelte er sich so heftig, dass die Nadeln zu zittern begannen. <br />
+Eine Woche vor Ostern dann geschah das Unverhoffte. Ein kleines M&auml;dchen war mit ihrer Mutter zum Garten gekommen. Zusammen wollten die beiden sich einen Baum aussuchen, welcher in diesen Jahr der Osterbaum werden sollte. Und es dauerte gar nicht lange, bis eine geeignete kleine Birke gefunden und behangen wurde. Doch dem M&auml;dchen gefiel die Birke nicht. Sie schaute sich im Garten um und ihr Blick viel auf den Tannenbaum. Sie sah, wie traurig dieser da stand und erahnte den Wunsch des Baumes. <br />
+"Lass uns den Tannenbaum schm&uuml;cken", rief sie ihrer Mutter zu und eilte sogleich in dessen Richtung. <br />
+"Aber es ist doch Ostern! Das Weihnachtfest ist l&auml;ngst vorbei", antwortete die verdutzt dreinblickende Mutter, musste bei der Vorstellung der Idee aber l&auml;cheln. <br />
+"Nun gut, warum nicht", entgegnete sie schlie&szlig;lich und nahm die Ostereier von der Birke ab. 
+"Einen solchen Osterbaum hat sicherlich Keiner." <br />
+Und so schm&uuml;ckten sie die kleine Tanne. Diese wusste gar nicht wie ihr geschah. Sollte ihr gr&ouml;&szlig;ter Traum nun doch in Erf&uuml;llung gehen? Sollte sie nun vom Weihnachtsbaum zum Osterbaum werden? Sie konnte ihr Gl&uuml;ck kaum glauben. Dankbar blickte sie zu dem M&auml;dchen her&uuml;ber. Was dieses Kind f&uuml;r den kleinen Baum getan hatte, das w&uuml;rde er ihr nie vergessen. Gl&uuml;cklich und zufrieden zeige er sein Nadelkleid einem jeden, der es sehen wollte.
+Und so kam es, dass der kleine Tannenbaum auch in den n&auml;chsten Wochen viele Kinder und Erwachsene begl&uuml;ckte. Und alle blieben sie vor dem Gartenzaun stehen und staunten. Denn so einen ungew&ouml;hnlichen Osterbaum hatten sie noch nie gesehen. <br />
+</p>
+</div>
+
+
+<div id="erschaffung">
+<p>
+Es war schon recht sp&auml;t, als ein vorn&uuml;ber gebeugter Zauberer mit langem, leicht angegrautem Bart seinen Zauberstab in die Hand nahm. Seine Augen blinzelten m&uuml;de und man sah ihm sein Alter und die Ersch&ouml;pfung merklich an. Er hatte schon den ganzen Tag die Gesch&ouml;pfe f&uuml;r seine neu erschaffene Welt gezaubert, aber ein besonderes Tier fehlt ihm noch. Da war er sich ganz sicher. Also schwang er nun ein letztes Mal seinen Zauberstab und murmelt den dazu passenden Zauberspruch. Erstaunt riss er die Augen auf und blinzelte ungl&auml;ubig. Vor ihm sa&szlig; ein kleines Wesen mit einem wei&szlig;en Puschelschwanz, riesigen Hinterbeinen, zwei langen Ohren und einer Stupsnase, die ihm vorwitzig entgegenstreckt wurde. 
+</p>
+<p>
+Ungl&auml;ubig musterte der weise Zauberer das Gesch&ouml;pf. So etwas war ihm bislang noch nicht passiert. Seine Augen blitzten nun belustigt und auch seine Mundwinkel verzogen sich zu einem kleinen L&auml;cheln. Aber die riesigen Ohren und noch dazu die langen Hinterbeine sahen wirklich zu lustig aus. Da hatte er wohl den Zauberspruch nicht richtig betont oder den Zauberstab falsch geschwungen. 
+</p>
+<p>
+Das Wesen blickte w&auml;hrenddessen erstaunt um sich. Vorsichtig schnupperte es in der Luft und vor lauter Aufregung bewegte sich sein Puschelschwanz auf- und abw&auml;rts. Langsam hielt das Tier nun seine beiden Vorderpfoten vor das Gesicht und musterte sie ausgiebig. Was es bislang sah, gefiel ihm sehr gut. Sein Fell war ganz weich und w&auml;rmte ihn wunderbar. Dann blickte es langsam an sich herunter und erblickte seine gro&szlig;en Hinterbeine. Erschrocken wollte das Wesen zur Seite springen, doch es landete auf der Nase, denn an diese langen F&uuml;&szlig;e musste es sich erst einmal gew&ouml;hnen. Allm&auml;hlich flossen die ersten Tr&auml;nen und als es dann noch seine langen Ohren ertastet hatte, war es mit seiner Beherrschung vorbei. Dicke Tr&auml;nen kullerten nun dem Wesen &uuml;ber beide Wangen und tropften unaufhaltsam auf den Boden. Es fand sich &uuml;berhaupt nicht sch&ouml;n und so hatte es sich sein &auml;u&szlig;eres &uuml;berhaupt nicht vorgestellt. 
+</p>
+<p>
+Der Zauberer versuchte sein neu erschaffenes Gesch&ouml;pf zu beruhigen und streichelte ihm beruhigend &uuml;ber sein weiches Fell. Doch immer neue Tr&auml;nen bahnten sich den Weg nach drau&szlig;en und der Zauberer war ratlos. "Kannst du mich verstehen?", sprach er und schaute freundlich zu dem kleinen Gesch&ouml;pf hinunter. Erstaunt h&ouml;rte das Wesen auf zu weinen und schaute den Mann mit gro&szlig;en Augen an. "Ja nat&uuml;rlich verstehe ich dich", antwortete es mit einer leisen, doch recht angenehmen Stimme. "Ich w&uuml;rde dir ja gerne helfen und dir andere Ohren und Beine zaubern, jedoch bin ich dazu viel zu m&uuml;de und zu ersch&ouml;pft. Den ganzen Tag habe ich schon Wesen erschaffen und nun muss sich meine Magie erst einmal erholen, bevor ich wieder zaubere.", sprach er nun sanft auf das kleine Wesen ein. 
+</p>
+<p>
+Traurig senkte das Gesch&ouml;pf seinen Kopf, dreht dem Zauberer den R&uuml;cken zu und hoppelte langsam davon. Der Zauberer sch&uuml;ttelte den Kopf. Er konnte das Wesen doch jetzt nicht einfach wegschicken. Nein, das brachte er einfach nicht &uuml;ber sein Herz. Da kam ihm eine gl&auml;nzende Idee. Seine Augen strahlten und blitzten vergn&uuml;gt als er nun rief: "Warte noch einen Augenblick! Mir ist da etwas Wunderbares eingefallen!" Erstaunt blieb das Gesch&ouml;pf stehen und drehte seinen Kopf der vergn&uuml;gten Stimme zu. Mit gro&szlig;en fragenden Augen blickte es den Zauberer an. 
+</p>
+<p>{{img src="../../img/ostern/text/erschaffung.png" alt="" style="float:left;" }}
+"Nun", sprach der Zauberer, "wie du noch nicht wissen kannst, bin ich immer noch auf der Suche nach einem Gesch&ouml;pf, dass den Muggel- wie auch den Zaubererkindern ein wenig Freude und Vergn&uuml;gen bereitet. Sie vergessen leider immer wieder die kleinen Freuden des Lebens, werden traurig und der Schmerz gewinnt die Oberhand. Ich habe schon lange &uuml;berlegt, wem ich diese wichtige Aufgabe &uuml;bertragen kann. Du erscheinst mir da genau der Richtige. Deine Aufgabe wird es sein, einmal im Jahr den Kindern ein paar bunt gef&auml;rbte Eier in ihren G&auml;rten zu verstecken." 
+</p>
+<p>
+"Aber ich bin doch &uuml;berhaupt nicht sch&ouml;n genug. Die Kinder werden mich auslachen und mit dem Finger auf mich zeigen.", fiel da das kleine Wesen dem Zauberer traurig ins Wort. "Aber nein", rief der Zauberer. "Dein Fell ist ganz weich und mit deiner Stupsnase und dem Puschelschwanz wirst du die Herzen der Kinder im Sturm erobern. Die Kinder werden dich lieben. Du wirst ihnen Freude und Spa&szlig; bereiten und sie werden ihre Alltagssorgen dar&uuml;ber vergessen k&ouml;nnen." 
+</p>
+<p>
+"Bist du dir da ganz sicher?", fragte das kleine Wesen noch &auml;ngstlich nach und schaute ihn mit gro&szlig;en Augen hoffnungsvoll an. "Ja, da bin ich mir ganz sicher", antwortete der Zauberer und blickte liebevoll das Gesch&ouml;pf an. Pl&ouml;tzlich fingen die Augen des Wesens an zu strahlen und es h&uuml;pfte freudig in die H&ouml;he. Es hatte eine so wichtige Aufgabe erhalten und das obwohl es so gro&szlig;e Ohren und Hinterbeine hatte und die anderen erschaffenen Gesch&ouml;pfe doch so viel h&uuml;bscher anzuschauen waren. 
+</p>
+<p>
+"Die Kinder werden dich &uuml;brigens Osterhase nennen!", rief der Zauberer noch dem vergn&uuml;gt davon hoppelnden Wesen nach. 
+</p>
+</div>
+
+<div id="edleostereier">
+<p>
+Es ging auf Ostern zu und das bemerkte man in Osterhausen. Alle waren eifrig bei der Arbeit und jeder sprach nur &uuml;ber das kommende gro&szlig;e Ereignis.<br />
+In einem Haus, ganz am Rande der Stadt, wohnte eine kleine Hasenfamilie. Die Hasenmama gab sich immer viel M&uuml;he bei den Vorbereitungen auf Ostern und hatte beschlossen, einmal ganz besondere Ostereier zu machen und ihrer Familie zu kredenzen. Dazu nahm sie einen alten Biskuitboden und zerbr&ouml;selte ihn mit ihren H&auml;nden und gab ihn in eine Sch&uuml;ssel. Sie h&auml;tte auch 250g Geb&auml;ckreste nehmen k&ouml;nnen, allerdings hatte sie diese nicht mehr. Danach nahm sie 250g Zartbitterschokolade und lie&szlig; sie in einem Topf auf dem Ofen schmelzen. Als diese fl&uuml;ssig war, sch&uuml;ttete die Hasenmama die Schokolade in eine Sch&uuml;ssel und gab 200g Margarine hinzu. <br />
+
+Diese Mischung r&uuml;hrte sie so lange, bis sie schaumig war. Das dauerte fast 5 Minuten. Es war nicht so leicht, aber f&uuml;r ihre Familie tat sie es gern. Schon beim Backen freute sie sich auf die Gesichter ihrer Kinder und ihres Mannes. Sie gab nun die 50g gemahlenen Mandeln hinein. Fast h&auml;tte sie noch den 4 EL Lik&ouml;r oder Rum hinzugegeben, doch das durften die Kinder ja gar  nicht. Also trennte sie die Mischung und gab in sie in eine zweite Sch&uuml;ssel. In die eine Sch&uuml;ssel gab sie nun 2EL Lik&ouml;r hinein, da sie ja nur die H&auml;lfte der Mischung nutzte. und verr&uuml;hrte es. Da die Mischung etwas durchziehen musste, setzte sie sich hin und genoss erst einmal einen Kaffee. 
+</p>
+<p>
+Nach einiger Zeit, so ca. einer Stunde, begann sie die Geb&auml;ckbr&ouml;sel gerecht auf beide Sch&uuml;sseln zu verteilen und verr&uuml;hrte diese. Sie stellte beide Mischungen in den K&uuml;hlschrank und lie&szlig; eine halbe Stunde drin. <br />
+
+Pl&ouml;tzlich kamen ihre Kinder aus der Hasenschule und hatten Hunger. Die Hasenmama konnte gerade noch verhindern, dass die Kinder den K&uuml;hlschrank pl&uuml;nderten. Das w&auml;re doch wirklich schade, um die &Uuml;berraschung gewesen. So holte sie schnell etwas zu essen und schickte die Kinder in ihre Zimmer. Sie hoffte, dass Papahase bald von der Arbeit kam und mit den Kindern zum Bolzplatz gehen w&uuml;rde, damit sie in Ruhe weitermachen konnte. <br />
+Sie nahm den Teig f&uuml;r die Kinder heraus und stach immer einen Essl&ouml;ffel Teig ab, um sie dann zu Ostereiern zu formen. F&uuml;r die Kinder rollte sie die fertigen Ostereier in bunte oder braune Streusel und setzte sie zum Schluss in kleine Papiermanschetten. Das sah wirklich lecker aus. <br />
+F&uuml;r die Erwachsenen rollte sie die Eier in Kokosraspeln, gehackten Pistazien oder schmolz etwas wei&szlig;e Schokolade und machte mit einer Spritzt&uuml;lle wei&szlig;e Streifen darauf. Zum Schluss wurden auch diese in wei&szlig;e Papiermanschetten gesetzt. <br /> 
+
+Zum Schluss stellte sie alles k&uuml;hl und verlie&szlig; die K&uuml;che. Sie wollte nach ihren Kindern sehen, doch diese hatten schon das Zimmer verlassen und schlichen in die K&uuml;che. Schlie&szlig;lich wollten sie wissen, was Mama da so geheimnisvolles getan hat.
+Sie entdeckten im K&uuml;hlschrank die edlen Ostereier und vernaschten die Kinderportion komplett. Die Hasenmama war ein bisschen traurig, aber sie wusste, die &Uuml;berraschung war gelungen, wenn auch anders, als sie gedacht hatte. <br />
+</p>
+
+</div>
+
+<div id ="ewigkeit">
+<p>{{img src="../../img/ostern/text/ewigkeit2.jpg" alt="" style="float:left;" }}
+Zu jedem Anlass gab es in der Osterstadt diese Torte. Nat&uuml;rlich war Ostern, dass gr&ouml;&szlig;te Ereignis und daher durfte diese Torte nicht fehlen. Der B&auml;ckerhase gab sich immer besonders viel M&uuml;he, den Wiener Boden herzustellen. Die Eier wurden immer besonders liebevoll geschlagen und so war dieser Boden der lockerste und sch&ouml;nste Tortenboden. Anschlie&szlig;end schnitt der B&auml;ckerhase den Boden zweimal durch und reichte ihn an jede Hausfrau in der Osterstadt, damit diese die Torte herstellen konnte.<br />
+Die Hausfrau nahm einen Liter Milch und zwei T&uuml;ten Vanillepuddingpulver. Sie stellte einen Pudding nach der Anleitung der P&auml;ckchen her. Zus&auml;tzlich l&ouml;ste sie zwei W&uuml;rfel Palmin auf. Diese Masse lie&szlig; sie etwas abk&uuml;hlen und wandte sich der Verzierung zu. Dazu nahm sie, meist nach Gef&uuml;hl, Haferflocken und briet diese mit einem Essl&ouml;ffel Zucker und einem W&uuml;rfel Palmin an. So entstand ein sehr leckerer Krokant. Nachdem der Pudding abgek&uuml;hlt war, strich sie einen Teil der Masse auf den ersten Boden. Sie legte liebevoll den zweiten Boden darauf und auch hier strich sie einen Teil der Masse drauf. Danach kam der letzte Boden und sie verteilte den Rest des Puddings oben drauf und einmal rundherum. Nachdem sie mit ihrem Werk zufrieden war, streute sie den ebenfalls etwas abgek&uuml;hlten Krokant &uuml;ber die ganze Torte, dass sie &uuml;ber und &uuml;ber damit bedeckt war. Von dem Boden und dem Pudding war nichts mehr zu sehen. Danach stellte sie die Torte f&uuml;r ein paar Stunden in den K&uuml;hlschrank, damit die Masse fest werden konnte. Meist wurde die Torte einen Tag eher hergestellt. <br />
+Jedes Ostern versammelten sich alle nachmittags, um diese Torte zu genie&szlig;en. Es war Tradition geworden diese obligatorische Torte zu essen.
+</p>
+</div>
+
+<div id="geflochten">
+<p>Es ist Ostersonntag und die Sonne zeigt sich von ihrer besten Seite. Ihre Strahlen erw&auml;rmen die Erde und locken die letzten Fr&uuml;hlingsbl&uuml;mchen aus dem Boden. Ein perfekter Tag zum Ostereier suchen. Alle Kinder warten schon gespannt auf den Nachmittag, wenn sie endlich im Garten nach dem bunt angemalten Eiern suchen d&uuml;rfen und die Osternester ihr eigen nennen k&ouml;nnen. Auch Purzel ist schon sehr aufgeregt. Wie in jedem Jahr rennt er im Zimmer auf und ab und wartet darauf, dass es endlich soweit ist und Gro&szlig;mutter ihm erlaubt in den Garten zu laufen. Ganz nerv&ouml;s kann ihn nichts ruhig halten.<br />
+Doch in diesem Jahr hat die Gro&szlig;mutter eine Idee. Sie m&ouml;chte zusammen mit Purzel sein Leibgericht w&auml;hrend der Osterzeit zubereiten. 4 geflochtene Nestchen.<br />
+Jedes Jahr am Ostersonntag backt Gro&szlig;mutter dieses Rezept und der kleine Purzel kann nicht genug davon bekommen. War er in den letzten Jahren noch zu klein, so ist er nun alt genug, um bei der Zubereitung zu helfen. Gro&szlig;mutter ruft ihren Enkelsohn heran und bindet ihm zuerst eine Sch&uuml;rze um, denn schlie&szlig;lich sollen gerade zu Ostern die Kleider sauber bleiben. W&auml;hrend der Wirbelwind sich die H&auml;nde w&auml;scht, holt sie eine gro&szlig;e Sch&uuml;ssel hervor. Einen Messbecher stellt sie daneben und erkl&auml;rt Purzel das weitere Vorgehen.<br />
+&quot;Als erstes geben wir 250g Mehl und 65g Zucker in die Sch&uuml;ssel&quot;, leitet sie das Enkelchen an. W&auml;hrend Purzel dabei ist diese Zutaten abzumessen, f&uuml;gt sie selbst ein halbes P&auml;ckchen Trockenhefe, 1 Prise Salz und einen TL geriebene Zitronenschale hinzu.
+&quot;Bevor wir das alles gut vermischen, kannst du das P&auml;ckchen Vanillezucker hineingeben.&quot;<br />
+&quot;Das ganze P&auml;ckchen?&quot; fragt Purzel erstaunt. &quot;Ja, das ganze P&auml;ckchen.&quot;<br />
+&quot;Dem Teig werden nun 65g Butter, 50ml lauwarme Milch und ein Ei hinzugef&uuml;gt&quot;, erkl&auml;rt Gro&szlig;mutter weiter. &quot;Ich habe die Butter heute morgen schon aus dem K&uuml;hlschrank genommen, damit sie sch&ouml;n weich ist und sich besser kneten l&auml;sst. Wenn du m&ouml;chtest, darfst du die Zutaten nun zu einem glatten Teig kneten Purzel.&quot; &quot;Oh ja, super!&quot;<br />
+Purzel ist begeistert bei der Sache und seine Wangen gl&uuml;hen rot. &quot;Und was kommt jetzt?&quot;, fragt er ungeduldig, als der Teig fertig geformt ist.<br />
+&quot;Jetzt m&uuml;ssen wir warten, bis er aufgegangen ist. Denn der Teig w&auml;chst durch die Hefe zu seiner doppelten Menge heran.&quot; &quot;Wir m&uuml;ssen warten?&quot; Purzel schaut skeptisch. Schon wieder muss er auf etwas warten. Besteht denn das ganze Leben nur aus Warten? Doch die Zeit geht schneller rum als er glaubt und er darf den Teig erneut Kneten, wobei Oma den Tisch vorher mit Mehl eingestreut hat. &quot;Nun teile ich den Teig in vier gleichgro&szlig;e St&uuml;cke, welche wiederum in drei Teile geteilt werden.&quot;, beschreibt Oma ihr Vorgehen. &quot;Du darfst die 3 Teile zu langen Rollen formen, aus welchen wir dann gemeinsam die Nester flechten.&quot;<br />
+&quot;Das ist toll, Oma. Schau mal, ich habe einen langen Zopf geflochten.&quot; &quot;Wenn du die beiden Enden &uuml;bereinander dr&uuml;ckst, erh&auml;ltst du ein Nest, schau.&quot; Gro&szlig;mutter zeigt Purzel, wie genau er das Nest formen musste und er tat es ihr gleich.<br />
+Nachdem die beiden die Nester auf ein mit Backpapier ausgelegtes Backblech gelegt und mit Milch bestrichen haben, schiebt Gro&szlig;mutter sie in den Ofen. &quot;Die m&uuml;ssen jetzt ca. 25 Minuten bei 180 bis 200 Grad backen. In der Zwischenzeit k&ouml;nnen wir die K&uuml;che etwas aufr&auml;umen.&quot; Als sie damit fertig sind, sind auch die Nester fertig gebacken. &quot;Darf ich sie nun verzieren? Bitte Oma!&quot; &quot;Aber nat&uuml;rlich!&quot;, antwortet die Gro&szlig;mutter, welche schon 2 EL Aprikosenmarmelade erw&auml;rmt hat und diese gerade durch ein Sieb streicht. &quot;Du darfst die halbierten, gesch&auml;lten Mandel und Belegkirschen darauf verteilen, wenn ich sie mit Marmelade bestrichen habe und Hagel-Zucker dar&uuml;ber streuen.&quot;<br />
+Nun sind die Nester fertig und Purzel darf endlich hinaus Ostereier suchen und kommt begeistert und m&uuml;de und hungrig von einer erfolgreichen Suche zur&uuml;ck.<br />
+Jetzt kann er auch die Geflochtenen Nestchen genie&szlig;en, in welche Oma zu Purzels &Uuml;berraschung Schokoladeneier oder bemalte H&uuml;hnereier in die Mitte platziert hat.<br />
+Und dieses Jahr schmecken sie noch besser, denn Purzel hat dabei geholfen.</p>
+</div>
+
+<div id="gefuellt">
+<p>
+Der Winter war endlich vor&uuml;ber und der Fr&uuml;hling hatte begonnen. Die Schulkinder freuten sich &uuml;ber ihre Ferien und alle anderen &uuml;ber die freien Ostertage. Nur einer hatte nicht frei, der Osterhase. Jedes Jahr zur Osterzeit schuftete er so viel wie nie zuvor, denn schlie&szlig;lich wollte jeder ein Osternest finden. Und das war bei so vielen Menschen gar nicht so leicht es f&uuml;r jeden zu verstecken.<br />
+Auch Frau Osterhase wusste, welche Anstrengungen ihr geliebter Ehegatte jedes Jahr aufs neue auf sich nahm. Und darum wollte sie ihm in diesen Jahr eine kleine Freude machen. Anstatt M&ouml;hren und Kohlrabi sollte es in diesem Jahr gef&uuml;llte Osternester zur St&auml;rkung geben, wenn Meister Lampe seine Arbeit beendet hatte.<br />
+Also stellte Frau Osterhase sich sofort nach Aufbruch ihres Mannes in die K&uuml;che, denn es sollte fertig sein, wenn ihr Mann nach Hause kam.
+Zuerst setzte sie 1/4 l Wasser mit Salz und 75g Margarine auf. Als dieser zu kochen begann, nahm sie ihn von der Herdplatte und r&uuml;hrte 175g Mehl darunter, bis es eine einheitliche Masse wurde.<br />
+Nun stellte sie den Topf auf den Herd zur&uuml;ck und r&uuml;hrte so lange weiter, bis die entstanden Masse sich vom Boden l&ouml;ste und zu einen gro&szlig;en Klos wurde.<br />
+Sie kippte die Masse in eine gro&szlig;e Sch&uuml;ssel und r&uuml;hrte unter sie noch warme Masse ein Ei. Die restliche 3 Eier f&uuml;gte sie hinzu, als der Teig etwas abgek&uuml;hlt war.<br />
+Nun spritzte sie den Teig mit Hilfe von einem Spritzbeutel mit Sternt&uuml;lle zu Ringen mit 8 cm Durchmesser auf ein Backblech, welche f&uuml;r 25 Minuten bei 200 Grad (Gas Stufe 3) gebacken wurden und anschlie&szlig;end in der Mitte geteilt werden, so dass zwei Ringe daraus entstehen.
+W&auml;hrend die Teigringe etwas abk&uuml;hlten bereitete Frau Osterhase die F&uuml;llung vor.<br />
+Dazu nahm sie 100 g Quark und verr&uuml;hrte ihn mit 3 EL Ketchup und 50ml Schlagsahne. Diese Creme schmeckte sie anschlie&szlig;end mit Zwiebelsalz, Pfeffer, Paprika und Salz ab und spritze sie mit erneuter Hilfe des Spritzbeutels auf die H&auml;lfte der untern Ringe und bedeckte diese mit der Oberseite.<br />
+F&uuml;r die anderen 4 Ringe stellte sie eine weitere Creme her, welche aus 100g Quark, 50 ml Sahne, einer Packung Tiefk&uuml;hl-8-Kr&auml;utermischung, sowie Pfeffer und Salz besteht.<br />
+Diese spritzt sie auf die restliche Ringe und bedeckt sie ebenfalls mit dem Oberteil.<br />
+Als Frau Hase damit fertig ist schaut sie erschrocken an die K&uuml;chenuhr. Der Osterhase w&uuml;rde in 10 Minuten nach Hause kommen und bis dahin mussten die gef&uuml;llten Nester fertig sein.<br />
+Schnell schnitt sie ein Ei in 8 Scheiben und verteilte in die Mitte des Osternestes eine Scheibe Ei, eine Kirschtomate und ein wenig Kresse.
+Fertig waren die Nester und genau richtig, denn in dem Moment, als Frau Osterhase die letzte Kirschtomate an ihren Ort gelegt hatte, kam Herr Osterhase mit einen leeren Osterkorb um die Ecke.<br />
+Er begr&uuml;&szlig;te seine Frau und freute sich sehr, als er die gef&uuml;llten Osternester sah und zusammen verspeisten beide das etwas andere Ostermahl.</p>
+</div>
+
+<div id="mythos">
+<p>{{img src="../../img/ostern/text/mythos.jpg" alt="" style="float:right;" }}
+Der Hase ist das Tier der germanischen G&ouml;ttin Holda, aber auch ein Symbol der Fruchtbarkeit. Das Ei geh&ouml;rt ebenfalls dazu. In einigen Teilen Deutschlands haben sich auch lange Zeit andere Tiere gehalten, wie zum Beispiel der Fuchs, Hahn, Storch oder Kranich. Sie kamen alle um Ostereier zu bringen. Der Mythos Osterhase entstand dadurch, dass die Frauen fr&uuml;her wussten, dass der Winter vorbei ist, wenn der Hase aus seinem Versteck kam. Sie hielten sich gerne in der N&auml;he von Menschen auf, da es hier meist reichlich Nahrung f&uuml;r die heranwachsende Familie gab. Die ersten Belege f&uuml;r den Osterhasen gab es allerdings erst 1678, vorher war er in vielen Teilen Deutschlands unbekannt. Aus alten Aufzeichnungen geht hervor, dass in Z&uuml;rich Kinder von ihren Paten eingeladen wurden, um den Osterhasen zu jagen. Dieser war viel schneller als Hennen und konnte so schneller wegrennen. Die Kinder fanden dabei immer reichlich Ostereier. Diese freuten sich sehr und die Eier wurden dann eben dem Osterhasen zugeschrieben. Irgendwann blieb es eben so, dass der Osterhase die Eier bringt und versteckt. Fr&uuml;here Versuche ein Osterlamm aus Teig herzustellen schlugen fehl und das fertige Lamm sah eher einem Hasen &auml;hnlich. Daher kam auch die Vermutung zu Stande, dass es eher ein Versehen war, dass der Osterhase zum Osterhasen wurde. Den letzten Ausschlag gab wahrscheinlich auch die Mondphase zu der immer Ostern gefeiert wird. Am ersten Sonntag steht n&auml;mlich immer der Fr&uuml;hlingsvollmond am Himmel. Da der Hase ein Mondtier ist, k&ouml;nnte auch dieses noch eine Erkl&auml;rung sein. <br />
+Doch egal welche Erkl&auml;rung es auch daf&uuml;r gibt, wir lassen uns das Ostereiersuchen am Ostersonntag nicht vermiesen. Egal ob gro&szlig; oder klein es macht doch jedem Spa&szlig;. Da ist es dann nicht wichtig, ob es den Osterhasen gibt oder nicht.
+</p>
+</div>
+
+<div id="omaosterhase">
+<p>
+Es war Anfang M&auml;rz, bis Ostern noch ein ganzer Monat Zeit und die Vorbereitungen waren in vollem Gange. <br />
+Oma Osterhase hatte mit der Produktion, dem Bemalen und Verstecken der Ostereier nichts mehr zu tun. Dies &uuml;berlie&szlig; sie nun schon seit einigen Jahren ihren T&ouml;chtern, S&ouml;hnen und Enkelchen. Sogar einige Urenkel halfen schon mit. <br />
+Opa Osterhase war noch voll dabei. Nun, nicht wirklich voll, aber er konnte es nicht lassen, den Lehrer zu spielen, der er fr&uuml;her war. Noch immer gab er gute Tipps und lernte seine Enkel und Urenkel an, wie man die Eier am sch&ouml;nsten bemalte, wo die besten Verstecke waren und so weiter. <br />
+Zwar hatten alle Osterhasenkinder ihre Lehrer und bekamen Unterricht in der Osterhasenschule, aber trotzdem h&ouml;rten sie Opa Osterhase gerne zu, denn er schweifte immer wieder zu Geschichten von fr&uuml;her ab, wo er noch selbst unterwegs war und erz&auml;hlte von den Abenteuern, die er, besonders beim Verstecken der Eier, erlebt hatte. 
+Oma Osterhase war indessen an ihrem Lieblingsplatz im Haus, der K&uuml;che. 
+Sie &uuml;berlegte, was sie wohl vorbereiten k&ouml;nnte, um ihre Familie zu Ostern zu erfreuen. Eines Abends erz&auml;hlte Opa wieder eine seiner Geschichten. Er stopfte seine Pfeife zu recht, nahm sein j&uuml;ngstes Urenkelchen auf den Scho&szlig; und fing an zu erz&auml;hlen. 
+</p>
+<p>
+<i>Es ist schon zig Jahre her, um genau zu sein fast 50 Jahre, da gab es einen sehr harten und langen Winter. Wir konnten wegen dem zu hohen Schnee nicht fr&uuml;her mit den Vorbereitungen f&uuml;r Ostern anfangen und hatten sp&auml;ter sehr viel Zeitdruck alles fertig zu bekommen. Wir mussten sogar nachts durcharbeiten, weil viele Hasen krank wurden. Es war eine schwere aber auch sch&ouml;ne Zeit. Eines Nachts kam ein junges und sehr h&uuml;bsches M&auml;dchen in die Malh&uuml;tte. Ich konnte kaum meine Augen von ihr lassen. So sch&ouml;n war sie. 
+</i>
+</p>
+<p>
+Opa Hase err&ouml;tete leicht und alle h&ouml;rten gespannt zu. Sogar Omahase kam aus der K&uuml;che und stellte sich in den T&uuml;rrahmen, um alles zu h&ouml;ren und l&auml;chelte. 
+</p>
+<p>{{img src="../../img/ostern/text/omaosterhase.jpg" alt="" style="float:right;" }}<i>
+Sie brachte uns einen M&ouml;hrenkuchen. So etwas Leckeres hab ich noch nie gegessen. Ich traute mich nicht, sie anzusprechen und verfolgte sie mit den Augen wieder nach drau&szlig;en. Danach malte ich ihr Gesicht auf die Eier, denn ich war verliebt. Ich sah sie die n&auml;chsten Tage nicht mehr wieder und fragte mich, ob ich sie jemals wieder sehen sollte. In der Osternacht verteilte ich mit dem Oberosterhasen die Eier in meinem Revier und pl&ouml;tzlich sah ich sie wieder. An der Reviergrenze versteckte sie die Eier. Sie war wundersch&ouml;n und ihre Schleife im Haar wehte im Wind. Ich wollte zu ihr hin hoppeln, aber ich traute mich nicht. Mein Freund bemerkte dies und rief sie zu uns r&uuml;ber. Sie hoppelte so anmutig, das ich ins Schw&auml;rmen kam. Mein Freund l&auml;chelte. Er kannte dieses M&auml;dchen gut. Ihre Tante wohnte in seiner Nachbarschaft und er war mit ihr aufgewachsen. Sie kam nur ab und  zu nach Osterstadt, um ihrer Tante bei den Vorbereitungen zu helfen. Die Tante hatte sich ein Bein gebrochen und konnte nicht bei den Ostervorbereitungen helfen. Ihr wei&szlig;-rotgetupftes Kleid machte sie noch sch&ouml;ner. Ich stammelte nur ein "Hallo". Mehr bekam ich nicht heraus. Sie l&auml;chelte mich an und ich war weg. Sie hoppelte wieder weg, nachdem sie mit meinem Freund gesprochen hatte. Was sie sagte, hatte ich gar nicht mitbekommen. Doch ihre Stimme klang noch in meinen Ohren. Sie war engelsgleich. Ich sah sie lange nicht mehr. Mir kam es vor wie Jahre, dabei waren es nur zwei Tage. Es war der Tag ihrer Abreise und als ich sie sah, trug sie einen sehr schweren Koffer. Ich &uuml;berwand mich und fragte sie, ob ich ihr helfen d&uuml;rfte. Sie bejahte dies und ich brachte den Koffer zu ihr nach Hause. Wir redeten den ganzen Weg &uuml;ber. Wir hatten kein bestimmtes Thema. Als ich sie zu Hause ablieferte, fragte ich sie, ob ich ihr den Hof machen d&uuml;rfte. Auch dieses bejahte sie. Eines Tages kam ich zu ihr nach Hause. Ich hatte mir vorgenommen, um ihre Hand anzuhalten. Sie wusste es und backte ihre leckere M&ouml;hrentorte. Wir setzten uns an den Tisch und ich fragte den Vater. Es war das einzige Mal, dass ich vor Aufregung diese Torte nicht herunterbekam. Ihr Vater musterte mich von oben bis unten und sagte lange Zeit gar nichts. Ich war sehr nerv&ouml;s. Das k&ouml;nnt ihr euch gar nicht vorstellen. Irgendwann sagte er. "Ich gebe dir die Hand meiner Tochter, behandle sie gut und sei immer ein guter und treuer Ehemann." Ich versprach es und ich war &uuml;bergl&uuml;cklich. Seitdem ist es mein Lieblingskuchen. 
+</i>
+</p>
+<p>
+Opa Osterhase beendete hier die Geschichte, denn es war schon sehr sp&auml;t geworden. Oma Osterhase wusste, welche &Uuml;berraschung sie ihrer Familie bereiten w&uuml;rde. <br />
+Die Tage gingen ins Land und Ostern kam immer n&auml;her. Oma Osterhases Tochter wollte ihrer Mutter bei den Vorbereitungen zur Hand gehen, doch diese wollte es nicht. Es sollte schlie&szlig;lich eine &Uuml;berraschung f&uuml;r alle sein. Doch ein Tag vor Ostern brach sich Oma Osterhase das Bein und konnte nur noch mit Kr&uuml;cken laufen. Sie war ganz traurig, denn so fiel ihre &Uuml;berraschung ins Wasser. Ihre Tochter fragte, was los sei und versuchte ihre Mutter zu tr&ouml;sten. Oma Osterhase erz&auml;hlte alles und die Tochter versprach zu helfen. So wurde ein Stuhl in die K&uuml;che gestellt und Oma Osterhase backte mit ihrer Tochter zusammen den Kuchen. Er war wundersch&ouml;n. Oma Osterhase lie&szlig; es sich nicht nehmen, die Glasur darauf zu streichen und den Kuchen zu verzieren. Opa Osterhase kam gerade nach Hause, als der Kuchen fertig war. Oma Osterhase humpelte ins Wohnzimmer und begr&uuml;&szlig;te ihren Mann. Sie rief ihre Tochter und diese kam mit der Torte hinein. Opa Osterhases Augen strahlten. Sein Lieblingskuchen. Er war sehr ger&uuml;hrt und konnte sich eine Tr&auml;ne nicht verkneifen. Alle setzten sich an den Tisch und a&szlig;en die Torte bis auf den letzten Kr&uuml;mel auf. Alle waren sich einig. Diesen Kuchen musste es jetzt jedes Jahr geben. Opa Osterhase gab Oma Osterhase einen Kuss und war sehr gl&uuml;cklich.
+</p>
+</div>
+
+<div id="lieblingskuchen">
+<p>
+<ins>Zutaten :</ins><br />
+4 Eier <br />
+150 g (brauner) Zucker, <br />
+250 g fein geraspelte Karotten/M&ouml;hren<br />
+250 g gemahlene N&uuml;sse<br />
+100 g Mehl <br />
+1 TL Backpulver
+</p>
+<p>
+<ins>Zubereitung:</ins> <br />
+Paul Osterhase geht in den Garten und holt frische M&ouml;hren. Unterwegs nascht er eine, doch die die er seiner Mutter bringt, die reichen ihr. <br />
+Pauline Osterhase, Pauls Mutter, nimmt sie ihm ab und raspelt diese. Sie m&ouml;chte mit Oma Osterhase Opas Lieblingskuchen backen. <br />
+Paul m&ouml;chte auch helfen und zerhackt die N&uuml;sse. Dann mahlt er sie im M&ouml;rser ganz fein und gibt sie seiner Oma. <br />
+{{img src="../../img/ostern/text/osterhaseslieblingskuchen.jpg" alt="" style="float:right;" }}
+Oma Osterhase trennt inzwischen schon die Eier und r&uuml;hrt das Eigelb mit dem Zucker ganz schaumig. <br />
+Dann nimmt sie die geraspelten M&ouml;hren ihrer Tochter, und die gemahlenen N&uuml;sse ihres Enkels und r&uuml;hrt diese mit dem schon abgewogenem Mehl und etwas Backpulver unter. <br />
+In der Zeit schl&auml;gt Pauline Osterhase das Eiwei&szlig; und als es sch&ouml;n fest ist hebt Oma Osterhase es unter. <br />
+Dann erkl&auml;rt sie Paul und Pauline noch, dass man den Teig jetzt nur ganz vorsichtig r&uuml;hren darf, eigentlich darf man das Eiwei&szlig; nur vorsichtig unterheben, gar nicht richtig r&uuml;hren, denn nur so bleibt der Teig ganz luftig und der Kuchen wird dann locker und saftig.
+</p>
+<p>
+Paul darf nun den Teig in die Kuchenform machen und Oma Osterhase stellt den Ofen auf 175 Grad. <br />
+Nach 35 Minuten duftet es im ganzen Haus und Pauline holt den Kuchen aus dem Ofen.
+</p>
+<p>
+Oma hat inzwischen eine Zuckerglasur mit Puderzucker und Wasser zusammenger&uuml;hrt. Sie ist ganz z&auml;hfl&uuml;ssig und noch schneewei&szlig;. Paul tropft etwas Lebensmittelfarbe dazu und nun ist sie grasgr&uuml;n. <br />
+Er lacht. Das gef&auml;llt ihm. Der Kuchen soll wie eine Wiese aussehen. <br />
+Pauline holt aus einem Schrank ein paar Zuckerostereier und 4 Marzipanm&ouml;hren und legt sie auf die gr&uuml;ne Glasur, die Oma Osterhase soeben auf dem Kuchen verteilt hat.
+</p>
+<p>
+Gerade war die Glasur getrocknet, da kam Opa Osterhase herein. Er hatte soeben mit den anderen Osterhasen die letzten Eier verteilt. <br />
+Was freute er sich, als er diesen Kuchen sah. Er gab Oma Osterhase einen dicken Kuss und streichelte dann seiner Tochter und seinem Enkelchen &uuml;ber den Kopf. <br />
+"Mein Lieblingskuchen! Vielen Dank, ihr Lieben."
+</p>
+</div>
+
+<div id="ausblasen">
+<p>
+(gut geeignet, wenn man Spiegelei machen m&ouml;chte, ansonsten anderswie auffangen, das Eiwei&szlig; und -gelb kann man schlie&szlig;lich selbstredend essen)
+</p>
+<p>
+Je nachdem, welche Gestaltungsart ihr verwenden m&ouml;chtet, solltet ihr das Ei entweder erst anmalen, oder k&ouml;nnt es auch nach dem Ausblasen anmalen.
+</p>
+<p>
+folgende Gestaltungsvarianten sind m&ouml;glich:
+</p>
+<p>
+<ins>mit vorher ausblasen:</ins>
+</p>
+<ul>
+<li>bemalen mit Gelstiften (diese gibt es extra in der Osterzeit daf&uuml;r)</li>
+<li>bemalen mit Wasserfarben (nicht zu viel Wasser nehmen, sonst ist die Farbe nicht kr&auml;ftig genug und 
+danach mit Klarlack anspr&uuml;hen)</li>
+<li>mit Eddingstiften bemalen (Klarlack nicht n&ouml;tig)</li>
+</ul>
+<p>
+<ins>hart kochen und dann gestalten:</ins>
+</p>
+<ul>
+<li>F&auml;rben mit Ostermalfarben f&auml;rben (hinterher in Essig legen, dann leuchtet die Farbe sch&ouml;n, das hat keine Auswirkungen auf den Eiergeschmack)</li>
+<li>bekleben mit Klebebildern (die gibt es extra zu kaufen f&uuml;r Ostern)</li>
+<li>mit Wachsstiften bemalen, danach erst kochen (nicht ausblasen)</li>
+<li>Klopapierrollen in Ringe schneiden, diese mit braunem Papier bekleben, 2 Ohren ausschneiden, hinten ans Ei kleben (macht sich gut mit braunen Eiern)</li> 
+</ul>
+<p>
+Und hier die eigentliche Ausblasanleitung:
+</p>
+<p>
+Oben und unten ins Ei jeweils vorsichtig ein kleines Loch mit einem Kartoffelpicker stechen 
+(Eierschale nach au&szlig;en rausbr&ouml;ckeln lassen, ihr wollt sie schlie&szlig;lich nicht mitessen)<br />
+<b>wichtig: das untere Loch sollte etwas gr&ouml;&szlig;er sein, damit dort das rohe Ei auch rauskommen kann</b><br />
+Die d&uuml;nne Eischicht, die ihr durch das gr&ouml;&szlig;ere Loch sehen m&uuml;sstet, bitte mit zerstechen mit dem Picker, sonst blast ihr euch dumm und d&auml;mlich<br />
+Nun die Lippen an das kleinere Loch ansetzen und vorsichtig, aber doch schon mit etwas Pustekraft pusten. Wenn unten das Eiwei&szlig; rauskommt, seid ihr auf dem richtigen Weg. Dies in der Pfanne, oder in einem anderen Gef&auml;&szlig; auffangen und verarbeiten. 
+</p>
+<p>
+Manchmal ist das Eigelb etwas stur, dann hilft noch mal nachstochern mit dem Picker, aber nur in den Inhalt, nicht das Loch weiter vergr&ouml;&szlig;ern)
+</p>
+<p>
+Wenn das Ei leer geblasen ist, vorsichtig Wasser aus dem Kran ins Ei laufen lassen (m&ouml;glichst durch das gro&szlig;e Loch, aber ganz vorsichtig), beide L&ouml;cher zuhalten und leicht sch&uuml;tteln. Wasser wieder ausblasen (das nicht mehr benutzen), vllt. auch noch ein zweites Mal durchsp&uuml;len mit Wasser und dann in einem leeren Eierkarton trocknen lassen.
+</p>
+<p>
+Ich w&uuml;nsche euch bei euren eigenen farblichen Kreationen und Mustern viel Spa&szlig;.
+</p>
+<p>
+Und nicht traurig sein, wenn manche Eier nach Ostern kaputt sind, es gibt ja immer ein n&auml;chstes Mal^^
+</p>
+</div>
+
+<div id="hogwartsgeister">
+<p>
+Die Sonne erhob sich majest&auml;tisch und ihre Strahlen erreichten auch schlie&szlig;lich Hogwarts, wo fast alles noch friedlich schlief. Der Fast Kopflose Nick verweilte am Fenster und beobachtete das Aufgehen der Sonne. 
+</p>
+<p>
+Als die Sonne schlie&szlig;lich hoch am Himmel stand, erwachte Nick aus seiner Erstarrung. Heute war Ostern und Nick wollte eine sch&ouml;ne Feier f&uuml;r alle Geister in Hogwarts ausrichten. Er entschwebte in Richtung Kerker, wo er die Feier geplant hatte. Die Korridore waren fast leer gefegt, weil alle Sch&uuml;ler zu Hause waren. Schnell mussten noch ein paar Vorbereitungen getroffen werden und Nick machte sich sogleich an die Arbeit.
+</p>
+<p>
+Am Abend schlie&szlig;lich war es soweit. Der Gang zum Kerker war mit langen schwarzen Kerzen beleuchtet. Stolz schwebte er in den Partyraum und betrachtete nochmals sein Werk. In der Mitte hing ein Kronleuchter mit vielen Kerzen, die ein mitternachtsblaues Licht verstr&ouml;mten. Auf der einen Seite stand eine B&uuml;hne, wo sich die Geisterband bereits aufstellte. Es waren Freunde von ihm und sie kamen immer wieder gerne, um f&uuml;r die richtige Musik auf Nicks Partys zu sorgen. Auf der anderen Seite des Raumes befand sich ein langer Tisch mit einer gro&szlig;en Tischdecke aus schwarzem Samt. Auf ihr hatte Nick alles M&ouml;gliche an verdorbenen Lebensmitteln platziert: eine riesengro&szlig;e verfaulende Ente, die &uuml;ber und &uuml;ber mit Maden bedeckt war, schimmlig gewordener Rotkohl und verfaulte Kartoffeln. Zum Nachtisch gab es verbrannte Osterzopfkr&auml;nze, graue Osterl&auml;mmer und gr&uuml;nlich schimmernde Pl&auml;tzchen in Osterhasenform. Au&szlig;erdem befand sich eine Art Osterkerze in kohlrabenschwarz, mitten auf dem Tisch. Ferner hatte Nick &uuml;berall faulende Eier versteckt, die die Geister sp&auml;ter finden sollten. Schlie&szlig;lich war ja Ostern. <br />
+"Sollen wir langsam mit der Musik anfangen?", fragte ein Bandmitglied und riss Nick damit aus seinen Gedanken. <br />
+"Ja, nat&uuml;rlich", best&auml;tigte er und kurz darauf fing die Band an die Musiks&auml;gen zu schwingen und Nicks Lieblingsmusik zu spielen. F&uuml;r Menschen war die Musik vermutlich &auml;u&szlig;erst schlecht und er erinnerte sich noch an die komischen Gesichter von Harry, Ron und Hermine, die einmal im Kerker seinen Todestag mit gefeiert hatten. 
+</p>
+<p>{{img src="../../img/ostern/text/hogwartsgeister.jpg" alt="" style="float:left;" }}
+Schlie&szlig;lich trafen die ersten G&auml;ste im Kerker ein. Die Maulende Myrte und der Fette M&ouml;nch waren die ersten. Der Fast Kopflose Nick nahm den Federhut vom Kopf und begr&uuml;&szlig;te die Beiden mit einer Verbeugung. Nach und nach trafen auch alle anderen im Kerker ein. Da waren der Blutige Baron, Professor Binns, die Graue Dame und schlie&szlig;lich auch Peeves. Nachdem alle eingetroffen waren und sich im Raum verteilt hatten, verstummte die Musik. <br />
+"Herzlich Willkommen zu unserer Osterfeier", begann der Fast Kopflose Nick, "ich freue mich euch hier begr&uuml;&szlig;en zu k&ouml;nnen. Hier im Kerker habe ich einige Ostereier versteckt, die ihr im Laufe des Abends suchen k&ouml;nnt. Wer am Schluss die Meisten Eier gefunden hat, gewinnt. Hiermit erkl&auml;re ich nun das Buffet f&uuml;r er&ouml;ffnet. Bitte schwebt hindurch und saugt die K&ouml;stlichkeiten auf." <br />
+Nach dieser Ansprache schwang die Band erneut ihre Musiks&auml;gen und lie&szlig;en ein Ger&auml;usch wie kratzende Fingern&auml;gel auf einer Tafel vernehmen. Die anderen Geister schwebten durch das Buffet und tr&auml;umten von dem Geschmack des Essens. Nachdem sie damit fertig waren, kam Sir Heinrich Magnani zum Fest. Er war ein Geisterpfarrer und auf dem Fest f&uuml;r das Osterlachen verantwortlich. Bei diesem Brauch, wird w&auml;hrend der Zeremonie gelacht, um einerseits die Freude an Ostern zu zeigen und andererseits die &Uuml;berlegenheit, den Sieg des Lebens &uuml;ber dem Tod Ausdruck verleihen. Nick fand dies passend, denn schlie&szlig;lich waren sie alle Tod und feierten dennoch Ostern. Die Zeremonie machte Sir Magnani wirklich gut. Alle Geister, bis auf den Blutigen Baron, lachten &uuml;ber das was Magnani von sich gab. Es war einfach zu komisch. Obwohl hinterher keiner mehr genau sagen konnte, um was die Messe eigentlich ging, aber das war auch nicht so wichtig. Nach der Messe, begannen alle Geister nach den Eiern zu suchen. Gewonnen hat die Maulende Myrte, die &uuml;bergl&uuml;cklich &uuml;ber ihren Sieg war. Das Fest war ein voller Erfolg und Nick war &uuml;beraus stolz auf sich, dass er seit langem mal wieder eine so gute Feier ausgerichtet hat, von der noch Jahre sp&auml;ter alle reden sollten. 
+</p>
+</div>
+
+<div id="ostergedicht">
+{{img src="../../img/ostern/text/ostergedicht.jpg" alt="" style="float:right;" }}
+<div style="float: left;">
+<p>
+Heut' f&uuml;hlen sich die Hasen wohl, <br />
+denn zum Fr&uuml;hst&uuml;ck gab es Kohl. <br />
+Gut gest&auml;rkt nun hoppeln die Hasen <br />
+durch W&auml;lder, Gestr&uuml;pp und &uuml;ber Rasen. 
+</p>
+<p>
+Denn es naht die Osterzeit <br />
+und die Hennen kommen von weit. <br />
+Sie bringen ihre Eier: eins, zwei, drei. <br />
+Da ist f&uuml;r jeden eins dabei. 
+</p>
+<p>
+Ja die Hasen haben nun viel zu tun, <br />
+arbeiten emsig ohne zu ruh'n. <br />
+Denn ganz schnell bis &uuml;bermorgen <br />
+muss man noch neue Pinsel besorgen. <br />
+Und man fragt sich ob die Farbe reicht, <br />
+denn die Eimer sind so leicht. 
+</p>
+<p>
+Aber die Hasen m&ouml;gen ihre Arbeit sehr <br />
+und schwingen die Pinsel kreuz und quer. <br /> 
+Seht nur wie bunt die Eier nun sind! <br />
+Dar&uuml;ber freut sich sp&auml;ter jedes Kind. 
+</p>
+<p>
+Doch der Hasenchef macht sich Sorgen, <br />
+ob die Zeit reicht bis zum Morgen, <br />
+um die Eierberge ins Tal zubringen <br />
+ohne dass sie gleich zerspringen. 
+</p>
+<p>
+Aber ach wie gut das Opa M&uuml;mmelmann, <br />
+noch Motorrad fahren kann. <br />
+Und es rauscht und pfeift der Wind, <br />
+denn ins Tal geht's jetzt geschwind. 
+</p>
+<p>
+Eilig werden die Eier nun versteckt <br />
+und die V&ouml;gel aufgeschreckt. <br />
+In den Nestern schau' mal hin, <br />
+liegen nun bunte Eier drin. 
+</p>
+<p>
+Dieses ist nun auch der letzte Ort <br />
+und die Hasen hoppeln fort. <br />
+N&auml;chstes Jahr zur Osterzeit <br />
+sind die Hasen wieder bereit, <br />
+um den Kindern Freude zu machen <br />
+mit all' den vielen leckeren Sachen.
+</p>
+</div>
+</div>
+
+<div id="muffins">
+<p>
+Oma Osterhase hatte mal wieder Lust, etwas Neues auszuprobieren. W&auml;hrend Opa Osterhase den Enkeln das bemalen der Eier beibrachte stand Oma Osterhase in der Osterhasenk&uuml;che und &uuml;berlegte, wie sie wohl ein s&uuml;&szlig;es Osternest zaubern k&ouml;nnte.
+Ihr Blick fiel auf die Muffinf&ouml;rmchen und ein Strahlen &uuml;berzog ihr Gesicht, als die Idee sie erleuchtete.
+</p>
+<p>
+Ostermuffin-Nestchen!
+</p>
+<p>
+<ins>Zutaten (Teig):</ins><br />
+125 g weiche Butter<br />
+125 g Puderzucker<br />
+2 Eier<br />
+85 g Mehl<br />
+1 TL Backpulver<br />
+4-5 EL Kakaupulver<br />
+</p>
+<p>
+<ins>Zutaten (Buttercreme):</ins><br />
+85 g weiche Butter<br />
+175 g Puderzucker<br />
+1 EL Milch<br />
+1 Tropfen Vanillearoma<br />
+</p>
+<p>
+36 Mini-Schokoeier mit Zuckerglasur
+</p>
+<p>
+Oma Osterhase holte sich allerhand Zutaten heran und heizte erst einmal den Backofen auf 180°C an. <br />
+Dann nahm sie eine R&uuml;hrsch&uuml;ssel und schlug Butter und Zucker schaumig. Sie gab die Eier dazu und verr&uuml;hrte alles gr&uuml;ndlich. <br />
+Mehl, Backpulver und Kakao siebte Oma Osterhase anschlie&szlig;end dar&uuml;ber und r&uuml;hrte es dann vorsichtig mit einem gro&szlig;en L&ouml;ffel unter. <br />
+Der Teig sah schon sehr lecker aus. <br />
+Sie verteilte ihn in ihre 12 Muffinf&ouml;rmchen und schob diese dann f&uuml;r 15-20 Minuten in den vorgeheizten Backofen.
+</p>
+<p>
+W&auml;hrend die Muffins bucken holte sich Oma Osterhase die Zutaten f&uuml;r die Buttercreme ran und r&auml;ume alles andere weg. Dann holte sie die Muffins aus dem Backofen und lie&szlig; sie auf einem Kuchengitter abk&uuml;hlen. <br />
+Jetzt war die Zeit f&uuml;r das Meisterwerk!
+</p>
+<p>
+Oma Osterhase r&uuml;hrte die weiche Butter in einer R&uuml;hrsch&uuml;ssel schaumig, siebte den Puderzucker dar&uuml;ber, r&uuml;hrte alles gut durch und gab dann den Essl&ouml;ffel Milch und den Tropfen Vanillearoma dazu. <br />
+Wieder r&uuml;hrte sie kr&auml;ftig. <br />
+Jetzt war die Buttercreme fertig.
+</p>
+{{img src="../../img/ostern/text/muffins/047.jpg" alt="" style="float:left;" }}
+<p>
+Nachdem Oma Osterhase sich vergewissert hatte, dass die Muffins ausreichend abgek&uuml;hlt waren, tat sie die Buttercreme in einen Spritzbeutel mit Sternt&uuml;lle und spritzte auf jeden Muffin einen Ring. <br />
+Das war das Osternest. Dort hinein tat sie nun jeweils drei von den Mini-Schokoladeneiern mit Zuckerglasur und dann klatschte sie vor Freude in die Pf&ouml;tchen.
+</p>
+<p>
+Und da kam auch schon Opa Osterhase mit all den Osterhasenkindern, die flei&szlig;ig Eier bemalt hatten. <br />
+Oma Osterhase begr&uuml;&szlig;te Opa Osterhase mit einem Kuss und gab dann jedem der Osterhasenkinder einen Ostermuffin. <br />
+Zwei blieben &uuml;brig, einer f&uuml;r Oma Osterhase und einer f&uuml;r Opa Osterhase. <br />
+Gemeinsam verputzten sie diese kleinen Meisterwerke. 
+</p>
+</div>
+
+<div id="adler">
+<div class="small">
+<div style="float:left;" >{{img src="../../img/ostern/text/adler.jpg" alt="" }}</div><div style="float: right;"><p>
+Bei Familie Adler ist was los.<br />
+Was machen da die Kinder blo&szlig;? <br />
+Sie rennen dort im Garten rum, <br />
+und jeder fragt sich leis' warum.
+</p>
+<p>
+Sie kriechen unter Baum und Strauch, <br />
+mal auf den Knien, mal auf dem Bauch. <br />
+Sie schauen in jede Ritze rein, <br />
+als k&ouml;nnte was versteckt drin sein.
+</p>
+<p>
+So geht das jetzt schon seit Stunden, <br />
+und schaut, sie haben was gefunden. <br />
+Ein Nest mit bunten Eiern drin - <br />
+doch sagt, wie kam das nur dahin?
+</p>
+<p>
+Der Osterhase hat's versteckt, <br />
+Familie Adler hat's entdeckt. <br />
+Es lag da zwischen Gras und Moos. <br />
+Die Freude dar&uuml;ber, die war gro&szlig;.
+</p>
+<p>
+Familie Adler l&auml;dt jeden ein, <br />
+zum Osterfest ihr Gast zu sein. <br />
+Feier mit ihnen dieses Fest<br />
+und suche auch ein Osternest.
+</p>
+</div>
+</div>
+</div>
+
+<div id="dachs">
+<p>
+Es ist ein Tag vor Ostern. Bei Familie Dachs ist viel los:<br />
+Papa Dachs, was sehr ungew&ouml;hnlich ist, putzt den Bau, Mama Dachs besorgt Essen f&uuml;r Morgen, Schwester Dachs schm&uuml;ckt die Dachsbaug&auml;nge, Bruder Dachs malt Eier an und Opa Dachs besucht alle Hufflepuffd&auml;chse, Ravenclawraben, Gryffindorl&ouml;wen und Slytherinschlangen und w&uuml;nscht ihnen frohe Ostern, nur Baby Dachs liegt in seiner Wiege aus Zweigen und Moos.
+</p>
+<p>
+Auf einmal t&ouml;nt ein klopfen durch den Bau. Bruder Dachs schreit kurz auf, denn er denkt, der Osterhase steht vor der T&uuml;r, doch es ist nur der Rabe. "Darf ich rein kommen?", fragt er und als er Bruder Dachs´s entt&auml;uschtes Gesicht sieht, setzt er hinzu: "Warum guckst du so niedergeschlagen? Hast du etwa erwartet der Osterhase steht vor der T&uuml;r?"
+</p>
+<p>
+Der kleine Dachs nickt nur matt. Schon kommt Papa Dachs, noch immer mit dem Staubtuch in der Hand, zur T&uuml;r geeilt und begr&uuml;&szlig;t den Raben: "Hallo Rabe, alter Freund, komm doch rein, wie kann ich dir helfen?" "Ich wollte dir und deiner Familie frohe Ostern w&uuml;nschen. Ich habe einige Osterpl&auml;tzchen und ein Osterlamm mitgebracht. Du musst nur den Kaffee kochen", antwortet der Rabe frech, aber auf seine liebe Art. Papa Dachs bittet ihn herein, geht in die K&uuml;che und kocht Kaffee, wie derDachs ihn gebeten hatte. In der Zeit schiebt der Rabe ein paar angemalte Eier von Bruder Dachs zu Seite und setzt sich an den Tisch aus einer halbierten Eiche, die mit Farbklecksen von Bruder Dachs Eiern bekleckst ist. Nun ist auch Schwester Dachs dazu gekommen und l&auml;sst sich am Tisch nieder, wo sie ein sch&ouml;nes Osterei in den Tatzen h&auml;lt und bewundert. <br />
+Gerade als Papa Dachs mit dem Kaffee in den Wohnraum kommt, trudeln Mama- und Opa Dachs ein. Nach einem langen begr&uuml;&szlig;en sitzen alle am Tisch und bedienen sich an Pl&auml;tzchen und dem Lamm. Schwester Dachs ist begeistert von dem sch&ouml;nen Federkleid vom Raben und betrachtet ihn die ganze Zeit, die anderen unterhalten sich mit ihm, da sie sich l&auml;nger nicht mehr gesehen haben, gibt's viel zu erz&auml;hlen. Da klopft es wieder. Und wieder rennt Bruder Dachs zu T&uuml;r, in der Hoffnung der Osterhase sei es. Doch als er die T&uuml;r &ouml;ffnet- steht dort keiner! <br />
+"Hallo?", ruft Bruder Dach, "Wer ist da?" <br />
+{{img src="../../img/ostern/text/dachs.jpg" alt="" style="float:right;" }}
+"Hier unten bin ich", zischt die Schlange, "Guten Tag erst mal. Darf ich rein kommen? Sind deine Eltern da? Und...frohe Ostern!" <br />
+"Klar,komm rein", antwortet der kleine Dachs und &ouml;ffnet die T&uuml;r weit. Schon kriecht die Schlange in den Bau und begr&uuml;&szlig;t Familie Dachs und den Raben. Als sie die Leckereinen auf dem Tisch sieht, sagt sie: " Uhh, ich habe auch was-s mit gebracht." Sie zieht ein selbstgebackenes Wei&szlig;brot und eine Packung Waldtee aus der kleinen roten Umh&auml;ngetasche. Familie Dachs bedankt sich und Mama Dachs geht in die K&uuml;che, um den Waldtee zu kochen. Der Tee riecht nach Brombeeren und Laub, Kr&auml;utern und Fr&uuml;chte. W&auml;hrend alle ihren Tee schl&uuml;rfen f&auml;ngt Baby Dachs an zu quengeln. Sein quengeln hallt lauter als sonst durch den Bau. Der Rabe, der schon oft auf ihn aufgepasst hatte, geht zu seiner Wiege und setzt ihn auf den Boden, damit er sich etwas bewegen kann. <br />
+Danach sitzen wieder alle am Tisch und f&uuml;hren Gespr&auml;che &uuml;ber die Ostergeschenke dieses Jahr, dann &uuml;ber die Familie des Raben, die alle mit einer dicken Erk&auml;ltung im Nest liegen, danach &uuml;ber den Mann der Schlange, der leider nicht mitkommen konnte, weil er noch den Osterputz beenden muss. <br />
+Gerade als Opa Dachs von einem Keks in Form eines Huhnes abbei&szlig;t, kommt der L&ouml;we in den Wohnraum spaziert. Seine lange, goldene, M&auml;hne flattert majest&auml;tisch. "Wie bist du denn rein gekommen?" "Durch die T&uuml;r",antwortet der L&ouml;we und lacht laut. "Setz dich!", brummt Opa Dachs und schiebt ihm einen Stuhl hin. Nachdem der L&ouml;we kurz die Runde gemustert hatte, meint er: " Ich bin gekommen um euch allen frohen Ostern zu w&uuml;nschen. Als kleines Ostergeschenk habe ich selbstgemachte Marmelade und einen gro&szlig;en Schokohasen f&uuml;r die Kinder mitgebracht." <br />
+Als Mama Dachs dann die reich gedeckte Tafel begutachtet, sagt sie: "Da wir jetzt eine so gro&szlig;e, leckere Tafel haben, werde ich wohl meine Torte, die eigentlich f&uuml;r Morgen war, aus dem Vorratsschrank holen m&uuml;ssen." Alle brechen in Jubelschreie aus. <br />
+Jetzt sind wirklich alle da! Sie st&uuml;rzen sich auf die gro&szlig;e Torte und mampfen gen&uuml;sslich.
+</p>
+<p>
+Alle? Nein! Wo ist Baby Dachs?
+</p>
+<p>
+Als Mama Dachs sein fehlen bemerkt springt sie erschrocken auf. "Wo ist mein Baby?", schreit sie entsetzt und rennt zur T&uuml;r, alle anderen hinter ihr her. <br />
+Die Schlange sagt bek&uuml;mmert: " Ich habe die T&uuml;r aufgelassen!" Und der L&ouml;we setzt hinzu: "Und ich bin durch sie durch gegangen, ohne sie zu beachten!" <br />
+Doch es ist keine Zeit f&uuml;r schlechtes Gewissen, denn bald geht die Sonne unter, bis dahin m&uuml;ssen sie Baby Dachs finden und alle machen sich in die verschiedensten Richtungen auf den Weg zur Suche. Doch sie suchen &uuml;berall, ohne jegliche Spur. Sie suchen im Wald, auf der Wiese, am Fluss. So weit, kann das Baby gar nicht gekrabbelt sein.
+</p>
+<p>
+Stunden sp&auml;ter, die D&auml;mmerung hatte schon eingesetzt, finden sich wieder alle im Dachsbau ein. Mama Dachs hat Tr&auml;nen in den Augen und Papa Dachs kaut nerv&ouml;s auf seinen Fingern&auml;geln rum, solange, bis Opa Dachs ihn b&ouml;se an guckt. <br />
+Da klopft es, wie es schon oft heute getan wurde, an die T&uuml;r. "Wer da?", ruft Mama Dachs, ihr Stimme leise, von Tr&auml;nen erstickt. Als keiner antwortet, stehen alle auf und gehen zur T&uuml;r. Vor der T&uuml;r ist...Baby Dachs! Er liegt in einem kleinen Korb, mit Moos ausgelegt, anbei ein Zettel, worauf steht:
+</p>
+<p>
+
+Liebe Familie Dachs! <br />
+Euer Kleines ist mir heute "zu gekrabbelt" und hat mit geholfen die restlichen Eier anzumalen, denn ich war dieses Jahr sp&auml;t dran. Wenn ihr morgen besonders sch&ouml;ne Eier findet, sind es die, die er angemalt hat. <br />
+Ich hoffe ihr habt euch nicht zu gro&szlig;e Sorgen gemacht, es tut mir Leid, das ich ihn so sp&auml;t erst abgeliefert habe. 
+</p>
+<p>
+Liebe Gr&uuml;&szlig;e<br />
+Der Osterhase<br />
+PS: FROHE OSTERN!
+</p>
+<p>
+Als die kleine Gruppe &uuml;ber die durch die letzten Sonnenstrahlen gelb gef&auml;rbte Wiese guckt, sehen sie noch zwei lange, braune Ohren hinter den Haselnussb&uuml;schen verschwinden.
+</p>
+</div>
+
+<div id="loewe">
+<p>
+Endlich war es soweit. Die Vorbereitungen f&uuml;r das Osterfest waren abgeschlossen und der Tag der Tage war endlich da. Ostersonntag. Die ganze Familie L&ouml;we war schon zeitig auf den Beinen, denn die drei L&ouml;wenkinder konnten es kaum erwarten, bis sie endlich hinaus in den Garten konnten, um ihre Osternester zu suchen. Doch bis dahin hie&szlig; es geduldig warten und ja vom Fenster fern bleiben. Denn schlie&szlig;lich wollte der Hase nicht bei seiner Arbeit gest&ouml;rt werden.<br />
+Die beiden kleinen L&ouml;wenkinder hielten sich auch brav daran. Nur Leo, der &auml;lteste der Bande, glaubte nicht an solche M&auml;rchen. <br />
+Noch nie hatte jemand den Osterhasen gesehen. Wieso also sollte es ihn dann &uuml;berhaupt geben? Die Ostereier konnte auch sonst wer verstecken, war es ihm doch<br />
+aufgefallen, dass kurz vor der Ostereiersuche in den letzten Jahren der Vater immer verschwunden war und erst w&auml;hrenddessen wieder auftauchte. Er konnte genauso gut die Eier versteckt und das M&auml;rchen um den Hasen erfunden haben. <br />
+Und so lie&szlig; der L&ouml;wenjunge sich nicht vom Fenster vertreiben. Stundenlang sa&szlig; er davor, immer darauf bedacht, den "Osterhasen" in diesem Jahr endlich auf frischer Tat zu ertappen. Nur so konnte er beweisen, dass es ihn nicht gab. <br />
+Wiederholte Male ermahnte Vater L&ouml;we seinen Sohn. "Leo h&ouml;r mir gut zu. Der Osterhase m&ouml;chte nicht beobachtet werden. Wenn du ihn st&ouml;rst, kann er dein Osternest nicht verstecken und du bekommst keine Ostereier!" <br />
+Dabei redete er im ernsten Ton auf seinen &Auml;ltesten ein. Doch diesen beeindruckte das &uuml;berhaupt nicht. Sollte der Vater nur reden, Leo wusste es doch besser. <br />
+{{img src="../../img/ostern/text/loewe.jpg" alt="" style="float:left;" }}
+Die Zeit verging und bis zum Nachmittag hatte sich nichts im Garten der Familie getan. Leo L&ouml;we f&uuml;hlte sich in seiner Vermutung best&auml;tigt, bis er pl&ouml;tzlich etwas Braunes sah. <br />
+Nein, das konnte nicht sein. Waren da hinter dem Baum nicht gerade ein paar Hasenohren gewesen. Das musste er sich eingebildet haben. Wieder und wieder starrte er auf diesen Fleck. Und tats&auml;chlich hoppelte ein H&auml;schen hinter dem Baum hervor. Einen gro&szlig;en Korb mit bunten Eiern hatte er auf dem R&uuml;cken. <br />
+Leo wusste nicht, was er sagen sollte und schrie pl&ouml;tzlich los: <br />
+" Schnell kommt herbei! Ich habe den Osterhasen gesehen." <br />
+Doch in diesen Moment war der Hase schon wieder verschwunden. <br />
+Die Kinder der Familie L&ouml;we jedoch st&uuml;rmten in den Garten. Und es dauerte gar nicht lange, bis ein jeder ein Nest mit seinen Namen darauf gefunden hatte. Nur Leo suchte vergebens. Alles hatte er schon durchsucht. Die Blumenbeete, die B&auml;ume, die Eimer im Garten, sogar in der Gie&szlig;kanne hatte er nach einem Osternest geschaut. <br />
+Doch ohne Erfolg. <br />
+Traurig ging er zum Haus zur&uuml;ck. Hatte der Hase ihn vergessen? <br />
+Jetzt fielen ihm die Worte des Vaters wieder ein und er bereute es, dass er so neugierig gewesen war. H&auml;tte er nur gewartet, wie jedes andere Jahr auch. H&auml;tte er nur nicht am Fenster geschaut und so den Hasen vertrieben. H&auml;tte er dessen Existenz nur nicht bezweifelt. Das und noch vieles mehr ging dem L&ouml;wen durch den Kopf und er wurde nur noch trauriger. <br />
+Die anderen L&ouml;wenkinder sahen, wie traurig Leo war und wollten ihm etwas von ihren Osternestern abgeben. Doch Leo wollte nicht. Schlie&szlig;lich war er selbst schuld, dass er kein Osternest bekommen hatte. Nun wollte er den Anderen nicht auch noch ihre Nester wegnehmen. Au&szlig;erdem war es nicht dasselbe, wie ein eigenes Osternest. <br />
+Betr&uuml;bt schlappte er in sein Zimmer und zog die Bettdecke zur&uuml;ck. Hier war der einzige Ort, an dem er jetzt sein wollte. Doch als er sich in sein Bett legen wollte, erblickte er ein Osternest. Hatte der Osterhase doch noch an ihn gedacht? <br />
+Ein Zettel war daran befestigt. <br />
+"F&uuml;r Leo, den kleinen, neugierigen L&ouml;wen. Und es gibt mich doch." <br />
+Als Leo den Zettel las, musste er lachen. Zu gl&uuml;cklich war er &uuml;ber sein Osternest. <br />
+Und eines stand f&uuml;r ihn fest. Nie wieder w&uuml;rde er den Osterhasen beobachten. Das hatte er sich ganz fest vorgenommen.
+</p>
+</div>
+
+<div id="hogwarts">
+<p>{{img src="../../img/ostern/text/hogwarts.jpg" alt="" style="float:right;" }}
+Nur noch eine Woche bis Ostern. Die Aufregung der Sch&uuml;ler war zu sp&uuml;ren. Sie freuten sich alle auf die Ostereiersuche. Nur die Erstkl&auml;ssler hatten auch ein bisschen Angst, denn sie wussten nicht, was sie erwarten sollte. Die &auml;lteren Sch&uuml;ler &auml;rgerten sie auch noch und erz&auml;hlten ihnen, dass sie in den Verbotenen Wald m&uuml;ssten. Das war nat&uuml;rlich Unsinn, denn die Nester waren bisher immer in Hogwarts versteckt - f&uuml;r die Erstkl&auml;ssler offensichtlicher, f&uuml;r die anderen Sch&uuml;ler etwas schwerer. Immer wenn sie vor einem Nest standen, mussten sie ihren Namen sagen und wenn es richtig war, konnten sie das Nest nehmen, ansonsten wurde es f&uuml;r kurze Zeit unsichtbar und sie mussten weitersuchen. Nat&uuml;rlich konnte die Suche bei so vielen Sch&uuml;lern schon mal zwei Tage dauern. Doch in diesem Jahr sollte alles anders werden, f&uuml;r alle. Nach dem Fr&uuml;hst&uuml;ck am Ostersonntag sollte die Suche losgehen. Alle warteten gespannt auf das Startzeichen von Prof. Dumbledore, dem Schulleiter von Hogwarts. Viele Sch&uuml;ler hatten schon auf dem Weg zur Gro&szlig;en Halle gesucht, aber in diesem Jahr keine Nester gefunden. Das Getuschel beim Fr&uuml;hst&uuml;ck war gro&szlig;, denn die &auml;lteren Sch&uuml;ler kannten das nicht. Prof. Dumbledore stand auf und ging zu seinem Pult. Er verschaffte sich Ruhe und fing an zu sprechen: 
+</p>
+<p>
+Liebe Sch&uuml;ler, 
+</p>
+<p>
+in diesem Jahr haben wir, die Hauslehrer und ich beschlossen, die Osternestsuche zu ver&auml;ndern. <br />Gleich werden Euch die Vertrauenssch&uuml;ler nach drau&szlig;en bringen.<br /> Dort findet Ihr Nester, die mit Zahlen beschriftet sind und in den Farben eures Hauses erscheinen. <br />Die Zahlen symbolisieren dabei die Klasse. <br />Vergesst eure Zauberst&auml;be nicht!<br /> Wir w&uuml;nschen euch viel Spa&szlig; bei der Suche und hoffen, wir konnten sie dieses Jahr etwas aufregender gestalten. 
+</p>
+<p>
+Prof. Dumbledore beendete seine Rede, die nicht sehr lang war. Ein Raunen ging durch die Reihen. "Zauberstab mitnehmen…? Farbe und Zahl", konnte man heraush&ouml;ren. Hier wusste jeder, dass es den Osterhasen nicht gab, aber was sollte sie erwarten? Was hatten die Lehrer sich ausgedacht? Einige rannten los, um ihren Zauberstab zu holen und die Vertrauenssch&uuml;ler fingen an die Sch&uuml;ler um sich herum zu versammeln. Dieses Mal waren sogar die &auml;lteren Sch&uuml;ler aufgeregt und jeder hatte das Grinsen in Dumbledores Gesicht bemerkt. Die Hauslehrer gingen zu den Vertrauenssch&uuml;lern und f&uuml;hrten die verschiedenen H&auml;user nach drau&szlig;en. Die Sonne schien herrlich, auch wenn es noch kalt drau&szlig;en war. Aber es war nicht das typische Aprilwetter wie sonst immer. Die Hauslehrer erl&auml;uterten noch einmal das Vorgehen und w&uuml;nschten dann viel Spa&szlig;. Die Sch&uuml;ler gingen auf die Suche. Es war ein riesiges Durcheinander. Pl&ouml;tzlich schrie einer. Alle anderen Sch&uuml;ler, die in der N&auml;he gestanden hatten, schauten ihn an. Er hatte ein Nest gefunden. Die Klasse und auch die Farbe passten. Es war ein Erstkl&auml;ssler aus Hufflepuff. Er nahm seinen Zauberstab und &uuml;berlegte was zu tun sei. Er tippte das Nest mit dem Zauberstab an. Wie aus dem Nichts erschien eine Gestalt aus dem Nest und sagte: " Willst du dieses Nest bekommen, so musst du wissen, welchen Zauberspruch du nutzen musst, um es fliegen zu lassen." Dann verschwand die Gestalt wieder. Der Sch&uuml;ler &uuml;berlegte. Er hatte sowas schon mal geh&ouml;rt. Die anderen Sch&uuml;ler schauten, aber keiner half ihm. Sie waren alle zu geschockt. Hier wurde der Unterrichtsstoff abgefragt. Es war eine Pr&uuml;fung. Auf einmal ging eine Sch&uuml;lerin aus Gryffindor auf den Sch&uuml;ler aus Hufflepuff zu. Sie fl&uuml;sterte ihm etwas ins Ohr und das Gesicht des Sch&uuml;lers erstrahlte. "Wingardium Leviosar" rief er. Doch hatte er das Wutschen und Wedeln vergessen. Er versuchte es nochmal und das Nest erhob sich und flog. Nachdem er es landen lie&szlig; konnte er es nehmen. Alle anderen Sch&uuml;ler widmeten sich wieder der Suche. Jetzt wussten sie was auf sie zukam. F&uuml;r die &auml;lteren Sch&uuml;ler waren die Aufgaben nat&uuml;rlich schwerer. Einige hatten Schwierigkeiten, die Aufgaben zu l&ouml;sen und helfen konnte die anderen nur mit Ratschl&auml;gen. Machen mussten sie es aber alles selbst. Alle hatten bis zum Abend ihre Nester gefunden und die Aufgaben gel&ouml;st. Es war ein lustiges Suchen gewesen. Zu Hause durften sie nicht zaubern und so genossen sie die Osternestsuche mit Zaubern. Hoffentlich w&uuml;rde es n&auml;chstes Jahr genauso werden. Es hatte allen riesigen Spa&szlig; gemacht. 
+</p>
+</div>
+
+<div id="weiss">
+<p>Es war Karfreitag. Ein Feiertag wie jedes Jahr. Nur noch zwei Tage bis zum Osterfest. Der
+Osterhase hatte bereits alle Eier bemalt und wartete schon darauf, dass er sie
+endlich verstecken konnte. Er liebte es, wenn die Kinder danach suchten und mit
+leuchtenden Augen ihre Funde nach Hause trugen. So weit war alles, wie die
+anderen Jahre auch. Nur etwas stimmte nicht – Das Wetter!</p>
+
+<p>Anstatt der Blumen, die sonst um diese Jahreszeit Wiesen und
+W&auml;lder zierten, war eine dicke Schneeschicht zu sehen. Und die Knospen der
+B&auml;ume wurden durch Eiszapfen ersetzt. Irgendwie wollte der Fr&uuml;hling in diesem
+Jahr nicht so recht beginnen.</p>
+
+{{img src="../../img/ostern/text/weiss.jpg" alt="" style="float:left;" }}<p>F&uuml;r den Osterhasen war dies ein gro&szlig;es Problem. Wie sollte
+er bei solch einem Schnee seine Ostereier verstecken? Wie sollte er &uuml;berhaupt
+zu den Kindern kommen? Viel zu kalt war die wei&szlig;e Pracht f&uuml;r seine kleinen
+Pfoten. Und einen Mantel oder Handschuh, geschweige denn ein Paar Stiefel besa&szlig;
+er nicht. Was w&uuml;rden nur die Kinder denken, wenn sie am Ostersonntag vergebens
+nach den bunt angemalten Eiern suchten? Hatten sie sich doch schon lange auf
+diesen Tag gefreut.</p>
+
+<p>Traurig blickte der Osterhase aus dem Fenster. Nur zu gut
+konnte er sich die traurigen Augen der kleinen Eiersucher vorstellen. Aber wenn das Wetter nicht besser wurde,
+musste Ostern halt ausfallen. Das half alles nichts. Mit diesem Gedanken im
+Kopf ging der Hase betr&uuml;bt zu Bett. Doch konnte er die ganze Nacht nicht
+schlafen. Viel zu sehr besch&auml;ftigte ihn dieses Problem. Das durfte einfach
+nicht geschehen, Ostern konnte nicht ausfallen, das hatte es noch nie gegeben.
+Und das w&uuml;rde es auch nicht geben, nicht solange er der Osterhase war.</p>
+
+<p>Mitten in der Nacht kam ihn dann die rettende Idee. Warum fragte
+er nicht einfach beim Weihnachtsmann nach? Der alte Mann hatte sicher einen
+Mantel, ein paar Handschuh und ein Paar Stiefel f&uuml;r Meister Lampe &uuml;brig.
+Schlie&szlig;lich war er seit mehr als drei Monaten mit seiner Arbeit fertig und bis
+Dezember dauerte es noch eine Weile.</p>
+
+<p>Und so kam es, dass der Osterhase am n&auml;chsten Morgen den
+Weihnachtsmann besuchte. Dieser gab ihm gern die passenden Sachen. Schlie&szlig;lich
+wollte auch er nicht, dass das Osterfest ausfiel und die Kinder traurig waren.
+Das Fest war also gerettet.</p>
+
+<p>P&uuml;nktlich zum Ostersonntag konnte der Hase seinen Weg
+starten. Ausgestattet mit den Sachen des Weihnachtsmannes war ihm auch nicht
+mehr kalt. So konnte er die vielen bunten Eier im Schnee verstecken und
+beobachtete anschlie&szlig;end, wie die Kinder sie mit strahlenden Augen darin
+suchten. Doch eines war ihm dabei klar.
+Dieses Osterfest w&uuml;rde unvergessen bleiben. Denn wer kann schon behaupten, dass
+er einen Weihnachtshasen gesehen hat, oder seine Ostereier aus dem Schnee heraus
+gegraben hat? Sicherlich nicht viele!!</p>
+</div>
+<div id="ende"><h2>Frohe Ostern</h2>
+<p>Gl&uuml;ckwunsch! Du hast dieses Jahr alle Ostereier gefunden. Wir w&uuml;nschen dir ein Frohes Fest und hoffen, dass du auch ein paar reale Eier finden wirst.</p></div>
+		</div>
+	</body>
+</html>
