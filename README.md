@@ -1,6 +1,5 @@
-Ostereiersuche 2013 des HP-FC
-=============================
-[http://www.huffle-home.de/ostern2013/de/ostern/]
+Ostereiersuche des HP-FC
+========================
 
 Lizenz
 ------

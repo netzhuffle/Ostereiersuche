@@ -9,6 +9,7 @@
 var Bild = new Class({
 	/**
 	 * Überschrift des Bildes
+	 * @type string
 	 */
 	titel: null,
 	/**
