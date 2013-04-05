@@ -125,12 +125,35 @@ var Bild = new Class({
 	 */
 	getBild: function() {
 		if(!this.bild) {
-			this.bild = new Element("img", {
+			var bild = new Element("img", {
 				"src": this.bildpfad,
 				"events": {
 					"click": this.geklickt.bind(this)
 				}
 			});
+			this.bild = bild;
+			if (location.search == "?debug") {
+				var div = new Element("div", {
+					styles: {
+						position: "relative"
+					}
+				});
+				div.grab(bild);
+				this.eier.each(function (ei) {
+					div.grab(new Element("div", {
+						styles: {
+							position: "absolute",
+							top: ei.top - ei.height/2,
+							left: ei.left - ei.width/2,
+							height: ei.height,
+							width: ei.width,
+							backgroundColor: "rgba(255, 0, 0, 0.4)",
+							pointerEvents: "none"
+						}
+					}));
+				});
+				this.bild = div;
+			}
 		}
 		return this.bild;
 	}
