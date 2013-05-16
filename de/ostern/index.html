@@ -11,69 +11,43 @@
 <script src="../../js/ostern/Controller.js"></script>
 <script>
 	window.addEvent("domready", function() {
-		new Bild("Ravenclaw", "../../img/ostern/2013/ravsuchbild.jpg", [
-				// zu den Parametern von new Ei() siehe Ei.class.js->inizialize();
-				new Ei("kringel_gruen.png", new Text("Das Osterfest",
-						"ravostersonntag"), 268, 268, 30, 45),
-				new Ei("kringel_blau.png", new Text(
-						"Dudleys erstes Osterfest ohne Harry", "ravdudley"),
-						225, 170, 24, 30),
-				new Ei("kringel_gelb.png", new Text(
-						"Elfenostern Down Under - egal wie...",
-						"ravelfenostern"), 400, 60, 36, 32),
-				new Ei("kringel_rot.png", new Text(
-						"Mathilda und der nicht magische Osterstrauch",
-						"ravmathilda"), 335, 175, 28, 28),
-				new Ei("kringel_schwarz.png", new Text(
-						"Der Deal mit den Ostergnomen", "ravgnome"), 400, 220,
-						28, 28),
-				new Ei("kringel_schwarz.png", new Text("Ostern ohne Zaubern",
-						"osternohnezaubern"), 360, 540, 28, 28) ]);
-		new Bild("Gryffindor", "../../img/ostern/2013/gryffsuchbild.jpg", [
-				new Ei("kringel_schwarz.png", new Text("Samuels Freunde",
-						"gry_samuels_freunde"), 320, 430, 18, 14),
-				new Ei("kringel_gelb.png", new Text("Rezept - Hefeteigküken",
-						"gry_rezept"), 360, 80, 24, 16),
-				new Ei("kringel_rot.png", new Text("Karfreitag",
-						"gry_karfreitag"), 350, 150, 20, 10),
-				new Ei("kringel_blau.png", new Text(
-						"Von Drachen, Eiern und klebrigen Vögeln",
-						"gry_drachen_eier_klebrige_voegel"), 140, 140, 16, 10),
-				new Ei("kringel_gruen.png",
-						new Text("Schaukel", "gry_schaukel"), 350, 260, 18, 8)
+	    /*new Bild("Ravenclaw", "../../img/ostern/2013/ravsuchbild.jpg", [
+	        // zu den Parametern von new Ei() siehe Ei.class.js->inizialize();
+	        new Ei("kringel_gruen.png", new Text("Das Osterfest", "ravostersonntag"), 268, 268, 30, 45),
+	        new Ei("kringel_blau.png", new Text("Dudleys erstes Osterfest ohne Harry", "ravdudley"), 225, 170, 24, 30),
+	        new Ei("kringel_gelb.png", new Text("Elfenostern Down Under - egal wie...", "ravelfenostern"), 400, 60, 36,
+	                32),
+	        new Ei("kringel_rot.png", new Text("Mathilda und der nicht magische Osterstrauch", "ravmathilda"), 335,
+	                175, 28, 28),
+	        new Ei("kringel_schwarz.png", new Text("Der Deal mit den Ostergnomen", "ravgnome"), 400, 220, 28, 28),
+	        new Ei("kringel_schwarz.png", new Text("Ostern ohne Zaubern", "osternohnezaubern"), 360, 540, 28, 28) ]);
+	    new Bild("Gryffindor", "../../img/ostern/2013/gryffsuchbild.jpg", [
+	        new Ei("kringel_schwarz.png", new Text("Samuels Freunde", "gry_samuels_freunde"), 320, 430, 18, 14),
+	        new Ei("kringel_gelb.png", new Text("Rezept - Hefeteigküken", "gry_rezept"), 360, 80, 24, 16),
+	        new Ei("kringel_rot.png", new Text("Karfreitag", "gry_karfreitag"), 350, 150, 20, 10),
+	        new Ei("kringel_blau.png", new Text("Von Drachen, Eiern und klebrigen Vögeln",
+	                "gry_drachen_eier_klebrige_voegel"), 140, 140, 16, 10),
+	        new Ei("kringel_gruen.png", new Text("Schaukel", "gry_schaukel"), 350, 260, 18, 8)
 
-		]);
-		new Bild("Hufflepuff", "../../img/ostern/2013/huffsuchbild.jpg", [
-				new Ei("kringel_gelb.png", new Text("Ostergeschenk",
-						"huffostergeschenk"), 390, 150, 22, 22),
-				new Ei("kringel_gruen.png", new Text("Auferstehung",
-						"huffauferstehung"), 370, 65, 24, 18),
-				new Ei("kringel_rot.png", new Text("Ostermontag",
-						"huffostermontag"), 110, 210, 48, 32),
-				new Ei("kringel_schwarz.png", new Text("Spiegeleier",
-						"huffspiegeleier"), 100, 550, 48, 38),
-				new Ei("kringel_blau.png", new Text("Gedicht", "huffgedicht"),
-						40, 60, 32, 26),
-				new Ei("kringel_blau.png", new Text("Eier", "huffeier"), 400,
-						240, 32, 26) ]);
-		new Bild("Slytherin", "../../img/ostern/2013/slysuchbild.jpg", [
-				new Ei("kringel_gruen.png", new Text("Karsamstag",
-						"slykarsamstag"), 180, 106, 32, 28),
-				new Ei("kringel_rot.png", new Text("Osterprüfung",
-						"slypruefung"), 20, 440, 60, 42),
-				new Ei("kringel_blau.png", new Text("Ein Ostergedicht",
-						"Slygedicht"), 230, 40, 42, 34),
-				new Ei("kringel_gelb.png", new Text("Polterhase, Ostergeist!",
-						"slygeist"), 390, 135, 32, 28),
-				new Ei("kringel_schwarz.png",
-						new Text("Ostern 1981", "Sly1981"), 300, 330, 40, 36),
-				new Ei("kringel_rot.png", new Text("Erike und die Bären",
-						"slyerik"), 200, 330, 40, 36) ]);
-		new Bild("Ende", "../../img/ostern/2013/ende.jpg", [
-				new Ei("trans.png", new Text("Frohe Ostern", "abschlusstext"),
-						192, 203.5, 326, 213), ]);
-		projekt.start();
-	});
+	    ]);
+	    new Bild("Hufflepuff", "../../img/ostern/2013/huffsuchbild.jpg", [
+	        new Ei("kringel_gelb.png", new Text("Ostergeschenk", "huffostergeschenk"), 390, 150, 22, 22),
+	        new Ei("kringel_gruen.png", new Text("Auferstehung", "huffauferstehung"), 370, 65, 24, 18),
+	        new Ei("kringel_rot.png", new Text("Ostermontag", "huffostermontag"), 110, 210, 48, 32),
+	        new Ei("kringel_schwarz.png", new Text("Spiegeleier", "huffspiegeleier"), 100, 550, 48, 38),
+	        new Ei("kringel_blau.png", new Text("Gedicht", "huffgedicht"), 40, 60, 32, 26),
+	        new Ei("kringel_blau.png", new Text("Eier", "huffeier"), 400, 240, 32, 26) ]);
+	    new Bild("Slytherin", "../../img/ostern/2013/slysuchbild.jpg", [
+	        new Ei("kringel_gruen.png", new Text("Karsamstag", "slykarsamstag"), 180, 106, 32, 28),
+	        new Ei("kringel_rot.png", new Text("Osterprüfung", "slypruefung"), 20, 440, 60, 42),
+	        new Ei("kringel_blau.png", new Text("Ein Ostergedicht", "Slygedicht"), 230, 40, 42, 34),
+	        new Ei("kringel_gelb.png", new Text("Polterhase, Ostergeist!", "slygeist"), 390, 135, 32, 28),
+	        new Ei("kringel_schwarz.png", new Text("Ostern 1981", "Sly1981"), 300, 330, 40, 36),
+	        new Ei("kringel_rot.png", new Text("Erike und die Bären", "slyerik"), 200, 330, 40, 36) ]);
+	    new Bild("Ende", "../../img/ostern/2013/ende.jpg", [
+	        new Ei("trans.png", new Text("Frohe Ostern", "abschlusstext"), 192, 203.5, 326, 213), ]);*/
+	    projekt.start();
+    });
 </script>
 </head>
 

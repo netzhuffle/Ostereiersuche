@@ -7,63 +7,49 @@
 /**
  * Klasse für die zu suchenden Eier
  */
-var Ei = new Class({
+var Ei = {
     /**
 	 * Abstand des Eizentrums vom oberen Rand des Bildes in px
 	 * 
 	 * @type integer
 	 */
-    top : null,
+    top: null,
     /**
 	 * Abstand des Eizentrums vom linken Rand des Bildes in px
 	 * 
 	 * @type integer
 	 */
-    left : null,
+    left: null,
     /**
 	 * Höhe des Eis in px
 	 * 
 	 * @type integer
 	 */
-    height : 20,
+    height: 20,
     /**
 	 * Breite des Eis in px
 	 * 
 	 * @type integer
 	 */
-    width : 20,
+    width: 20,
     /**
 	 * URI des Kringels, wenn das Ei gefunden wurde
 	 * 
 	 * @type string
 	 */
-    kringelpfad : null,
+    kringelpfad: null,
     /**
 	 * Text des Eis
 	 * 
 	 * @type Text
 	 */
-    text : null,
+    text: null,
     /**
 	 * Ob das Ei bereits gefunden wurde
 	 */
-    gefunden : false,
+    gefunden: false,
     
-    /**
-	 * Konstruktor, initialisiert das Ei
-	 * 
-	 * @param kringel string URI des Kringels für das Ei relativ zum Ordner
-	 *            "images"
-	 * @param text Text Text des Eis
-	 * @param top integer Abstand des Eizentrums vom oberen Rand des Bildes in
-	 *            px
-	 * @param left integer Abstand des Eizentrums vom linken Rand des Bildes in
-	 *            px
-	 * @param height integer Höhe des Eis in px (optional, standard 20)
-	 * @param width integer Breite des Eis in px (optional, standard 20)
-	 */
-    initialize : function(kringel, text, top, left, height, width)
-    {
+    /*initialize: function(kringel, text, top, left, height, width) {
 	    this.top = top;
 	    this.left = left;
 	    if (height)
@@ -72,7 +58,7 @@ var Ei = new Class({
 		    this.width = width;
 	    this.kringelpfad = "../../img/ostern/" + kringel;
 	    this.text = text;
-    },
+    },*/
     
     /**
 	 * Gibt zurück, ob das Ei gefunden wurde
@@ -81,8 +67,7 @@ var Ei = new Class({
 	 * @param left integer Abstand von links, wo gesucht wurde in px
 	 * @return boolean Ob das Ei gefunden wurde
 	 */
-    istGefunden : function(top, left)
-    {
+    istGefunden: function(top, left) {
 	    var oben = this.top - this.height / 2;
 	    var unten = this.top + this.height / 2;
 	    var links = this.left - this.width / 2;
@@ -98,18 +83,16 @@ var Ei = new Class({
 	 * 
 	 * @return element img-Element für den Kringel
 	 */
-    getKringel : function()
-    {
+    getKringel: function() {
 	    var kringel = new Element("img", {
-	        "src" : this.kringelpfad,
-	        "styles" : {
-	            "position" : "absolute",
-	            "top" : this.top - 25,
-	            "left" : this.left - 25
+	        "src": this.kringelpfad,
+	        "styles": {
+	            "position": "absolute",
+	            "top": this.top - 25,
+	            "left": this.left - 25
 	        },
-	        "events" : {
-		        "click" : (function()
-		        {
+	        "events": {
+		        "click": (function() {
 			        projekt.gefunden(this);
 		        }).bind(this)
 	        }
@@ -122,8 +105,7 @@ var Ei = new Class({
 	 * 
 	 * @return element Text-Element
 	 */
-    getText : function()
-    {
+    getText: function() {
 	    return this.text.getText();
     },
     
@@ -132,8 +114,7 @@ var Ei = new Class({
 	 * 
 	 * @return element Titel des Textes
 	 */
-    getTitel : function()
-    {
+    getTitel: function() {
 	    return this.text.name;
     }
-});
+};

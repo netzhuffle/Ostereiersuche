@@ -7,37 +7,36 @@
 /**
  * Steuerungsklasse für das Programm
  */
-var Osterprojekt = new Class({
+var Osterprojekt = {
     /**
 	 * Array für alle Bilder
 	 * 
 	 * @type array
 	 */
-    bilder : [],
+    bilder: [],
     /**
 	 * Nummer des aktuellen Suchbildes
 	 * 
 	 * @type integer
 	 */
-    jetzt : null,
+    jetzt: null,
     /**
 	 * Speicher für die gefundenen Eier
 	 * 
 	 * @type array
 	 */
-    speicher : [],
+    speicher: [],
     /**
 	 * Ob die Koordinaten ausgegeben werden sollen
 	 * 
 	 * @type bool
 	 */
-    koordinatenModus : false,
+    koordinatenModus: false,
     
     /**
-	 * Lädt die gefunden Ostereier aus dem Cookie
+	 * Lädt die gefundenen Ostereier aus dem Cookie
 	 */
-    laden : function()
-    {
+    laden: function() {
 	    var speicher = Cookie.read("ostereiersuche");
 	    if (speicher == null) {
 		    this.speicher = [];
@@ -45,12 +44,10 @@ var Osterprojekt = new Class({
 	    } else {
 		    this.speicher = JSON.decode(speicher);
 	    }
-	    this.speicher.each(function(bild, bildid)
-	    {
+	    this.speicher.each(function(bild, bildid) {
 		    if (this.bilder[bildid]) {
 			    this.bilder[bildid].gefunden = true;
-			    bild.each(function(eiid)
-			    {
+			    bild.each(function(eiid) {
 				    if (this.bilder[bildid].eier[eiid]) {
 					    this.bilder[bildid].eier[eiid].gefunden = true;
 				    }
@@ -67,8 +64,7 @@ var Osterprojekt = new Class({
 	 * 
 	 * @param ei integer Nummer des Eis
 	 */
-    speichern : function(ei)
-    {
+    speichern: function(ei) {
 	    if (!this.speicher[this.jetzt]) {
 		    this.speicher[this.jetzt] = [];
 	    }
@@ -76,8 +72,8 @@ var Osterprojekt = new Class({
 	    var speicher = JSON.encode(this.speicher);
 	    var path = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
 	    Cookie.write("ostereiersuche", speicher, {
-	        path : path,
-	        duration : 365
+	        path: path,
+	        duration: 365
 	    });
     },
     
@@ -87,8 +83,7 @@ var Osterprojekt = new Class({
 	 * 
 	 * @param id integer Nummer des Bildes im Bilder-Array (optional)
 	 */
-    bild : function(id)
-    {
+    bild: function(id) {
 	    if (id || id === 0) {
 		    if (id == -1) {
 			    if (this.jetzt > 0)
@@ -121,15 +116,14 @@ var Osterprojekt = new Class({
 	 * @param id integer Nummer des Eis im Array des Bildes (optional - wird
 	 *            nicht gespeichert falls nicht angegeben)
 	 */
-    gefunden : function(ei, id)
-    {
+    gefunden: function(ei, id) {
 	    if (id || id === 0)
 		    this.speichern(id);
 	    var hintergrund = document.id("text");
 	    var text = ei.getText();
 	    hintergrund.empty();
 	    hintergrund.grab(text);
-	    text.fade("in"); // needed?
+	    text.fade("in");
 	    hintergrund.fade("in");
 	    document.id("titel").set("text", ei.getTitel());
 	    this.checkPfeile(true);
@@ -141,13 +135,11 @@ var Osterprojekt = new Class({
 	 * @param highlight bool Ob der vor-Pfeil blinken soll (optional - false,
 	 *            wenn nicht angegeben)
 	 */
-    checkPfeile : function(highlight)
-    {
+    checkPfeile: function(highlight) {
 	    if (this.jetzt > 0) {
 		    document.id("zurueck").setStyle("visibility", "visible");
 		    document.id("zurueck").removeEvents("click");
-		    document.id("zurueck").addEvent("click", (function()
-		    {
+		    document.id("zurueck").addEvent("click", (function() {
 			    this.bild(-1);
 		    }).bind(this));
 	    } else {
@@ -155,8 +147,7 @@ var Osterprojekt = new Class({
 		    document.id("zurueck").setStyle("visibility", "hidden");
 	    }
 	    
-	    var alleGefunden = this.bilder[this.jetzt].eier.every(function(ei)
-	    {
+	    var alleGefunden = this.bilder[this.jetzt].eier.every(function(ei) {
 		    return ei.gefunden;
 	    });
 	    
@@ -166,33 +157,28 @@ var Osterprojekt = new Class({
 		    if (highlight) {
 			    vor.fade("in");
 			    vor.get("tween").removeEvents("complete");
-			    vor.get("tween").addEvent("complete", function()
-			    {
-				    (function()
-				    {
+			    vor.get("tween").addEvent("complete", function() {
+				    (function() {
 					    vor.fade("toggle");
 				    }).delay(1); // da sonst noch der alte toggle-Wert
 				    // gesetzt ist (eingeblendet/ausgeblendet)
 			    });
 		    } else {
 			    vor.get("tween").removeEvents("complete");
-			    vor.get("tween").addEvent("complete", function()
-			    {
+			    vor.get("tween").addEvent("complete", function() {
 				    vor.fade("show");
 			    });
 			    vor.fade("show");
 		    }
 		    vor.removeEvents("click");
-		    vor.addEvent("click", (function()
-		    {
+		    vor.addEvent("click", (function() {
 			    this.bild();
 		    }).bind(this));
 		    
 	    } else {
 		    vor.removeEvents("click");
 		    vor.get("tween").removeEvents("complete");
-		    vor.get("tween").addEvent("complete", function()
-		    {
+		    vor.get("tween").addEvent("complete", function() {
 			    vor.fade("hide");
 		    });
 		    vor.fade("hide");
@@ -202,18 +188,14 @@ var Osterprojekt = new Class({
     /**
 	 * Startet das Programm
 	 */
-    start : function()
-    {
+    start: function() {
 	    var texthintergrund = document.id("text");
 	    texthintergrund.fade("hide");
-	    texthintergrund.addEvent("click", function()
-	    {
+	    texthintergrund.addEvent("click", function() {
 		    this.fade("out");
-		    this.getChildren().each(function(text)
-		    {
-			    text.fade("out"); // needed?
-			    text.get("tween").addEvent("complete", (function(e)
-			    {
+		    this.getChildren().each(function(text) {
+			    text.fade("out");
+			    text.get("tween").addEvent("complete", (function(e) {
 				    this.destroy();
 			    }).bind(text));
 		    });
@@ -223,6 +205,6 @@ var Osterprojekt = new Class({
 	    
 	    this.laden();
     }
-});
+};
 
-var projekt = new Osterprojekt();
+var projekt = Object.create(Osterprojekt);
