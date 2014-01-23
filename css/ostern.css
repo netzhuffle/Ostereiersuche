@@ -27,10 +27,6 @@ nav a {
 	text-align: center;
 }
 
-[hidden] {
-	display: none;
-}
-
 #text {
 	color: #fff;
 	position: absolute;
@@ -120,6 +116,10 @@ img.center {
 
 #zurueck {
 	float: left;
+}
+
+oster-bild, oster-ei {
+	display: hidden;
 }
 
 #impressum table {
