@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+[hidden] {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+a img {
+	border: none;
+}
+
+nav {
+	width: 610px;
+	margin: 0 auto;
+}
+
+nav a {
+	display: block;
+	background: url('../../img/pergament.jpg');
+	width: 10em;
+	margin: .5em auto;
+	padding: 0.125em 0.3125em;
+	text-align: center;
+}
+
+header {
+	height: 200px;
+}
+
+header h1 {
+	margin: auto;
+	text-align: center;
+}
+
+header h2, th, td {
+	text-align: center;
+	margin: 0 auto;
+	padding: .2em;
+	border: 2px solid #74090B;
+	border-radius: 5px;
+	background-color: #dbae71;
+	border: 2px solid #74090B;
+}
+
+header h2 {
+	font: 30px bold;
+	position: static;
+}
+
+table {
+	margin: 0 auto;
+}
+
+p {
+	margin: .2em;
+}
+
+.text {
+	color: #EE4000;
+}
+
+.bild {
+	color: #8B4513;
+}
+
+.bastel {
+	color: #000000;
+}
+
+.rezept {
+	color: #000000;
+}
+
+.kategorie {
+	font-size: 1.17em;
+	font-weight: bold;
+	padding: 1em 0;
+}
