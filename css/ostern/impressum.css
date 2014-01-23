@@ -4,6 +4,10 @@
 	display: none;
 }
 
+body {
+	background: #ebebeb url('../../img/allbg.jpg');
+}
+
 a {
 	text-decoration: none;
 	color: #000;
