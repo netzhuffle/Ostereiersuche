@@ -1,6 +1,7 @@
 <link rel="import" href="../../js/ostern/bower_components/polymer/polymer.html">
 <link rel="import" href="../../js/ostern/oster-bild.html">
 <link rel="import" href="../../js/ostern/oster-ei.html">
+<link rel="import" href="../../js/ostern/bower_components/polymer-selection/polymer-selection.html">
 
 <polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref name stageImage">
 	<template>
@@ -119,19 +120,18 @@
 			<a href="{{impressumhref}}">Impressum</a>
 		</nav>
 		<div hidden id="text"></div>
+		<polymer-selection id="imageSelection" on-polymer-select="{{selectImageAction}}"></polymer-selection>
 	</template>
 	<script>
 		Polymer('oster-projekt', {
             ready: function() {
-	            this.image = this.children[0];
-	            this.image.active = true;
+	            this.$.imageSelection.select(this.children[0]);
             },
-            selectImage: function(index) {
-            	for (var i = 0; i < this.children.length; i++) {
-            		this.children[i].active = false;
+            selectImageAction: function(event) {
+            	event.detail.item.active = event.detail.isSelected;
+            	if (event.detail.isSelected) {
+            		this.image = event.detail.item;
             	}
-	            this.image = this.children[index];
-	            this.image.active = true;
             }
         });
 	</script>
