@@ -5,26 +5,18 @@
 <title>HP-FC – Ostereiersuche 2014-dev</title>
 <meta name="keywords" content="Ostereier, Ostern, Harry, Potter, HP-FC">
 <meta name="description" content="In der Ostereiersuche des HP-FCs hat der Osterhase viele Ostereier versteckt. Finde die Oster-Eier in den selbsgemalten Bildern um zu sehen, was sich hinter ihnen verbirgt! Es gibt Geschichten, Gedichte, Bastelanleitungen und Backrezepte zu finden. Findest du alle Eier?">
-<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.1.3/platform.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.1.3/polymer.js"></script>
-<link rel="import" href="../../html/ostern/oster-projekt.html">
-<link rel="import" href="../../html/ostern/oster-bild.html">
-<link rel="import" href="../../html/ostern/oster-ei.html">
+<script src="../../js/ostern/bower_components/platform/platform.js"></script>
+<link rel="import" href="../../js/ostern/oster-projekt.html">
 </head>
 
-<body style="background: #ebebeb url('../../img/allbg.jpg')">
-	<noscript>
-		<p>Sorry, du hast kein JavaScript aktiviert.</p>
-		<p>Leider funktioniert die Ostereiersuche ohne JavaScript nicht.</p>
-	</noscript>
-	
+<body style="background: #ebebeb url('../../img/allbg.jpg')" unresolved>
 	<oster-projekt
 		headerlogo="../../img/ostern/2013/logo.gif"
 		headertext="HP-FC – Ostereiersuche 2014-dev"
 		impressumhref="impressum.html">
 	
-		<oster-bild title="Ravenclaw" src="../../img/ostern/2013/ravsuchbild.jpg">
-			<oster-ei title="Das Osterfest" top=268 left=268 height=30 width=45>
+		<oster-bild active name="Ravenclaw" src="../../img/ostern/2013/ravsuchbild.jpg">
+			<oster-ei name="Das Osterfest" top=268 left=268 height=30 width=45>
 				<p>Wir feiern das Osterfest, aber woher kommt Ostern, warum liegt
 					es nicht an einem festen Datum wie Weihnachten, und wie begehen es
 					andere Menschen?</p>
@@ -75,7 +67,7 @@
 					Sonnenfesten, da dadurch das Wiedererscheinen der Stärke der Sonne
 					angedeutet wird.</p>
 			</oster-ei>
-			<oster-ei title="Dudleys erstes Osterfest ohne Harry" top=225 left=170 height=24 width=30>
+			<oster-ei name="Dudleys erstes Osterfest ohne Harry" top=225 left=170 height=24 width=30>
 				<p>Es war schon seltsam für Dudley Dursley, dass Harry nicht immer
 					da war. Keiner, den man verspotten oder ärgern konnte. Also suchte
 					sich Dudley in Harrys erstem Schuljahr neue Opfer aus. In Smeltings,
@@ -227,7 +219,7 @@
 					Kinder dort aber war es ein unvergesslich schönes Ostern – auch ohne
 					Taschengeld.</p>
 			</oster-ei>
-			<oster-ei title="Elfenostern Down Under – egal wie …" top=400 left=60 height=36 width=32>
+			<oster-ei name="Elfenostern Down Under – egal wie …" top=400 left=60 height=36 width=32>
 				<p>Rowdie, der alte Elf, saß inmitten einer riesigen Menge
 					Straußeneier. Manche davon waren schon bemalt, andere waren noch
 					gänzlich ohne Farbe. Er wischte sich seine bekleksten Hände an seinem
@@ -417,7 +409,7 @@
 					saßen still beieinander. Antolin unterbrach die Stille. „Ist fast, als
 					wäre heute schon Ostern.“ Und irgendwie war es das auch.</p>
 			</oster-ei>
-			<oster-ei title="Mathilda und der nicht-magische Osterstrauch" top=335 left=175 height=28 width=28>
+			<oster-ei name="Mathilda und der nicht-magische Osterstrauch" top=335 left=175 height=28 width=28>
 				<p>Lucie lebte ein ruhiges Leben. Sie hatte schon einige Jahre auf
 					diesem Planeten geweilt und einiges gesehen. Eigentlich könnte sie
 					nichts mehr überraschen. Doch dass ihre Enkelin Mathilda magisch
@@ -591,7 +583,7 @@
 				<p>Mathilda sah ihre Oma mit glänzenden Augen an: „Omi, das ist
 					echt viel besser als Eier mit Zauberei bunt zu verwandeln!“</p>
 			</oster-ei>
-			<oster-ei title="Der Deal mit den Ostergnomen" top=400 left=220 height=28 width=28>
+			<oster-ei name="Der Deal mit den Ostergnomen" top=400 left=220 height=28 width=28>
 				<p>Niemand hätte je behauptet, dass Matthew Weasley und seine
 					Familie arm wären. Denn das wäre eine Teufelslüge gewesen. In ihrem
 					Haus blitzte es nur so schön, dass man schon beim bloßen Anblick nicht
@@ -866,7 +858,7 @@
 					der kleine Junge, den Matt gesehen hatte. „Frohe Ostern!“ rief er
 					glücklich. „Frohe Ostern“, antwortete Matt leise und lächelte.</p>
 			</oster-ei>
-			<oster-ei title="Ostern ohne Zaubern" top=360 left=540 height=28 width=28>
+			<oster-ei name="Ostern ohne Zaubern" top=360 left=540 height=28 width=28>
 				<p>Die Familie von Veronika, versucht ihr Osterfest ohne Zaubern zu
 					organisieren. Veronika geht in die dritte Klasse von Hogwarts und ist
 					über den Osterferien zu Hause Ihre jüngeren Geschwister Phil und
@@ -1080,8 +1072,8 @@
 			</oster-ei>
 		</oster-bild>
 		
-		<oster-bild title="Gryffindor" src="../../img/ostern/2013/gryffsuchbild.jpg">
-			<oster-ei title="Samuels Freunde" top=320 left=430 height=18 width=14>
+		<oster-bild name="Gryffindor" src="../../img/ostern/2013/gryffsuchbild.jpg">
+			<oster-ei name="Samuels Freunde" top=320 left=430 height=18 width=14>
 				<p>
 					<img src="../../img/ostern/2013/text/gry_samuels_freunde_bild1.jpg"
 						alt="" class="center">
@@ -1198,7 +1190,7 @@
 					Gemeinde. Ja, man könnte schon fast sagen, sie behandelten ihn wie
 					einen Freund.</p>
 				<footer>von Gwendoyn (Text) und Sahira Tania Arabella Rose
-					(Bilder), Gryffindor</footer> </oster-ei> <oster-ei title="Rezept – Hefeteigküken" top=360
+					(Bilder), Gryffindor</footer> </oster-ei> <oster-ei name="Rezept – Hefeteigküken" top=360
 					left=80 height=24 width=16>
 				<p>
 					<img src="../../img/ostern/2013/text/gry_rezept_bild.jpg" alt=""
@@ -1232,7 +1224,7 @@
 					20 Min backen. Küken herausholen und abkühlen lassen.</p>
 				<p>Zubereitungszeit: ca. 30 Min + 45 Min Wartezeit (zum Gehen des
 					Teiges)</p>
-				<footer>von Farnelia, Gryffindor</footer> </oster-ei> <oster-ei title="Karfreitag"
+				<footer>von Farnelia, Gryffindor</footer> </oster-ei> <oster-ei name="Karfreitag"
 					top=350 left=150 height=20 width=10>
 				<p>
 					Am Karfreitag, welcher traditionell immer der Freitag direkt vor
@@ -1289,7 +1281,7 @@
 					</p>
 				</footer>
 			</oster-ei>
-			<oster-ei title="Von Drachen, Eiern und klebrigen Vögeln" top=140 left=140 height=16 width=10>
+			<oster-ei name="Von Drachen, Eiern und klebrigen Vögeln" top=140 left=140 height=16 width=10>
 				<p>Heute war wieder einer dieser Tage, wo ich denke, warum mache
 					ich das überhaupt. Du stehst auf, schaust in den Spiegel, schmeißt
 					dir Wasser ins Gesicht, ziehst deine Kleidung an, heftest das
@@ -1360,7 +1352,7 @@
 					ein großes Glas des Lieblingsgetränkes für harte Kobolde: Eierlikör!</p>
 				<footer>von daedalus diggel, Gryffindor</footer>
 			</oster-ei>
-			<oster-ei title="Schaukel" top=350 left=260 height=18 width=8>
+			<oster-ei name="Schaukel" top=350 left=260 height=18 width=8>
 				<div style="font-style: italic;">
 					<p>„Lieber Osterhase, wie geht es dir? Du wunderst dich bestimmt,
 						dass ich dir schreibe. Ich finde es einfach unfair, dass der
@@ -1504,8 +1496,8 @@
 			</oster-ei>
 		</oster-bild>
 		
-		<oster-bild title="Hufflepuff" src="../../img/ostern/2013/huffsuchbild.jpg">
-			<oster-ei title="Ostergeschenk" top=390 left=150 width=22 height=22>
+		<oster-bild name="Hufflepuff" src="../../img/ostern/2013/huffsuchbild.jpg">
+			<oster-ei name="Ostergeschenk" top=390 left=150 width=22 height=22>
 				<p>Die Sonne stand schon am Horizont und tauchte alles in helles
 					Licht. An der peitschenden Weide sproßen erste grüne Blätter und
 					kleine Schneeglöckchen gruben sich langsam durch die Erde an die warme
@@ -1662,7 +1654,7 @@
 					Geschenk gebrochen. Vielleicht war das ja sogar der Anfang einer
 					Freundschaft, dachte der Hauself glücklich.</p>
 			</oster-ei>
-			<oster-ei title="Auferstehung" top=370 left=65 height=24 width=18>
+			<oster-ei name="Auferstehung" top=370 left=65 height=24 width=18>
 				<p>Es ist ein lauer Montagmorgen, die ersten Sonnenstrahlen lassen
 					auf sich warten. Der Morgen ist noch nicht angebrochen, es ist noch
 					nicht Tag, aber auch nicht mehr Nacht. Draußen ist es noch dunkel.
@@ -1750,7 +1742,7 @@
 					besonders die Menschen, die nicht etwas tatsächlich sehen und dennoch
 					glauben, die wahren Gläubigen sind.</p>
 			</oster-ei>
-			<oster-ei title="Ostermontag" top=110 left=210 height=48 width=32>
+			<oster-ei name="Ostermontag" top=110 left=210 height=48 width=32>
 				<p>Der Ostermontag gehört neben dem Pfingstmontag und dem 26.
 					Dezember zu einem der drei größten zweiten Feiertage. Ostern wird als
 					achttägiges Fest gefeiert, was bis zum folgenden Sonntag andauert.
@@ -1797,7 +1789,7 @@
 					am Wunder nahm und die Botschaft der Auferstehung ihres Herrn
 					verkünden ließ.</p>
 			</oster-ei>
-			<oster-ei title="Spielgeleier" top=100 left=550 height=48 width=38>
+			<oster-ei name="Spielgeleier" top=100 left=550 height=48 width=38>
 				<dl>
 					<dt>Schwierigkeitsgrad:</dt>
 					<dd>einfach</dd>
@@ -1872,7 +1864,7 @@
 				<p>Zum Servieren kann man die Spiegeleier auch gerne in eine
 					Bratpfanne setzen!</p>
 			</oster-ei>
-			<oster-ei title="Gedicht" top=40 left=60 height=32 width=26>
+			<oster-ei name="Gedicht" top=40 left=60 height=32 width=26>
 				<p>
 					Die Sonne lacht so schön am Himmel,<br> Kinder wachen mit einem
 					Lächeln auf.<br> Der Frühling ist endlich gekommen.<br>
@@ -1913,7 +1905,7 @@
 			
 				</p>
 			</oster-ei>
-			<oster-ei title="Eier" top=400 left=240 height=32 width=26>
+			<oster-ei name="Eier" top=400 left=240 height=32 width=26>
 				<h3>Utensilien</h3>
 				<p>
 					<img src="../../img/ostern/2013/text/huffeier1.jpg" alt=""
@@ -1988,8 +1980,8 @@
 			</oster-ei>
 		</oster-bild>
 		
-		<oster-bild title="Slytherin" src="../../img/ostern/2013/slysuchbild.jpg">
-			<oster-ei title="Karsamstag" top=180 left=106 height=32 width=28>
+		<oster-bild name="Slytherin" src="../../img/ostern/2013/slysuchbild.jpg">
+			<oster-ei name="Karsamstag" top=180 left=106 height=32 width=28>
 				<p>Mit dem Karsamstag endet die heilige Karwoche (von
 					althochdeutsch kara=Klage, Kummer, Trauer), die Woche unmittelbar vor
 					Ostern. Am Karsamstag wird der Tod Jesu Christi betrauert, der am Tag
@@ -2053,7 +2045,7 @@
 					Dreikönigstag für wohltätige Zwecke gespendet wird.
 				</p>
 			</oster-ei>
-			<oster-ei title="Die Osterprüfung" top=20 left=440 height=60 width=42>
+			<oster-ei name="Die Osterprüfung" top=20 left=440 height=60 width=42>
 				<p>Es war ein sonniger Morgen als Lora und ihre Freundinnen von
 					diesem unerträglichen Wecker geweckt wurden. Heute wollten sie früher
 					aufstehen, weil sie nochmals für die Osterprüfung in Zauberkunst üben
@@ -2104,7 +2096,7 @@
 					Gemeinschaftsraum und wartete auf ihre Freundinnen um Ostern zu
 					feiern.</p>
 			</oster-ei>
-			<oster-ei title="Ein kleines Ostergedicht" top=230 left=40 height=42 width=34>
+			<oster-ei name="Ein kleines Ostergedicht" top=230 left=40 height=42 width=34>
 				<p>
 					<img src="../../img/ostern/2013/text/gedicht.jpg" alt="" class="right">
 					Nach der langen Winterzeit<br> wächst alles schön weit und breit.<br>
@@ -2125,7 +2117,7 @@
 					für dich, <br> weil du immer denkst an mich!
 				</p>
 			</oster-ei>
-			<oster-ei title="Polterhase, Ostergeist!" top=390 left=135 height=32 width=28>
+			<oster-ei name="Polterhase, Ostergeist!" top=390 left=135 height=32 width=28>
 				<p>
 					„Peeves!!! Auf der Stelle in mein Büro!!!“ Die Stimme von Professor
 					McGonagall schallte durch die Gänge von Hogwarts und das Echo war bis
@@ -2307,7 +2299,7 @@
 					Sommer hin wurde es ruhig. Ungewöhnlich ruhig. Peeves war mit Myrthe
 					in die Karibik gefahren.</p>
 			</oster-ei>
-			<oster-ei title="Ostern 1981" top=300 left=330 height=40 width=36>
+			<oster-ei name="Ostern 1981" top=300 left=330 height=40 width=36>
 				<p>Es war eine klare Nacht, Sterne spiegelten sich im See vor dem
 					Schloss. Kein Lufthauch wehte, kaum ein Laut durchdrang die stille,
 					friedliche Nacht. Ganz vereinzelt waren flackernde Lichter hinter den
@@ -2478,7 +2470,7 @@
 					Hoffnung, und die neugewonnene Kraft dieses Mädchens war der lebende
 					Beweis dafür.</p>
 			</oster-ei>
-			<oster-ei title="Erik und die Bären" top=200 left=330 height=40 width=36>
+			<oster-ei name="Erik und die Bären" top=200 left=330 height=40 width=36>
 				<p>
 					<a href="slybasteln.pdf">Der kleine Osterhase Erik</a> darf dieses
 					Jahr zum ersten Mal beim großen Ostertreiben mithelfen. Am
@@ -2557,8 +2549,8 @@
 			</oster-ei>
 		</oster-bild>
 		
-		<oster-bild title="Ende" src="../../img/ostern/2013/ende.jpg">
-			<oster-ei title="Frohe Ostern" top=192 left=203 height=326 width=213>
+		<oster-bild name="Ende" src="../../img/ostern/2013/ende.jpg">
+			<oster-ei name="Frohe Ostern" top=192 left=203 height=326 width=213>
 				<p>Dies ist das Ende des Osterkalenders. Wir hoffen, die
 					vielfältigen Geschichten haben euch gefallen und die Rezepte und
 					Bastelideen haben euch inspiriert. Herzlichen Dank an alle

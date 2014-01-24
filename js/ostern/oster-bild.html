@@ -1,0 +1,10 @@
+<polymer-element name="oster-bild" attributes="name src active">
+	<template>
+		<template if="{{active}}">
+			<img src="{{src}}" alt="">
+		</template>
+	</template>
+	<script>
+		Polymer('oster-bild');
+	</script>
+</polymer-element>
