@@ -5,6 +5,10 @@
 		}
 	</style>
 	<template>
+		<template if="{{!name || !top || !left || !height || !width}}">
+			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory attributes
+			<code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
+		</template>
 		<content></content>
 	</template>
 	<script>Polymer('oster-ei');</script>

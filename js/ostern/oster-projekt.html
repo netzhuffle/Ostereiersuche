@@ -3,7 +3,7 @@
 <link rel="import" href="../../js/ostern/oster-ei.html">
 <link rel="import" href="../../js/ostern/bower_components/polymer-selection/polymer-selection.html">
 
-<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref name stageImage">
+<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref">
 	<template>
 		<style>
 			:host {
@@ -112,6 +112,10 @@
 			<h2>{{image.name}}</h2>
 		</header>
 		<div id="stage">
+			<template if="{{!headerlogo || !headertext || !impressumhref}}">
+				<strong>Error:</strong> Please add the attributes <code>headerlogo</code>, <code>headertext</code>,
+				and <code>impressumhref</code> to the <code>oster-projekt</code> element.
+			</template>
 			<content id="bild" selector="oster-bild"></content>
 		</div>
 		<nav>
