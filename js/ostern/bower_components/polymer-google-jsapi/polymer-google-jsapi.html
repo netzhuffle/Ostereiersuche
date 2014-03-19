@@ -19,11 +19,11 @@ license that can be found in the LICENSE file.
         d.close();
       }
       var api;
-      loaded = function(google) {
+      var loaded = function(google) {
         window.__polymer_google_jsapi = undefined;
         window.google = api = google;
         instances.forEach(function(i) {
-          i.notify();
+          i.provide();
         });
       }
       var loader =  
@@ -36,8 +36,10 @@ license that can be found in the LICENSE file.
         ready: function() {
           switch (state) {
             case '':
+              instances.push(this);
               load();
               state = 'pending';
+              break;
             case 'pending':
               instances.push(this);
               break;

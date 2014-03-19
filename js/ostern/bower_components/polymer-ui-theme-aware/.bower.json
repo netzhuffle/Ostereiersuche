@@ -2,17 +2,17 @@
   "name": "polymer-ui-theme-aware",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-ui-theme-aware",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "6d25715c42cf48a9d00a2dde1481d1a5de305e61"
+    "tag": "0.2.1",
+    "commit": "02ea286363c25b5e2f11ab9087ab69f1cb8efdcd"
   },
   "_source": "git://github.com/Polymer/polymer-ui-theme-aware.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-ui-theme-aware"
 }

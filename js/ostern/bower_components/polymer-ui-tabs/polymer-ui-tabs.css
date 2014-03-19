@@ -9,7 +9,7 @@ license that can be found in the LICENSE file.
   white-space: nowrap;
 }
 
-/*@polyfill :host > * */
+polyfill-next-selector { content: ':host > *'; }
 ::content > :not(template) {
 	display: inline-block;
   min-width: 60px;
@@ -22,7 +22,7 @@ license that can be found in the LICENSE file.
   color: #999;
 }
 
-/*@polyfill :host > *.polymer-selected */
+polyfill-next-selector { content: ':host > .polymer-selected'; }
 ::content > *.polymer-selected {
   background: #5599FF;
   color: white;

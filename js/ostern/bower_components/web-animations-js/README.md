@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/web-animations/web-animations-js.png?branch=master)](https://travis-ci.org/web-animations/web-animations-js)
+
+Latest specification at http://dev.w3.org/fxtf/web-animations/.
+
 ## Learn the tech
 
 ### Why Web Animations?
@@ -59,7 +63,7 @@ modified by an animation, and the values that those properties and attributes
 vary between. AnimationEffect objects also control whether the effect replaces
 or adds to the underlying value.
 
-There are three major kinds of effects: `KeyframeEffect`, `MotionPathEffect`, and `CustomAnimationEffect`.
+There are three major kinds of effects: `KeyframeEffect`, `MotionPathEffect`, and `EffectCallback`.
 
 #### Animating between keyframes
 
@@ -99,7 +103,7 @@ A `MotionPathEffect` allows elements to be animated along SVG-style paths. For e
 
 #### Custom animation effects
 
-A `CustomAnimationEffect` allows animations to generate call-outs to JavaScript
+An `EffectCallback` allows animations to generate call-outs to JavaScript
 rather than manipulating properties directly. Please see the
 [specification](http://www.w3.org/TR/web-animations/#custom-effects) for more details on this
 feature.
@@ -224,4 +228,4 @@ then the polyfill will provide a console warning in browsers where these feature
 ## Tools & testing
 
 For running tests or building minified files, consult the
-[tooling information](http://www.polymer-project.org/tooling-strategy.html).
+[tooling information](http://www.polymer-project.org/resources/tooling-strategy.html).

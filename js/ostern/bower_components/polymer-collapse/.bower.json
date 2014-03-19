@@ -2,17 +2,17 @@
   "name": "polymer-collapse",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-collapse",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "be3230c6058d436fdad28b628b519f767b1a97cf"
+    "tag": "0.2.1",
+    "commit": "a71ea4a36bfbec4eb2d31c376cebb9aa0b3be47e"
   },
   "_source": "git://github.com/Polymer/polymer-collapse.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-collapse"
 }

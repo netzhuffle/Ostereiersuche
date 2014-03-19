@@ -31,7 +31,7 @@
     </div>
     <polymer-ui-icon id="meta"></polymer-ui-icon>
     <script>
-      addEventListener('WebComponentsReady', function() {
+      addEventListener('polymer-ready', function() {
         var icons = Object.keys(document.querySelector('#meta').getIconset().iconMap);
         var plates = document.querySelectorAll('template');
         for (var i = 0, p; p=plates[i]; i++) {

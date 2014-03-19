@@ -2,17 +2,17 @@
   "name": "polymer-google-jsapi",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-google-jsapi",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "804a2ebd1755f5c3e84dcde8e1833d494439bf16"
+    "tag": "0.2.1",
+    "commit": "2621f763d9dbacc929b00cb208e5ea0d9223e061"
   },
   "_source": "git://github.com/Polymer/polymer-google-jsapi.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-google-jsapi"
 }

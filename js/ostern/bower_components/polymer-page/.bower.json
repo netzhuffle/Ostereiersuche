@@ -2,17 +2,17 @@
   "name": "polymer-page",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-page",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "ff2d42e19a99bc5b9dce27436bc6fc8f36c6c96a"
+    "tag": "0.2.1",
+    "commit": "3eaef2bb80d60ed8cd351739fadc40fce95aa78b"
   },
   "_source": "git://github.com/Polymer/polymer-page.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-page"
 }

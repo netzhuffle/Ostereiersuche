@@ -2,17 +2,17 @@
   "name": "polymer-localstorage",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-localstorage",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "0ea194b55255db71e26b37e41778856a8659df09"
+    "tag": "0.2.1",
+    "commit": "19e87468b2a977bf79db60db247e0b4e8672e920"
   },
   "_source": "git://github.com/Polymer/polymer-localstorage.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-localstorage"
 }

@@ -13,7 +13,7 @@
   
   <script>
     var assert = chai.assert;
-    document.addEventListener('WebComponentsReady', function() {
+    document.addEventListener('polymer-ready', function() {
       var s = document.querySelector('#localstorage');
       var m = 'hello wold';
       window.localStorage.setItem(s.name, m);

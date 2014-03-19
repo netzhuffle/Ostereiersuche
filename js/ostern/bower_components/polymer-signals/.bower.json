@@ -2,17 +2,17 @@
   "name": "polymer-signals",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-signals",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "4b1ed1f185e48059404bc730004adba354fe7996"
+    "tag": "0.2.1",
+    "commit": "77a712655656b7dd63a7ddb4e76a2e55b31cfd25"
   },
   "_source": "git://github.com/Polymer/polymer-signals.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-signals"
 }

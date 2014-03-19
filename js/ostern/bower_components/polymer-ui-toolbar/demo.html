@@ -19,15 +19,15 @@ license that can be found in the LICENSE file.
     <link rel="stylesheet" href="../polymer-ui-base/base.css">
     <style>
       /* toolbar custom theme (would work even if toolbar is inside n-levels of Shadow DOM) */
-      body ^^ polymer-ui-toolbar.my-custom-theme {
+      body /shadow-deep/ polymer-ui-toolbar.my-custom-theme {
         background-color: #5599FF;
         color: #BBD6FF;
         font-size: 28px;
       }
-      body ^^ polymer-ui-toolbar polymer-ui-icon-button.my-custom-theme:hover {
+      body /shadow-deep/ polymer-ui-toolbar polymer-ui-icon-button.my-custom-theme:hover {
         background-color: #77ABFA;
       }
-      body ^^ polymer-ui-toolbar polymer-ui-icon-button.my-custom-theme:hover ^ polymer-ui-icon {
+      body /shadow-deep/ polymer-ui-toolbar polymer-ui-icon-button.my-custom-theme:hover /shadow/ polymer-ui-icon {
         transition: -webkit-transform 0.33s;
         transition: transform 0.33s;
         -webkit-transform: rotate(180deg);

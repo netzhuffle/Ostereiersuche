@@ -2,17 +2,17 @@
   "name": "polymer-cookie",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#0.1.3"
+    "polymer": "Polymer/polymer#0.2.1"
   },
-  "version": "0.1.3",
+  "version": "0.2.1",
   "homepage": "https://github.com/Polymer/polymer-cookie",
-  "_release": "0.1.3",
+  "_release": "0.2.1",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.3",
-    "commit": "6470f078b10bf538ad9e71cd46ce47f32d43fdf6"
+    "tag": "0.2.1",
+    "commit": "db128558f2803adfb48d4bbe689c9d59669118e0"
   },
   "_source": "git://github.com/Polymer/polymer-cookie.git",
-  "_target": "0.1.3",
+  "_target": "0.2.1",
   "_originalSource": "Polymer/polymer-cookie"
 }
