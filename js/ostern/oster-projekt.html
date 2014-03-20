@@ -3,7 +3,7 @@
 <link rel="import" href="../../js/ostern/oster-ei.html">
 <link rel="import" href="../../js/ostern/bower_components/polymer-selection/polymer-selection.html">
 
-<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref">
+<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref" on-show-ei="{{showEi}}" on-hide-ei="{{hideEi}}">
 	<template>
 		<style>
 			:host {
@@ -80,7 +80,7 @@
 			<h1>
 				<img src="{{headerlogo}}" alt="{{headertext}}">
 			</h1>
-			<h2>{{image.name}}</h2>
+			<h2>{{currentShown.name}}</h2>
 		</header>
 		<div id="stage">
 			<template if="{{!headerlogo || !headertext || !impressumhref}}">
@@ -95,18 +95,25 @@
 			<a href="{{impressumhref}}">Impressum</a>
 		</nav>
 		<div hidden id="text"></div>
-		<polymer-selection id="imageSelection" on-polymer-select="{{selectImageAction}}"></polymer-selection>
+		<polymer-selection id="imageSelection" on-polymer-select="{{handleSelectImage}}"></polymer-selection>
 	</template>
 	<script>
 		Polymer('oster-projekt', {
             ready: function() {
 	            this.$.imageSelection.select(this.children[0]);
             },
-            selectImageAction: function(event, detail) {
+            handleSelectImage: function(event, detail) {
             	detail.item.active = detail.isSelected;
             	if (detail.isSelected) {
-            		this.image = detail.item;
+            		this.currentImage = detail.item;
+            		this.currentShown = this.currentImage;
             	}
+            },
+            showEi: function(event) {
+            	this.currentShown = event.target;
+            },
+            hideEi: function() {
+            	this.currentShown = this.currentImage;
             }
         });
 	</script>

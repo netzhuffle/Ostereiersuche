@@ -28,7 +28,7 @@
 				margin: auto;
 			}
 		</style>
-		<template if="{{!name || !top || !left || !height || !width}}">
+		<template if="{{!name || top < 0 || left < 0 || height < 0 || width < 0}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory attributes
 			<code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
 		</template>
@@ -40,20 +40,23 @@
 	</template>
 	<script>
 		Polymer('oster-ei', {
-			top: 0, // hint type: number
-			left: 0,
-			height: 0,
-			width: 0,
+			top: -1, // hint type: number
+			left: -1,
+			height: -1,
+			width: -1,
 			show: false,
-			isThere: function(top, left) {
+			handleClick: function(top, left) {
 				if (top < this.top) return;
 				if (top > this.top + this.height) return;
 				if (left < this.left) return;
 				if (left > this.left + this.width) return;
-				return true;
+				
+				this.show = true;
+				this.fire('show-ei');
 			},
 			hide: function(event) {
 				this.show = false;
+				this.fire('hide-ei');
 				event.stopPropagation();
 			}
 		});

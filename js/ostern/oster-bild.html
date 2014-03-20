@@ -22,9 +22,7 @@
 				var left = event.clientX - Math.floor(coordinates.left);
 			    var top = event.clientY - Math.floor(coordinates.top);
 				for (var i = 0; i < this.children.length; i++) {
-					if (this.children[i].isThere(top, left)) {
-						this.children[i].show = true;
-					}
+					this.children[i].handleClick(top, left);
 				}
 			}
 		});
