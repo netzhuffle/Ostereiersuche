@@ -1,19 +1,17 @@
 <polymer-element name="oster-ei" attributes="name top left height width">
 	<template>
 		<style>
-			/* @polyfill * */
-			::content > * {
+			#text {
 				display: none;
 			}
-			/* @polyfill-rule :host > strong, :host > code {
-				display: inline;
-			} */
 		</style>
 		<template if="{{!name || !top || !left || !height || !width}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory attributes
 			<code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
 		</template>
-		<content></content>
+		<div id="text">
+			<content></content>
+		</div>
 	</template>
 	<script>Polymer('oster-ei');</script>
 </polymer-element>
