@@ -1,11 +1,32 @@
-<polymer-element name="oster-bild" attributes="name src active">
+<polymer-element name="oster-bild" attributes="name src active" on-click="{{handleClickEvent}}">
 	<template>
+		<style>
+			:host {
+				display: block;
+				width: 600px;
+			}
+		</style>
+		<template if="{{!name || !src}}">
+			<strong>Error:</strong> There is an <code>oster-bild</code> without the mandatory attributes
+			<code>name</code> and <code>src</code>.
+		</template>
 		<template if="{{active}}">
 			<img src="{{src}}" alt="">
 			<content selector="oster-ei"></content>
 		</template>
 	</template>
 	<script>
-		Polymer('oster-bild');
+		Polymer('oster-bild', {
+			handleClickEvent: function(event) {
+				var coordinates = this.getBoundingClientRect();
+				var left = event.clientX - Math.floor(coordinates.left);
+			    var top = event.clientY - Math.floor(coordinates.top);
+				for (var i = 0; i < this.children.length; i++) {
+					if (this.children[i].isThere(top, left)) {
+						this.children[i].show = true;
+					}
+				}
+			}
+		});
 	</script>
 </polymer-element>

@@ -1,17 +1,61 @@
-<polymer-element name="oster-ei" attributes="name top left height width">
+<polymer-element name="oster-ei" attributes="name top left height width show" on-click="{{hide}}">
 	<template>
 		<style>
-			#text {
+			:host(:not([show])) .box {
 				display: none;
+			}
+			
+			.box {
+				color: #fff;
+				position: absolute;
+				top: 160px;
+				left: 0px;
+				padding: 10px;
+				padding-bottom: 100px;
+				background-color: #000;
+				width: 100%;
+				background-image: url('../../img/ostern/close.png');
+				background-repeat: no-repeat;
+				background-position: bottom center;
+			}
+			
+			img {
+				margin: 5px;
+			}
+			
+			.text {
+				max-width: 70%;
+				margin: auto;
 			}
 		</style>
 		<template if="{{!name || !top || !left || !height || !width}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory attributes
 			<code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
 		</template>
-		<div id="text">
-			<content></content>
+		<div class="box">
+			<div class="text">
+				<content></content>
+			</div>
 		</div>
 	</template>
-	<script>Polymer('oster-ei');</script>
+	<script>
+		Polymer('oster-ei', {
+			top: 0, // hint type: number
+			left: 0,
+			height: 0,
+			width: 0,
+			show: false,
+			isThere: function(top, left) {
+				if (top < this.top) return;
+				if (top > this.top + this.height) return;
+				if (left < this.left) return;
+				if (left > this.left + this.width) return;
+				return true;
+			},
+			hide: function(event) {
+				this.show = false;
+				event.stopPropagation();
+			}
+		});
+	</script>
 </polymer-element>
