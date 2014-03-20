@@ -3,7 +3,8 @@
 <link rel="import" href="../../js/ostern/oster-ei.html">
 <link rel="import" href="../../js/ostern/bower_components/polymer-selection/polymer-selection.html">
 
-<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref" on-show-ei="{{showEi}}" on-hide-ei="{{hideEi}}">
+<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref" on-show-ei="{{handleShowEi}}"
+		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllBild}}">
 	<template>
 		<style>
 			:host {
@@ -90,17 +91,17 @@
 			<content selector="oster-bild"></content>
 		</div>
 		<nav>
-			<img hidden id="zurueck" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
-			<img hidden id="vor" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
+			<img hidden id="zurueck" on-click="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
+			<img hidden id="vor" on-click="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
 			<a href="{{impressumhref}}">Impressum</a>
 		</nav>
-		<div hidden id="text"></div>
 		<polymer-selection id="imageSelection" on-polymer-select="{{handleSelectImage}}"></polymer-selection>
 	</template>
 	<script>
 		Polymer('oster-projekt', {
             ready: function() {
 	            this.$.imageSelection.select(this.children[0]);
+	            this.currentImageNumber = 0;
             },
             handleSelectImage: function(event, detail) {
             	detail.item.active = detail.isSelected;
@@ -109,11 +110,35 @@
             		this.currentShown = this.currentImage;
             	}
             },
-            showEi: function(event) {
-            	this.currentShown = event.target;
+           	handleShowEi: function(event) {
+           		var ei = event.target;
+            	this.currentShown = ei;
+            	var bild = ei.parentElement;
             },
-            hideEi: function() {
+            handleHideEi: function() {
             	this.currentShown = this.currentImage;
+            },
+            handleFoundAllBild: function() {
+            	if (this.children[this.currentImageNumber + 1]) {
+            		this.$.vor.removeAttribute('hidden');
+            	}
+            },
+            nextBild: function() {
+            	this.currentImageNumber++;
+            	var nextImage = this.children[this.currentImageNumber];
+            	this.$.imageSelection.select(nextImage);
+            	if (!nextImage.foundall || !this.children[this.currentImageNumber + 1]) {
+            		this.$.vor.setAttribute('hidden', 'hidden');
+            	}
+            	this.$.zurueck.removeAttribute('hidden');
+            },
+            previousBild: function() {
+            	this.currentImageNumber--;
+            	this.$.imageSelection.select(this.children[this.currentImageNumber]);
+        		this.$.vor.removeAttribute('hidden');
+        		if (this.currentImageNumber == 0) {
+            		this.$.zurueck.setAttribute('hidden', 'hidden');
+        		}
             }
         });
 	</script>

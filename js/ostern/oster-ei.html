@@ -1,4 +1,4 @@
-<polymer-element name="oster-ei" attributes="name top left height width show" on-click="{{hide}}">
+<polymer-element name="oster-ei" attributes="name top left height width show found" on-click="{{hide}}">
 	<template>
 		<style>
 			:host(:not([show])) .box {
@@ -45,6 +45,7 @@
 			height: -1,
 			width: -1,
 			show: false,
+			found: false,
 			handleClick: function(top, left) {
 				if (top < this.top) return;
 				if (top > this.top + this.height) return;
@@ -52,6 +53,7 @@
 				if (left > this.left + this.width) return;
 				
 				this.show = true;
+				this.found = true;
 				this.fire('show-ei');
 			},
 			hide: function(event) {

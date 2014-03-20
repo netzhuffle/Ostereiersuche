@@ -1,4 +1,4 @@
-<polymer-element name="oster-bild" attributes="name src active" on-click="{{handleClickEvent}}">
+<polymer-element name="oster-bild" attributes="name src active foundall" on-click="{{handleClickEvent}}" on-show-ei="{{handleShowEi}}">
 	<template>
 		<style>
 			:host {
@@ -17,12 +17,26 @@
 	</template>
 	<script>
 		Polymer('oster-bild', {
+			foundall: false,
 			handleClickEvent: function(event) {
 				var coordinates = this.getBoundingClientRect();
 				var left = event.clientX - Math.floor(coordinates.left);
 			    var top = event.clientY - Math.floor(coordinates.top);
 				for (var i = 0; i < this.children.length; i++) {
 					this.children[i].handleClick(top, left);
+				}
+			},
+			handleShowEi: function() {
+				var totalEis = this.children.length;
+				var foundEis = 0;
+				for (var i = 0; i < totalEis; i++) {
+					if (this.children[i].found) {
+						foundEis++;
+					}
+				}
+				if (foundEis == totalEis) {
+					this.foundall = true;
+					this.fire('foundall-bild');
 				}
 			}
 		});
