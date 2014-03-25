@@ -4,7 +4,7 @@
 <link rel="import" href="../../js/ostern/bower_components/polymer-selection/polymer-selection.html">
 
 <polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref" on-show-ei="{{handleShowEi}}"
-		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllBild}}">
+		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllOnBild}}">
 	<template>
 		<style>
 			:host {
@@ -95,20 +95,21 @@
 			<img hidden id="vor" on-click="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
 			<a href="{{impressumhref}}">Impressum</a>
 		</nav>
-		<polymer-selection id="imageSelection" on-polymer-select="{{handleSelectImage}}"></polymer-selection>
 	</template>
 	<script>
 		Polymer('oster-projekt', {
             ready: function() {
-	            this.$.imageSelection.select(this.children[0]);
-	            this.currentImageNumber = 0;
+	            this.showBild(0);
             },
-            handleSelectImage: function(event, detail) {
-            	detail.item.active = detail.isSelected;
-            	if (detail.isSelected) {
-            		this.currentImage = detail.item;
-            		this.currentShown = this.currentImage;
+            showBild: function(number) {
+            	if (this.currentImage) {
+            		this.currentImage.active = false;
             	}
+            	
+            	this.currentImageNumber = number;
+            	this.currentImage = this.children[number];
+            	this.currentImage.active = true;
+            	this.currentShown = this.currentImage;
             },
            	handleShowEi: function(event) {
            		var ei = event.target;
@@ -118,23 +119,20 @@
             handleHideEi: function() {
             	this.currentShown = this.currentImage;
             },
-            handleFoundAllBild: function() {
+            handleFoundAllOnBild: function() {
             	if (this.children[this.currentImageNumber + 1]) {
             		this.$.vor.removeAttribute('hidden');
             	}
             },
             nextBild: function() {
-            	this.currentImageNumber++;
-            	var nextImage = this.children[this.currentImageNumber];
-            	this.$.imageSelection.select(nextImage);
-            	if (!nextImage.foundall || !this.children[this.currentImageNumber + 1]) {
+            	this.showBild(this.currentImageNumber + 1);
+            	if (!this.currentImage.foundall || !this.children[this.currentImageNumber + 1]) {
             		this.$.vor.setAttribute('hidden', 'hidden');
             	}
             	this.$.zurueck.removeAttribute('hidden');
             },
             previousBild: function() {
-            	this.currentImageNumber--;
-            	this.$.imageSelection.select(this.children[this.currentImageNumber]);
+            	this.showBild(this.currentImageNumber - 1);
         		this.$.vor.removeAttribute('hidden');
         		if (this.currentImageNumber == 0) {
             		this.$.zurueck.setAttribute('hidden', 'hidden');
