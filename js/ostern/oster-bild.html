@@ -2,6 +2,7 @@
 	<template>
 		<style>
 			:host {
+				position: relative;
 				display: block;
 				width: 600px;
 			}
@@ -18,6 +19,30 @@
 	<script>
 		Polymer('oster-bild', {
 			foundall: false,
+			ready: function() {
+				for (var i = 0; i < this.children.length; i++) {
+					var image = '../../img/ostern/kringel_';
+					switch (i % 5) {
+					case 0:
+						image += 'blau';
+						break;
+					case 1:
+						image += 'gelb';
+						break;
+					case 2:
+						image += 'gruen';
+						break;
+					case 3:
+						image += 'rot';
+						break;
+					default:
+						image += 'schwarz';
+					}
+					image += '.png';
+					
+					this.children[i].foundimage = image;
+				}
+			},
 			handleClickEvent: function(event) {
 				var coordinates = this.getBoundingClientRect();
 				var left = event.clientX - Math.floor(coordinates.left);
