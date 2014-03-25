@@ -1,4 +1,5 @@
-<polymer-element name="oster-bild" attributes="name src active foundall" on-click="{{handleClickEvent}}" on-show-ei="{{handleShowEi}}">
+<polymer-element name="oster-bild" attributes="name src developer active foundall"
+		on-click="{{handleClickEvent}}" on-show-ei="{{handleShowEi}}">
 	<template>
 		<style>
 			:host {
@@ -8,8 +9,8 @@
 			}
 		</style>
 		<template if="{{!name || !src}}">
-			<strong>Error:</strong> There is an <code>oster-bild</code> without the mandatory attributes
-			<code>name</code> and <code>src</code>.
+			<strong>Error:</strong> There is an <code>oster-bild</code> without the
+			mandatory attributes <code>name</code> and <code>src</code>.
 		</template>
 		<template if="{{active}}">
 			<img src="{{src}}" alt="">
@@ -18,7 +19,14 @@
 	</template>
 	<script>
 		Polymer('oster-bild', {
+			developer: false,
 			foundall: false,
+			developerCoordinates: {
+				top: null,
+				left: null,
+				width: null,
+				height: null
+			},
 			ready: function() {
 				for (var i = 0; i < this.children.length; i++) {
 					var image = '../../img/ostern/kringel_';
@@ -42,6 +50,12 @@
 					
 					this.children[i].foundimage = image;
 				}
+				
+				if (this.developer) {
+					alert('Willkommen im Developer-Modus. Hier kannst du einfach und schnell ' +
+						'die Koordinaten der Eier finden. Bitte klicke den allerobersten Punkt ' +
+						'des ersten gesuchten Eis auf diesem Bild an.');
+				}
 			},
 			handleClickEvent: function(event) {
 				var coordinates = this.getBoundingClientRect();
@@ -49,6 +63,35 @@
 			    var top = event.clientY - Math.floor(coordinates.top);
 				for (var i = 0; i < this.children.length; i++) {
 					this.children[i].handleClick(top, left);
+				}
+				
+				if (this.developer) {
+					var coords = this.developerCoordinates;
+					if (!coords.top) {
+						coords.top = top;
+						alert('Bitte klicke nun den linkesten Punkt des Eis an.');
+					} else if (!coords.left) {
+						coords.left = left;
+						alert('Bitte klicke nun den untersten Punkt des Eis an.');
+					} else if (!coords.height) {
+						coords.height = top - coords.top;
+						alert('Bitte klicke nun den rechtesten Punkt des Eis an.');
+					} else if (!coords.width) {
+						coords.width = left - coords.left;
+						var shouldContinue = prompt('Unten wird nun das Ei-Element angezeigt. ' +
+							'Du kannst es in das Bild-Element kopieren und anpassen. Möchtest ' +
+							'du mit der Bestimmung des nächsten Eis fortfahren?',
+							'<oster-ei name="Überschrift des Textes" top=' + coords.top +
+							' left=' + coords.left + ' height=' + coords.height + ' width=' +
+							coords.width + '>');
+						if (shouldContinue) {
+							coords.top = null;
+							coords.left = null;
+							coords.width = null;
+							coords.height = null;
+							alert('Bitte klicke nun den obersten Punkt des nächsten Eis an.');
+						}
+					}
 				}
 			},
 			handleShowEi: function() {
