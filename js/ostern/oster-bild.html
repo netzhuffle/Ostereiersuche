@@ -14,11 +14,11 @@
 		</template>
 		<template if="{{!name}}">
 			<strong>Error:</strong> There is an <code>oster-bild</code> without the
-			mandatory element <code>h2</code>.
+			mandatory element <code>h2</code> as first child.
 		</template>
 		<template if="{{active}}">
-			<img src="{{src}}" alt="">
 			<content select="oster-ei"></content>
+			<img src="{{src}}" alt="">
 		</template>
 	</template>
 	<script>
@@ -32,7 +32,7 @@
 				height: null
 			},
 			ready: function() {
-				var h2 = this.querySelector('h2');
+				var h2 = this.querySelector('h2:first-child');
 				if (h2) {
 					this.name = h2.textContent;
 				}

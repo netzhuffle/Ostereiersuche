@@ -88,7 +88,8 @@
 				and <code>impressumhref</code> to the <code>oster-projekt</code> element.
 			</template>
 			<template if="{{!headertext}}">
-				Error: mandatory element <code>h1</code> in <code>oster-projekt</code> is missing.
+				Error: mandatory first child element <code>h1</code> in <code>oster-projekt</code>
+				is missing.
 			</template>
 			<content select="oster-bild"></content>
 		</div>
@@ -101,7 +102,7 @@
 	<script>
 		Polymer('oster-projekt', {
             ready: function() {
-            	var h1 = this.querySelector('h1');
+            	var h1 = this.querySelector('h1:first-child');
             	if (h1) {
             		this.headertext = h1.textContent;
             	}

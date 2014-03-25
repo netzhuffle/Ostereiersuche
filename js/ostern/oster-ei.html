@@ -39,7 +39,7 @@
 		</template>
 		<template if="{{!name}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
-			element <code>h3</code>.
+			element <code>h3</code> as first child.
 		</template>
 		<img id="kringel" src="{{foundimage}}">
 		<div class="box">
@@ -57,7 +57,7 @@
 			shown: false,
 			found: false,
 			ready: function() {
-				var h3 = this.querySelector('h3');
+				var h3 = this.querySelector('h3:first-child');
 				if (h3) {
 					this.name = h3.textContent;
 				}
