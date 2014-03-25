@@ -1,4 +1,4 @@
-<polymer-element name="oster-bild" attributes="name src developer active foundall"
+<polymer-element name="oster-bild" attributes="src developer active foundall"
 		on-click="{{handleClickEvent}}" on-show-ei="{{handleShowEi}}">
 	<template>
 		<style>
@@ -8,13 +8,17 @@
 				width: 600px;
 			}
 		</style>
-		<template if="{{!name || !src}}">
+		<template if="{{!src}}">
 			<strong>Error:</strong> There is an <code>oster-bild</code> without the
-			mandatory attributes <code>name</code> and <code>src</code>.
+			mandatory attribute <code>src</code>.
+		</template>
+		<template if="{{!name}}">
+			<strong>Error:</strong> There is an <code>oster-bild</code> without the
+			mandatory element <code>h2</code>.
 		</template>
 		<template if="{{active}}">
 			<img src="{{src}}" alt="">
-			<content selector="oster-ei"></content>
+			<content select="oster-ei"></content>
 		</template>
 	</template>
 	<script>
@@ -28,7 +32,13 @@
 				height: null
 			},
 			ready: function() {
-				for (var i = 0; i < this.children.length; i++) {
+				var h2 = this.querySelector('h2');
+				if (h2) {
+					this.name = h2.textContent;
+				}
+				this.eis = this.querySelectorAll('oster-ei');
+				
+				for (var i = 0; i < this.eis.length; i++) {
 					var image = '../../img/ostern/kringel_';
 					switch (i % 5) {
 					case 0:
@@ -48,7 +58,7 @@
 					}
 					image += '.png';
 					
-					this.children[i].foundimage = image;
+					this.eis[i].foundimage = image;
 				}
 				
 				if (this.developer) {
@@ -61,8 +71,8 @@
 				var coordinates = this.getBoundingClientRect();
 				var left = event.clientX - Math.floor(coordinates.left);
 			    var top = event.clientY - Math.floor(coordinates.top);
-				for (var i = 0; i < this.children.length; i++) {
-					this.children[i].handleClick(top, left);
+				for (var i = 0; i < this.eis.length; i++) {
+					this.eis[i].handleClick(top, left);
 				}
 				
 				if (this.developer) {
@@ -78,12 +88,11 @@
 						alert('Bitte klicke nun den rechtesten Punkt des Eis an.');
 					} else if (!coords.width) {
 						coords.width = left - coords.left;
-						var shouldContinue = prompt('Unten wird nun das Ei-Element angezeigt. ' +
-							'Du kannst es in das Bild-Element kopieren und anpassen. Möchtest ' +
+						var shouldContinue = prompt('Unten wird nun der Ei-Tag angezeigt. ' +
+							'Du kannst ihn in das Bild-Element kopieren und anpassen. Möchtest ' +
 							'du mit der Bestimmung des nächsten Eis fortfahren?',
-							'<oster-ei name="Überschrift des Textes" top=' + coords.top +
-							' left=' + coords.left + ' height=' + coords.height + ' width=' +
-							coords.width + '>');
+							'<oster-ei top=' + coords.top + ' left=' + coords.left +
+							' height=' + coords.height + ' width=' + coords.width + '>');
 						if (shouldContinue) {
 							coords.top = null;
 							coords.left = null;
@@ -95,10 +104,10 @@
 				}
 			},
 			handleShowEi: function() {
-				var totalEis = this.children.length;
+				var totalEis = this.eis.length;
 				var foundEis = 0;
 				for (var i = 0; i < totalEis; i++) {
-					if (this.children[i].found) {
+					if (this.eis[i].found) {
 						foundEis++;
 					}
 				}

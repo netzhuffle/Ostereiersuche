@@ -2,7 +2,7 @@
 <link rel="import" href="../../js/ostern/oster-bild.html">
 <link rel="import" href="../../js/ostern/oster-ei.html">
 
-<polymer-element name="oster-projekt" attributes="headerlogo headertext impressumhref" on-show-ei="{{handleShowEi}}"
+<polymer-element name="oster-projekt" attributes="headerlogo impressumhref" on-show-ei="{{handleShowEi}}"
 		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllOnBild}}">
 	<template>
 		<style>
@@ -83,11 +83,14 @@
 			<h2>{{currentShown.name}}</h2>
 		</header>
 		<div id="stage">
-			<template if="{{!headerlogo || !headertext || !impressumhref}}">
-				<strong>Error:</strong> Please add the attributes <code>headerlogo</code>, <code>headertext</code>,
+			<template if="{{!headerlogo || !impressumhref}}">
+				<strong>Error:</strong> Please add the attributes <code>headerlogo</code>,
 				and <code>impressumhref</code> to the <code>oster-projekt</code> element.
 			</template>
-			<content selector="oster-bild"></content>
+			<template if="{{!headertext}}">
+				Error: mandatory element <code>h1</code> in <code>oster-projekt</code> is missing.
+			</template>
+			<content select="oster-bild"></content>
 		</div>
 		<nav>
 			<img hidden id="zurueck" on-click="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
@@ -98,6 +101,11 @@
 	<script>
 		Polymer('oster-projekt', {
             ready: function() {
+            	var h1 = this.querySelector('h1');
+            	if (h1) {
+            		this.headertext = h1.textContent;
+            	}
+	            this.images = this.querySelectorAll('oster-bild');
 	            this.showBild(0);
             },
             showBild: function(number) {
@@ -106,7 +114,7 @@
             	}
             	
             	this.currentImageNumber = number;
-            	this.currentImage = this.children[number];
+            	this.currentImage = this.images[number];
             	this.currentImage.active = true;
             	this.currentShown = this.currentImage;
             },
@@ -119,13 +127,13 @@
             	this.currentShown = this.currentImage;
             },
             handleFoundAllOnBild: function() {
-            	if (this.children[this.currentImageNumber + 1]) {
+            	if (this.images[this.currentImageNumber + 1]) {
             		this.$.vor.removeAttribute('hidden');
             	}
             },
             nextBild: function() {
             	this.showBild(this.currentImageNumber + 1);
-            	if (!this.currentImage.foundall || !this.children[this.currentImageNumber + 1]) {
+            	if (!this.currentImage.foundall || !this.images[this.currentImageNumber + 1]) {
             		this.$.vor.setAttribute('hidden', 'hidden');
             	}
             	this.$.zurueck.removeAttribute('hidden');

@@ -33,9 +33,13 @@
 				margin: auto;
 			}
 		</style>
-		<template if="{{!name || top < 0 || left < 0 || height < 0 || width < 0}}">
-			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory attributes
-			<code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
+		<template if="{{top < 0 || left < 0 || height < 0 || width < 0}}">
+			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
+			attributes <code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
+		</template>
+		<template if="{{!name}}">
+			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
+			element <code>h3</code>.
 		</template>
 		<img id="kringel" src="{{foundimage}}">
 		<div class="box">
@@ -53,6 +57,11 @@
 			shown: false,
 			found: false,
 			ready: function() {
+				var h3 = this.querySelector('h3');
+				if (h3) {
+					this.name = h3.textContent;
+				}
+				
 				this.$.kringel.style.top = (this.top - 25 + this.height/2) + 'px';
 				this.$.kringel.style.left = (this.left - 25 + this.width/2) + 'px';
 			},
