@@ -1,0 +1,121 @@
+<polymer-element name="oster-bild" attributes="src developer active foundall"
+		on-click="{{handleClickEvent}}" on-show-ei="{{handleShowEi}}">
+	<template>
+		<style>
+			:host {
+				position: relative;
+				display: block;
+				width: 600px;
+			}
+		</style>
+		<template if="{{!src}}">
+			<strong>Error:</strong> There is an <code>oster-bild</code> without the
+			mandatory attribute <code>src</code>.
+		</template>
+		<template if="{{!name}}">
+			<strong>Error:</strong> There is an <code>oster-bild</code> without the
+			mandatory element <code>h2</code> as first child.
+		</template>
+		<template if="{{active}}">
+			<content select="oster-ei"></content>
+			<img src="{{src}}" alt="">
+		</template>
+	</template>
+	<script>
+		Polymer('oster-bild', {
+			developer: false,
+			foundall: false,
+			developerCoordinates: {
+				top: null,
+				left: null,
+				width: null,
+				height: null
+			},
+			ready: function() {
+				var h2 = this.querySelector('h2:first-child');
+				if (h2) {
+					this.name = h2.textContent;
+				}
+				this.eis = this.querySelectorAll('oster-ei');
+				
+				for (var i = 0; i < this.eis.length; i++) {
+					var image = '../../img/ostern/kringel_';
+					switch (i % 5) {
+					case 0:
+						image += 'blau';
+						break;
+					case 1:
+						image += 'gelb';
+						break;
+					case 2:
+						image += 'gruen';
+						break;
+					case 3:
+						image += 'rot';
+						break;
+					default:
+						image += 'schwarz';
+					}
+					image += '.png';
+					
+					this.eis[i].foundimage = image;
+				}
+				
+				if (this.developer) {
+					alert('Willkommen im Developer-Modus. Hier kannst du einfach und schnell ' +
+						'die Koordinaten der Eier finden. Bitte klicke den allerobersten Punkt ' +
+						'des ersten gesuchten Eis auf diesem Bild an.');
+				}
+			},
+			handleClickEvent: function(event) {
+				var coordinates = this.getBoundingClientRect();
+				var left = event.clientX - Math.floor(coordinates.left);
+			    var top = event.clientY - Math.floor(coordinates.top);
+				for (var i = 0; i < this.eis.length; i++) {
+					this.eis[i].handleClick(top, left);
+				}
+				
+				if (this.developer) {
+					var coords = this.developerCoordinates;
+					if (!coords.top) {
+						coords.top = top;
+						alert('Bitte klicke nun den linkesten Punkt des Eis an.');
+					} else if (!coords.left) {
+						coords.left = left;
+						alert('Bitte klicke nun den untersten Punkt des Eis an.');
+					} else if (!coords.height) {
+						coords.height = top - coords.top;
+						alert('Bitte klicke nun den rechtesten Punkt des Eis an.');
+					} else if (!coords.width) {
+						coords.width = left - coords.left;
+						var shouldContinue = prompt('Unten wird nun der Ei-Tag angezeigt. ' +
+							'Du kannst ihn in das Bild-Element kopieren und anpassen. Möchtest ' +
+							'du mit der Bestimmung des nächsten Eis fortfahren?',
+							'<oster-ei top=' + coords.top + ' left=' + coords.left +
+							' height=' + coords.height + ' width=' + coords.width + '>');
+						if (shouldContinue) {
+							coords.top = null;
+							coords.left = null;
+							coords.width = null;
+							coords.height = null;
+							alert('Bitte klicke nun den obersten Punkt des nächsten Eis an.');
+						}
+					}
+				}
+			},
+			handleShowEi: function() {
+				var totalEis = this.eis.length;
+				var foundEis = 0;
+				for (var i = 0; i < totalEis; i++) {
+					if (this.eis[i].found) {
+						foundEis++;
+					}
+				}
+				if (foundEis == totalEis) {
+					this.foundall = true;
+					this.fire('foundall-bild');
+				}
+			}
+		});
+	</script>
+</polymer-element>

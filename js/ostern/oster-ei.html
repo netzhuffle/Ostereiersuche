@@ -1,0 +1,84 @@
+<polymer-element name="oster-ei" attributes="top left height width found foundimage" on-click="{{hide}}">
+	<template>
+		<style>
+			.box {
+				color: #fff;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 10;
+				padding: 10px;
+				padding-bottom: 100px;
+				background-color: #000;
+				background-image: url('../../img/ostern/close.png');
+				background-repeat: no-repeat;
+				background-position: bottom center;
+			}
+			
+			img {
+				position: absolute;
+				pointer-events: none;
+			}
+			
+			.text {
+				max-width: 70%;
+				margin: auto;
+			}
+		</style>
+		<template if="{{top < 0 || left < 0 || height < 0 || width < 0}}">
+			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
+			attributes <code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
+		</template>
+		<template if="{{!name}}">
+			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
+			element <code>h3</code> as first child.
+		</template>
+		<template if="{{found}}">
+			<img id="kringel" src="{{foundimage}}" style="{{position | styleObject}}">
+		</template>
+		<template if="{{shown}}">
+			<div class="box">
+				<div class="text">
+					<content></content>
+				</div>
+			</div>
+		</template>
+	</template>
+	<script>
+		Polymer('oster-ei', {
+			top: -1, // hint type: number
+			left: -1,
+			height: -1,
+			width: -1,
+			shown: false,
+			found: false,
+			ready: function() {
+				var h3 = this.querySelector('h3:first-child');
+				if (h3) {
+					this.name = h3.textContent;
+				}
+				this.position = {
+					top: (this.top - 25 + this.height/2) + 'px',
+					left: (this.left - 25 + this.width/2) + 'px'
+				}
+			},
+			handleClick: function(top, left) {
+				if (top < this.top) return;
+				if (top > this.top + this.height) return;
+				if (left < this.left) return;
+				if (left > this.left + this.width) return;
+				this.show();
+			},
+			show: function() {
+				this.shown = true;
+				this.found = true;
+				this.fire('show-ei');
+			},
+			hide: function(event) {
+				this.shown = false;
+				this.fire('hide-ei');
+				event.stopPropagation();
+			}
+		});
+	</script>
+</polymer-element>

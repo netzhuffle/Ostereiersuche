@@ -1,0 +1,147 @@
+<link rel="import" href="../../js/ostern/bower_components/polymer/polymer.html">
+<link rel="import" href="../../js/ostern/oster-bild.html">
+<link rel="import" href="../../js/ostern/oster-ei.html">
+
+<polymer-element name="oster-projekt" attributes="headerlogo impressumhref" on-show-ei="{{handleShowEi}}"
+		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllOnBild}}">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			
+			nav {
+				width: 610px;
+				margin: 0 auto;
+			}
+			
+			nav a {
+				display: block;
+				background: url('../../img/pergament.jpg');
+				width: 10em;
+				margin: .5em auto;
+				padding: 0.125em 0.3125em;
+				text-align: center;
+			}
+			
+			header {
+				height: 200px;
+			}
+			
+			header h1 {
+				margin: auto;
+				text-align: center;
+			}
+			
+			header h2 {
+				text-align: center;
+				margin: 0 auto;
+				padding: .2em;
+				border: 2px solid #74090B;
+				border-radius: 5px;
+				background-color: #dbae71;
+				border: 2px solid #74090B;
+			}
+			
+			header h2 {
+				font: 30px bold;
+				position: static;
+			}
+			
+			#stage {
+				width: 610px;
+				height: 430px;
+				border: 2px solid #74090B;
+				padding: 10px;
+				border-radius: 5px;
+				background-color: #E9CB9D;
+				margin: auto;
+				text-align: center;
+			}
+			
+			#vor {
+				float: right;
+			}
+			
+			#zurueck {
+				float: left;
+			}
+		</style>
+		<header>
+			<h1>
+				<img src="{{headerlogo}}" alt="{{headertext}}">
+			</h1>
+			<h2>{{currentShown.name}}</h2>
+		</header>
+		<div id="stage">
+			<template if="{{!headerlogo || !impressumhref}}">
+				<strong>Error:</strong> Please add the attributes <code>headerlogo</code>,
+				and <code>impressumhref</code> to the <code>oster-projekt</code> element.
+			</template>
+			<template if="{{!headertext}}">
+				Error: mandatory first child element <code>h1</code> in <code>oster-projekt</code>
+				is missing.
+			</template>
+			<content select="oster-bild"></content>
+		</div>
+		<nav>
+			<img hidden id="zurueck" on-click="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
+			<img hidden id="vor" on-click="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
+			<a href="{{impressumhref}}">Impressum</a>
+		</nav>
+	</template>
+	<script>
+		Polymer('oster-projekt', {
+            ready: function() {
+            	var h1 = this.querySelector('h1:first-child');
+            	if (h1) {
+            		this.headertext = h1.textContent;
+            	}
+	            this.images = this.querySelectorAll('oster-bild');
+	            this.showBild(0);
+            },
+            showBild: function(number) {
+            	if (this.currentImage) {
+            		this.currentImage.active = false;
+            	}
+            	
+            	this.currentImageNumber = number;
+            	this.currentImage = this.images[number];
+            	this.currentImage.active = true;
+            	this.currentShown = this.currentImage;
+            },
+           	handleShowEi: function(event) {
+           		var ei = event.target;
+            	this.currentShown = ei;
+            	var bild = ei.parentElement;
+            },
+            handleHideEi: function() {
+            	this.currentShown = this.currentImage;
+            },
+            handleFoundAllOnBild: function() {
+            	if (this.images[this.currentImageNumber + 1]) {
+            		this.$.vor.removeAttribute('hidden');
+            	}
+            },
+            nextBild: function() {
+            	this.showBild(this.currentImageNumber + 1);
+            	if (!this.currentImage.foundall || !this.images[this.currentImageNumber + 1]) {
+            		this.$.vor.setAttribute('hidden', 'hidden');
+            	}
+            	this.$.zurueck.removeAttribute('hidden');
+            },
+            previousBild: function() {
+            	this.showBild(this.currentImageNumber - 1);
+        		this.$.vor.removeAttribute('hidden');
+        		if (this.currentImageNumber == 0) {
+            		this.$.zurueck.setAttribute('hidden', 'hidden');
+        		}
+            }
+        });
+	</script>
+</polymer-element>
