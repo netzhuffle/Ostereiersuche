@@ -40,7 +40,8 @@
 				
 				for (var i = 0; i < this.eis.length; i++) {
 					var image = '../../img/ostern/kringel_';
-					switch (i % 5) {
+					var number = (this.name.charCodeAt(0) + i) % 5;
+					switch (number) {
 					case 0:
 						image += 'blau';
 						break;
