@@ -40,7 +40,9 @@
 			element <code>h3</code> as first child.
 		</template>
 		<template if="{{found}}">
-			<img id="kringel" src="{{foundimage}}" style="{{position | styleObject}}">
+			<div id="kringel" _style="{{position | styleObject}}">
+				<img src="{{foundimage}}">
+			</div>
 		</template>
 		<template if="{{shown}}">
 			<div class="box">
