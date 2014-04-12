@@ -6,6 +6,7 @@
 				position: absolute;
 				top: 0px;
 				left: 0px;
+				width: 100%;
 				z-index: 10;
 				padding: 10px;
 				padding-bottom: 100px;
@@ -15,7 +16,7 @@
 				background-position: bottom center;
 			}
 			
-			img {
+			#kringel {
 				position: absolute;
 				pointer-events: none;
 			}
@@ -23,6 +24,11 @@
 			.text {
 				max-width: 70%;
 				margin: auto;
+			}
+			
+			polyfill-next-selector { content: ':host .text img'; }
+			::content img {
+				max-width: 100%;
 			}
 		</style>
 		<template if="{{top < 0 || left < 0 || height < 0 || width < 0}}">
