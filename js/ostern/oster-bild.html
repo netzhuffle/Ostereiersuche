@@ -18,7 +18,7 @@
 		</template>
 		<template if="{{active}}">
 			<content select="oster-ei"></content>
-			<img src="{{src}}" alt="">
+			<img _src="{{src}}" alt="">
 		</template>
 	</template>
 	<script>
@@ -59,7 +59,7 @@
 					}
 					image += '.png';
 					
-					this.eis[i].foundimage = image;
+					this.eis[i].setAttribute('foundimage', image); // IE 10 doesn't like ".foundimage = image" (IE 11 is fine)
 				}
 				
 				if (this.developer) {

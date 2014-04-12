@@ -11,6 +11,10 @@
 				display: block;
 			}
 			
+			[hidden] {
+				display: none;
+			}
+			
 			a {
 				text-decoration: none;
 				color: #000;
@@ -105,7 +109,8 @@
             		this.headertext = h1.textContent;
             	}
 	            this.images = this.querySelectorAll('oster-bild');
-	            this.showBild(0);
+				this.showBild(0);
+            	this.currentImage.setAttribute('active', 'active'); // workaround for IE 10 (IE 11 is fine)
             },
             showBild: function(number) {
             	if (this.currentImage) {
