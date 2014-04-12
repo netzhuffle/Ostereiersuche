@@ -3,7 +3,7 @@
 <link rel="import" href="../../js/ostern/oster-ei.html">
 <!-- <link rel="import" href="../../js/ostern/oster-hpfc-menu.php"> -->
 
-<polymer-element name="oster-projekt" attributes="headerlogo impressumhref" on-show-ei="{{handleShowEi}}"
+<polymer-element name="oster-projekt" attributes="headerlogo impressumhref cookiename" on-show-ei="{{handleShowEi}}"
 		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllOnBild}}">
 	<template>
 		<style>
@@ -85,9 +85,9 @@
 			<h2>{{currentShown.name}}</h2>
 		</header>
 		<div id="stage">
-			<template if="{{!headerlogo || !impressumhref}}">
+			<template if="{{!headerlogo || !impressumhref || !cookiename}}">
 				<strong>Error:</strong> Please add the attributes <code>headerlogo</code>,
-				and <code>impressumhref</code> to the <code>oster-projekt</code> element.
+				<code>impressumhref</code>, and <code>cookiename</code> to the <code>oster-projekt</code> element.
 			</template>
 			<template if="{{!headertext}}">
 				Error: mandatory first child element <code>h1</code> in <code>oster-projekt</code>
@@ -111,6 +111,7 @@
 	            this.images = this.querySelectorAll('oster-bild');
 				this.showBild(0);
             	this.currentImage.setAttribute('active', 'active'); // workaround for IE 10 (IE 11 is fine)
+            	this.loadCookie();
             },
             showBild: function(number) {
             	if (this.currentImage) {
@@ -126,6 +127,8 @@
            		var ei = event.target;
             	this.currentShown = ei;
             	var bild = ei.parentElement;
+            	this.foundList[bild.name][ei.name] = true;
+            	this.storeCookie();
             },
             handleHideEi: function() {
             	this.currentShown = this.currentImage;
@@ -141,6 +144,7 @@
             		this.$.vor.setAttribute('hidden', 'hidden');
             	}
             	this.$.zurueck.removeAttribute('hidden');
+            	this.foundImage();
             },
             previousBild: function() {
             	this.showBild(this.currentImageNumber - 1);
@@ -148,6 +152,31 @@
         		if (this.currentImageNumber == 0) {
             		this.$.zurueck.setAttribute('hidden', 'hidden');
         		}
+            	if (!this.foundList[this.currentImage.name]) {
+            		this.foundList[this.currentImage.name] = {};
+            		this.storeCookie();
+            	}
+            },
+            storeCookie: function() {
+           		var date = new Date();
+           		date.setTime(date.getTime() + (100 * 365 * 24 * 60 * 60 * 1000));
+           		var expires = "; expires=" + date.toGMTString();
+            	document.cookie = this.cookiename + "=" + JSON.stringify(this.foundList) + expires + "; path=/";
+            },
+            loadCookie: function() {
+            	if (document.cookie.length > 0) {
+            		var start = document.cookie.indexOf(this.cookiename + "=");
+            		if (start != -1) {
+            			start = start + this.cookiename.length + 1;
+            			var end = document.cookie.indexOf(";", start);
+            			if (end == -1) {
+            				end = document.cookie.length;
+            			}
+            			this.foundList = JSON.parse(unescape(document.cookie.substring(start, end)));
+            		}
+            	}
+            	this.foundList = {};
+            	this.foundList[this.currentImage.name] = {};
             }
         });
 	</script>
