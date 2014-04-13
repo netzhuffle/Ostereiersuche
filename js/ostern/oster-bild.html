@@ -1,5 +1,5 @@
-<polymer-element name="oster-bild" attributes="src developer active foundall"
-		on-click="{{handleClickEvent}}" on-show-ei="{{handleShowEi}}">
+<polymer-element name="oster-bild" attributes="src developer active loadfound foundall"
+		on-click="{{handleClickEvent}}" on-show-ei="{{handleFoundEi}}">
 	<template>
 		<style>
 			:host {
@@ -25,6 +25,7 @@
 		Polymer('oster-bild', {
 			developer: false,
 			foundall: false,
+			loadfound: {},
 			developerCoordinates: {
 				top: null,
 				left: null,
@@ -36,8 +37,9 @@
 				if (h2) {
 					this.name = h2.textContent;
 				}
+			},
+			domReady: function() {
 				this.eis = this.querySelectorAll('oster-ei');
-				
 				for (var i = 0; i < this.eis.length; i++) {
 					var image = '../../img/ostern/kringel_';
 					var number = (this.name.charCodeAt(0) + i) % 5;
@@ -58,8 +60,7 @@
 						image += 'schwarz';
 					}
 					image += '.png';
-					
-					this.eis[i].setAttribute('foundimage', image); // IE 10 doesn't like ".foundimage = image" (IE 11 is fine)
+					this.eis[i].setAttribute('foundimage', image);
 				}
 				
 				if (this.developer) {
@@ -104,7 +105,15 @@
 					}
 				}
 			},
-			handleShowEi: function() {
+			loadfoundChanged: function() {
+				for (var i = 0; i < this.eis.length; i++) {
+					if (this.loadfound[this.eis[i].name]) {
+						this.eis[i].found = true;
+					}
+				}
+				this.handleFoundEi();
+			},
+			handleFoundEi: function() {
 				var totalEis = this.eis.length;
 				var foundEis = 0;
 				for (var i = 0; i < totalEis; i++) {

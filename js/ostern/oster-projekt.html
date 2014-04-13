@@ -4,7 +4,7 @@
 <!-- <link rel="import" href="../../js/ostern/oster-hpfc-menu.php"> -->
 
 <polymer-element name="oster-projekt" attributes="headerlogo impressumhref cookiename" on-show-ei="{{handleShowEi}}"
-		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{handleFoundAllOnBild}}">
+		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{checkArrows}}">
 	<template>
 		<style>
 			:host {
@@ -96,8 +96,8 @@
 			<content select="oster-bild"></content>
 		</div>
 		<nav>
-			<img hidden id="zurueck" on-click="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
-			<img hidden id="vor" on-click="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
+			<img id="zurueck" on-click="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
+			<img id="vor" on-click="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
 			<a href="{{impressumhref}}">Impressum</a>
 		</nav>
 	</template>
@@ -108,10 +108,20 @@
             	if (h1) {
             		this.headertext = h1.textContent;
             	}
+            },
+            domReady: function() {
 	            this.images = this.querySelectorAll('oster-bild');
-				this.showBild(0);
-            	this.currentImage.setAttribute('active', 'active'); // workaround for IE 10 (IE 11 is fine)
             	this.loadCookie();
+            	var newestImage = 0;
+            	for (var i = 0; i < this.images.length; i++) {
+            		if (this.foundList[this.images[i].name]) {
+            			newestImage = i;
+            			this.images[i].loadfound = this.foundList[this.images[i].name];
+            		}
+            	}
+				this.showBild(newestImage);
+            	this.currentImage.setAttribute('active', 'active'); // workaround for IE 10 (IE 11 is fine)
+				this.checkArrows();
             },
             showBild: function(number) {
             	if (this.currentImage) {
@@ -133,28 +143,29 @@
             handleHideEi: function() {
             	this.currentShown = this.currentImage;
             },
-            handleFoundAllOnBild: function() {
-            	if (this.images[this.currentImageNumber + 1]) {
-            		this.$.vor.removeAttribute('hidden');
-            	}
-            },
             nextBild: function() {
             	this.showBild(this.currentImageNumber + 1);
-            	if (!this.currentImage.foundall || !this.images[this.currentImageNumber + 1]) {
-            		this.$.vor.setAttribute('hidden', 'hidden');
-            	}
-            	this.$.zurueck.removeAttribute('hidden');
-            	this.foundImage();
-            },
-            previousBild: function() {
-            	this.showBild(this.currentImageNumber - 1);
-        		this.$.vor.removeAttribute('hidden');
-        		if (this.currentImageNumber == 0) {
-            		this.$.zurueck.setAttribute('hidden', 'hidden');
-        		}
+            	this.checkArrows();
             	if (!this.foundList[this.currentImage.name]) {
             		this.foundList[this.currentImage.name] = {};
             		this.storeCookie();
+            	}
+            },
+            previousBild: function() {
+            	this.showBild(this.currentImageNumber - 1);
+        		this.checkArrows();
+            },
+            checkArrows: function() {
+        		if (this.currentImageNumber != 0) {
+        			this.$.zurueck.removeAttribute('hidden');
+        		} else {
+            		this.$.zurueck.setAttribute('hidden', 'hidden');
+        		}
+        		
+            	if (this.currentImage.foundall && this.images[this.currentImageNumber + 1]) {
+            		this.$.vor.removeAttribute('hidden');
+            	} else {
+            		this.$.vor.setAttribute('hidden', 'hidden');
             	}
             },
             storeCookie: function() {
@@ -173,10 +184,11 @@
             				end = document.cookie.length;
             			}
             			this.foundList = JSON.parse(unescape(document.cookie.substring(start, end)));
+            			return;
             		}
             	}
             	this.foundList = {};
-            	this.foundList[this.currentImage.name] = {};
+            	this.foundList[this.images[0].name] = {};
             }
         });
 	</script>
