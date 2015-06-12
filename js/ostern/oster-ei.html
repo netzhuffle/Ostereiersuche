@@ -34,7 +34,7 @@
 	<template>
 		<template is="dom-if" if="{{hasInvalidPositionOrSize(top, left, height, width)}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
-			attributes <code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code> (or any of these
+			attributes <code>top</code>, <code>left</code>, <code>height</code>, and <code>width</code> (or any of these
 			attributes are less than 0).
 		</template>
 		<template is="dom-if" if="{{!name}}">
