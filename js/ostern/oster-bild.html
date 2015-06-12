@@ -44,7 +44,7 @@
 				}
 			},
 			listeners: {
-				tap: 'handleClickEvent',
+				tap: 'handleTapEvent',
 				'show-ei': 'handleFoundEi'
 			},
 			eis: {},
@@ -96,12 +96,12 @@
 					}
 				});
 			},
-			handleClickEvent: function(event) {
+			handleTapEvent: function(event) {
 				var coordinates = this.getBoundingClientRect();
-				var left = event.clientX - Math.floor(coordinates.left);
-			    var top = event.clientY - Math.floor(coordinates.top);
+				var left = event.detail.x - Math.floor(coordinates.left);
+			    var top = event.detail.y - Math.floor(coordinates.top);
 				for (var i = 0; i < this.eis.length; i++) {
-					this.eis[i].handleClick(top, left);
+					this.eis[i].handleTap(top, left);
 				}
 				
 				if (this.developer) {

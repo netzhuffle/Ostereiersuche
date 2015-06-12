@@ -100,7 +100,7 @@
 					'-ms-transform: rotate(' + rotation + 'deg); ' + // IE 9
 					'transform: rotate(' + rotation + 'deg);' // IE 10, Firefox 16+, Opera 12.1+
 			},
-			handleClick: function(top, left) {
+			handleTap: function(top, left) {
 				if (top < this.top) return;
 				if (top > this.top + this.height) return;
 				if (left < this.left) return;
