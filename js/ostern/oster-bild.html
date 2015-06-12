@@ -1,31 +1,53 @@
-<polymer-element name="oster-bild" attributes="src developer active loadfound foundall"
-		on-click="{{handleClickEvent}}" on-show-ei="{{handleFoundEi}}">
+<dom-module id="oster-bild">
+	
+	<style>
+		:host {
+			position: relative;
+			display: block;
+			width: 600px;
+		}
+	</style>
+	
 	<template>
-		<style>
-			:host {
-				position: relative;
-				display: block;
-				width: 600px;
-			}
-		</style>
-		<template if="{{!src}}">
+		<template is="dom-if" if="{{!src}}">
 			<strong>Error:</strong> There is an <code>oster-bild</code> without the
 			mandatory attribute <code>src</code>.
 		</template>
-		<template if="{{!name}}">
+		<template is="dom-if" if="{{!name}}">
 			<strong>Error:</strong> There is an <code>oster-bild</code> without the
 			mandatory element <code>h2</code> as first child.
 		</template>
-		<template if="{{active}}">
+		<template is="dom-if" if="{{active}}">
 			<content select="oster-ei"></content>
-			<img _src="{{src}}" alt="">
+			<img src="{{src}}" alt="">
 		</template>
 	</template>
+	
 	<script>
-		Polymer('oster-bild', {
-			developer: false,
-			foundall: false,
-			loadfound: {},
+		Polymer({
+			is: 'oster-bild',
+			properties: {
+				src: String,
+				developer: {
+					type: Boolean,
+					value: false
+				},
+				active: Boolean,
+				loadfound: {
+					type: Object,
+					value: {},
+					observer: 'loadfoundChanged'
+				},
+				foundall: {
+					type: Boolean,
+					value: false
+				}
+			},
+			listeners: {
+				tap: 'handleClickEvent',
+				showEi: 'handleFoundEi'
+			},
+			eis: {},
 			developerCoordinates: {
 				top: null,
 				left: null,
@@ -33,41 +55,46 @@
 				height: null
 			},
 			ready: function() {
-				var h2 = this.querySelector('h2:first-child');
+				var h2 = Polymer.dom(this).querySelector('h2:first-child');
 				if (h2) {
 					this.name = h2.textContent;
 				}
 			},
-			domReady: function() {
-				this.eis = this.querySelectorAll('oster-ei');
-				for (var i = 0; i < this.eis.length; i++) {
-					var image = '../../img/ostern/kringel_';
-					var number = (this.name.charCodeAt(0) + i) % 5;
-					switch (number) {
-					case 0:
-						image += 'blau';
-						break;
-					case 1:
-						image += 'gelb';
-						break;
-					case 2:
-						image += 'gruen';
-						break;
-					case 3:
-						image += 'rot';
-						break;
-					default:
-						image += 'schwarz';
+			attached: function() {
+				this.async(function() {
+					this.eis = Polymer.dom(this).querySelectorAll('oster-ei');
+					for (var i = 0; i < this.eis.length; i++) {
+						var image = '../../img/ostern/kringel_';
+						var number = 0;
+						if (this.name) {
+							number = (this.name.charCodeAt(0) + i) % 5;
+						}
+						switch (number) {
+						case 0:
+							image += 'blau';
+							break;
+						case 1:
+							image += 'gelb';
+							break;
+						case 2:
+							image += 'gruen';
+							break;
+						case 3:
+							image += 'rot';
+							break;
+						default:
+							image += 'schwarz';
+						}
+						image += '.png';
+						this.eis[i].setAttribute('foundimage', image);
 					}
-					image += '.png';
-					this.eis[i].setAttribute('foundimage', image);
-				}
-				
-				if (this.developer) {
-					alert('Willkommen im Developer-Modus. Hier kannst du einfach und schnell ' +
-						'die Koordinaten der Eier finden. Bitte klicke den allerobersten Punkt ' +
-						'des ersten gesuchten Eis auf diesem Bild an.');
-				}
+					
+					if (this.developer) {
+						alert('Willkommen im Developer-Modus. Hier kannst du einfach und schnell ' +
+							'die Koordinaten der Eier finden. Bitte klicke den allerobersten Punkt ' +
+							'des ersten gesuchten Eis auf diesem Bild an.');
+					}
+				});
 			},
 			handleClickEvent: function(event) {
 				var coordinates = this.getBoundingClientRect();
@@ -128,4 +155,5 @@
 			}
 		});
 	</script>
-</polymer-element>
+	
+</dom-module>

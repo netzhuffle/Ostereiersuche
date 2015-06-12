@@ -1,82 +1,83 @@
 <link rel="import" href="../../js/ostern/bower_components/polymer/polymer.html">
-<link rel="import" href="../../js/ostern/oster-bild.html">
 <link rel="import" href="../../js/ostern/oster-ei.html">
+<link rel="import" href="../../js/ostern/oster-bild.html">
 <!-- <link rel="import" href="../../js/ostern/oster-hpfc-menu.php"> -->
 
-<polymer-element name="oster-projekt" attributes="headerlogo impressumhref cookiename" on-show-ei="{{handleShowEi}}"
-		on-hide-ei="{{handleHideEi}}" on-foundall-bild="{{checkArrows}}">
+<dom-module id="oster-projekt">
+	
+	<style>
+		:host {
+			display: block;
+		}
+		
+		[hidden] {
+			display: none;
+		}
+		
+		a {
+			text-decoration: none;
+			color: #000;
+		}
+		
+		nav {
+			width: 610px;
+			margin: 0 auto;
+		}
+		
+		nav a {
+			display: block;
+			background: url('../../img/pergament.jpg');
+			width: 10em;
+			margin: .5em auto;
+			padding: 0.125em 0.3125em;
+			text-align: center;
+		}
+		
+		header {
+			height: 200px;
+		}
+		
+		header h1 {
+			margin: auto;
+			text-align: center;
+		}
+		
+		header h2 {
+			text-align: center;
+			margin: 0 auto;
+			padding: .2em;
+			border: 2px solid #74090B;
+			border-radius: 5px;
+			background-color: #dbae71;
+			border: 2px solid #74090B;
+		}
+		
+		header h2 {
+			font: 30px bold;
+			position: static;
+		}
+		
+		#stage {
+			width: 610px;
+			height: 430px;
+			border: 2px solid #74090B;
+			padding: 10px;
+			border-radius: 5px;
+			background-color: #E9CB9D;
+			margin: auto;
+			text-align: center;
+		}
+		
+		#vor {
+			float: right;
+		}
+		
+		#zurueck {
+			float: left;
+		}
+	</style>
+	
 	<template>
-		<style>
-			:host {
-				display: block;
-			}
-			
-			[hidden] {
-				display: none;
-			}
-			
-			a {
-				text-decoration: none;
-				color: #000;
-			}
-			
-			nav {
-				width: 610px;
-				margin: 0 auto;
-			}
-			
-			nav a {
-				display: block;
-				background: url('../../img/pergament.jpg');
-				width: 10em;
-				margin: .5em auto;
-				padding: 0.125em 0.3125em;
-				text-align: center;
-			}
-			
-			header {
-				height: 200px;
-			}
-			
-			header h1 {
-				margin: auto;
-				text-align: center;
-			}
-			
-			header h2 {
-				text-align: center;
-				margin: 0 auto;
-				padding: .2em;
-				border: 2px solid #74090B;
-				border-radius: 5px;
-				background-color: #dbae71;
-				border: 2px solid #74090B;
-			}
-			
-			header h2 {
-				font: 30px bold;
-				position: static;
-			}
-			
-			#stage {
-				width: 610px;
-				height: 430px;
-				border: 2px solid #74090B;
-				padding: 10px;
-				border-radius: 5px;
-				background-color: #E9CB9D;
-				margin: auto;
-				text-align: center;
-			}
-			
-			#vor {
-				float: right;
-			}
-			
-			#zurueck {
-				float: left;
-			}
-		</style>
 		<!-- <oster-hpfc-menu></oster-hpfc-menu> -->
 		<header>
 			<h1>
@@ -85,43 +86,62 @@
 			<h2>{{currentShown.name}}</h2>
 		</header>
 		<div id="stage">
-			<template if="{{!headerlogo || !impressumhref || !cookiename}}">
-				<strong>Error:</strong> Please add the attributes <code>headerlogo</code>,
-				<code>impressumhref</code>, and <code>cookiename</code> to the <code>oster-projekt</code> element.
+			<template is="dom-if" if="{{!headerlogo}}">
+				<strong>Error:</strong> Please add the attribute <code>headerlogo</code> to the <code>oster-projekt</code> element.
 			</template>
-			<template if="{{!headertext}}">
+			<template is="dom-if" if="{{!impressumhref}}">
+				<strong>Error:</strong> Please add the attribute <code>impressumhref</code> to the <code>oster-projekt</code> element.
+			</template>
+			<template is="dom-if" if="{{!cookiename}}">
+				<strong>Error:</strong> Please add the attribute <code>cookiename</code> to the <code>oster-projekt</code> element.
+			</template>
+			<template is="dom-if" if="{{!headertext}}">
 				Error: mandatory first child element <code>h1</code> in <code>oster-projekt</code>
 				is missing.
 			</template>
 			<content select="oster-bild"></content>
 		</div>
 		<nav>
-			<img id="zurueck" on-click="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
-			<img id="vor" on-click="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
+			<img id="zurueck" on-tap="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
+			<img id="vor" on-tap="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
 			<a href="{{impressumhref}}">Impressum</a>
 		</nav>
 	</template>
+	
 	<script>
-		Polymer('oster-projekt', {
+		Polymer({
+			is: 'oster-projekt',
+			properties: {
+				headerlogo: String,
+				impressumhref: String,
+				cookiename: String
+			},
+			listeners: {
+				showEi: 'handleShowEi',
+				hideEi: 'handleHideEi',
+				foundallBild: 'checkArrows'
+			},
             ready: function() {
-            	var h1 = this.querySelector('h1:first-child');
+            	var h1 = Polymer.dom(this).querySelector('h1:first-child');
             	if (h1) {
             		this.headertext = h1.textContent;
             	}
             },
-            domReady: function() {
-	            this.images = this.querySelectorAll('oster-bild');
-            	this.loadCookie();
-            	var newestImage = 0;
-            	for (var i = 0; i < this.images.length; i++) {
-            		if (this.foundList[this.images[i].name]) {
-            			newestImage = i;
-            			this.images[i].loadfound = this.foundList[this.images[i].name];
-            		}
-            	}
-				this.showBild(newestImage);
-            	this.currentImage.setAttribute('active', 'active'); // workaround for IE 10 (IE 11 is fine)
-				this.checkArrows();
+            attached: function() {
+            	this.async(function() {
+		            this.images = Polymer.dom(this).querySelectorAll('oster-bild');
+	            	this.loadCookie();
+	            	var newestImage = 0;
+	            	for (var i = 0; i < this.images.length; i++) {
+	            		if (this.foundList[this.images[i].name]) {
+	            			newestImage = i;
+	            			this.images[i].loadfound = this.foundList[this.images[i].name];
+	            		}
+	            	}
+					this.showBild(newestImage);
+	            	this.currentImage.setAttribute('active', 'active'); // workaround for IE 10 (IE 11 is fine)
+					this.checkArrows();
+            	});
             },
             showBild: function(number) {
             	if (this.currentImage) {
@@ -134,9 +154,9 @@
             	this.currentShown = this.currentImage;
             },
            	handleShowEi: function(event) {
-           		var ei = event.target;
+           		var ei = Polymer.dom(event).localTarget;
             	this.currentShown = ei;
-            	var bild = ei.parentElement;
+            	var bild = Polymer.dom(ei).parentNode;
             	this.foundList[bild.name][ei.name] = true;
             	this.storeCookie();
             },
@@ -192,4 +212,5 @@
             }
         });
 	</script>
-</polymer-element>
+	
+</dom-module>

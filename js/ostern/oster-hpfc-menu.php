@@ -1,4 +1,5 @@
-<polymer-element name="oster-hpfc-menu">
+<dom-module id="oster-hpfc-menu">
+
 	<template>
 		<?php
 			@include_once '../../../board/menu.inc.php';
@@ -6,7 +7,11 @@
 		?>
 		<img id="zurueck" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
 	</template>
+	
 	<script>
-		Polymer('oster-hpfc-menu');
+		Polymer({
+			is: 'oster-hpfc-menu'
+		});
 	</script>
-</polymer-element>
+	
+</dom-module>

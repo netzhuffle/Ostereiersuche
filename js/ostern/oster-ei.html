@@ -1,50 +1,52 @@
-<polymer-element name="oster-ei" attributes="top left height width found foundimage" on-click="{{hide}}">
+<dom-module id="oster-ei">
+	
+	<style>
+		.box {
+			color: #fff;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			z-index: 10;
+			padding: 10px;
+			padding-bottom: 100px;
+			background-color: #000;
+			background-image: url('../../img/ostern/close.png');
+			background-repeat: no-repeat;
+			background-position: bottom center;
+		}
+		
+		#kringel {
+			position: absolute;
+			pointer-events: none;
+		}
+		
+		.text {
+			max-width: 70%;
+			margin: auto;
+		}
+		
+		.text > ::content img {
+			max-width: 100%;
+		}
+	</style>
+	
 	<template>
-		<style>
-			.box {
-				color: #fff;
-				position: absolute;
-				top: 0px;
-				left: 0px;
-				width: 100%;
-				z-index: 10;
-				padding: 10px;
-				padding-bottom: 100px;
-				background-color: #000;
-				background-image: url('../../img/ostern/close.png');
-				background-repeat: no-repeat;
-				background-position: bottom center;
-			}
-			
-			#kringel {
-				position: absolute;
-				pointer-events: none;
-			}
-			
-			.text {
-				max-width: 70%;
-				margin: auto;
-			}
-			
-			polyfill-next-selector { content: ':host .text img'; }
-			::content img {
-				max-width: 100%;
-			}
-		</style>
-		<template if="{{top < 0 || left < 0 || height < 0 || width < 0}}">
+		<template is="dom-if" if="{{hasInvalidPositionOrSize(top, left, height, width)}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
-			attributes <code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code>.
+			attributes <code>name</code>, <code>left</code>, <code>height</code>, and <code>width</code> (or any of these
+			attributes are less than 0).
 		</template>
-		<template if="{{!name}}">
+		<template is="dom-if" if="{{!name}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
 			element <code>h3</code> as first child.
 		</template>
-		<template if="{{found}}">
-			<div id="kringel" _style="{{position | styleObject}}">
-				<img _src="{{foundimage}}">
+		<template is="dom-if" if="{{found}}">
+			<div id="kringel" style$="{{position}}">
+				<img src="{{foundimage}}">
 			</div>
 		</template>
-		<template if="{{shown}}">
+		<template is="dom-if" if="{{shown}}">
 			<div class="box">
 				<div class="text">
 					<content></content>
@@ -52,16 +54,42 @@
 			</div>
 		</template>
 	</template>
+	
 	<script>
-		Polymer('oster-ei', {
-			top: -1, // hint type: number
-			left: -1,
-			height: -1,
-			width: -1,
+		Polymer({
+			is: 'oster-ei',
+			properties: {
+				top: {
+					type: Number,
+					value: -1
+				},
+				left: {
+					type: Number,
+					value: -1
+				},
+				height: {
+					type: Number,
+					value: -1
+				},
+				width: {
+					type: Number,
+					value: -1
+				},
+				found: {
+					type: Boolean,
+					value: false
+				},
+				foundimage: String
+			},
+			listeners: {
+				tap: 'hide'
+			},
 			shown: false,
-			found: false,
+			hasInvalidPositionOrSize: function(top, left, height, width) {
+				return top < 0 || left < 0 || height < 0 || width < 0;
+			},
 			ready: function() {
-				var h3 = this.querySelector('h3:first-child');
+				var h3 = Polymer.dom(this).querySelector('h3:first-child');
 				if (h3) {
 					this.name = h3.textContent;
 				}
@@ -93,4 +121,5 @@
 			}
 		});
 	</script>
-</polymer-element>
+	
+</dom-module>
