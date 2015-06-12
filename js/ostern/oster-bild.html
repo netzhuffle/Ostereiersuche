@@ -17,10 +17,10 @@
 			<strong>Error:</strong> There is an <code>oster-bild</code> without the
 			mandatory element <code>h2</code> as first child.
 		</template>
-		<template is="dom-if" if="{{active}}">
+		<div hidden$="{{!active}}">
 			<content select="oster-ei"></content>
 			<img src="{{src}}" alt="">
-		</template>
+		</div>
 	</template>
 	
 	<script>
@@ -32,7 +32,10 @@
 					type: Boolean,
 					value: false
 				},
-				active: Boolean,
+				active: {
+					type: Boolean,
+					value: false
+				},
 				loadfound: {
 					type: Object,
 					value: {},
