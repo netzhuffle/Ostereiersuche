@@ -109,9 +109,9 @@
 			<content select="oster-bild"></content>
 		</div>
 		<nav>
-			<img id="zurueck" on-tap="{{previousBild}}" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
-			<img id="vor" on-tap="{{nextBild}}" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
-			<a href="{{impressumhref}}">Impressum</a>
+			<img id="zurueck" on-tap="previousBild" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
+			<img id="vor" on-tap="nextBild" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
+			<a href$="{{impressumhref}}">Impressum</a>
 		</nav>
 	</template>
 	
@@ -124,12 +124,12 @@
 				cookiename: String
 			},
 			listeners: {
-				showEi: 'handleShowEi',
-				hideEi: 'handleHideEi',
-				foundallBild: 'checkArrows'
+				'show-ei': 'handleShowEi',
+				'hide-ei': 'handleHideEi',
+				'foundall-bild': 'checkArrows'
 			},
             ready: function() {
-            	var h1 = Polymer.dom(this).querySelector('h1:first-child');
+            	var h1 = Polymer.dom(this).querySelector('h1');
             	if (h1) {
             		this.headertext = h1.textContent;
             	}

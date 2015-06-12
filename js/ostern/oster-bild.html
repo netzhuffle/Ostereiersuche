@@ -45,7 +45,7 @@
 			},
 			listeners: {
 				tap: 'handleClickEvent',
-				showEi: 'handleFoundEi'
+				'show-ei': 'handleFoundEi'
 			},
 			eis: {},
 			developerCoordinates: {
@@ -55,7 +55,7 @@
 				height: null
 			},
 			ready: function() {
-				var h2 = Polymer.dom(this).querySelector('h2:first-child');
+				var h2 = Polymer.dom(this).querySelector('h2');
 				if (h2) {
 					this.name = h2.textContent;
 				}

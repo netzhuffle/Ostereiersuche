@@ -89,10 +89,11 @@
 				return top < 0 || left < 0 || height < 0 || width < 0;
 			},
 			ready: function() {
-				var h3 = Polymer.dom(this).querySelector('h3:first-child');
+				var h3 = Polymer.dom(this).querySelector('h3');
 				if (h3) {
 					this.name = h3.textContent;
 				}
+				console.log(h3);
 				var rotation = Math.floor(Math.random() * 18) * 20; // random rotation in 18 steps of 20 degrees
 				this.position = {
 					top: (this.top - 25 + this.height/2) + 'px',
