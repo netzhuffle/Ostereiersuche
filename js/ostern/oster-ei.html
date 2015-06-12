@@ -94,13 +94,11 @@
 					this.name = h3.textContent;
 				}
 				var rotation = Math.floor(Math.random() * 18) * 20; // random rotation in 18 steps of 20 degrees
-				this.position = {
-					top: (this.top - 25 + this.height/2) + 'px',
-					left: (this.left - 25 + this.width/2) + 'px',
-					"-webkit-transform": "rotate(" + rotation + "deg)", // Chrome, Safari
-					"-ms-transform": "rotate(" + rotation + "deg)", // IE 9
-					"transform": "rotate(" + rotation + "deg)" // IE 10, Firefox 16+, Opera 12.1+
-				}
+				this.position = 'top:' + (this.top - 25 + this.height/2) + 'px; ' +
+					'left: ' + (this.left - 25 + this.width/2) + 'px; ' +
+					'-webkit-transform: rotate(' + rotation + 'deg); ' + // Chrome, Safari
+					'-ms-transform: rotate(' + rotation + 'deg); ' + // IE 9
+					'transform: rotate(' + rotation + 'deg);' // IE 10, Firefox 16+, Opera 12.1+
 			},
 			handleClick: function(top, left) {
 				if (top < this.top) return;
