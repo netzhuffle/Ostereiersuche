@@ -5,7 +5,7 @@
   "authors": [
     "Jannis Grimm <jannis@gje.ch>"
   ],
-  "main": "de/ostern/index.html",
+  "main": "de/ostern/2014/index.html",
   "license": "MIT",
   "ignore": [
     "**/.*",

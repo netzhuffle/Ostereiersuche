@@ -64,7 +64,7 @@
 				this.async(function() {
 					this.eis = Polymer.dom(this).querySelectorAll('oster-ei');
 					for (var i = 0; i < this.eis.length; i++) {
-						var image = '../../img/ostern/kringel_';
+						var image = '../../../img/ostern/kringel_';
 						var number = 0;
 						if (this.name) {
 							number = (this.name.charCodeAt(0) + i) % 5;
@@ -86,7 +86,7 @@
 							image += 'schwarz';
 						}
 						image += '.png';
-						this.eis[i].setAttribute('foundimage', image);
+						this.eis[i].foundimage = image;
 					}
 					
 					if (this.developer) {
