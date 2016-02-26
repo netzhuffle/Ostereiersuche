@@ -1,37 +1,36 @@
 <dom-module id="oster-ei">
 	
-	<style>
-		.box {
-			color: #fff;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			width: 100%;
-			z-index: 10;
-			padding: 10px;
-			padding-bottom: 100px;
-			background-color: #000;
-			background-image: url('../../img/ostern/close.png');
-			background-repeat: no-repeat;
-			background-position: bottom center;
-		}
-		
-		#kringel {
-			position: absolute;
-			pointer-events: none;
-		}
-		
-		.text {
-			max-width: 70%;
-			margin: auto;
-		}
-		
-		.text > ::content img {
-			max-width: 100%;
-		}
-	</style>
-	
 	<template>
+		<style>
+			.box {
+				color: #fff;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				z-index: 10;
+				padding: 10px;
+				padding-bottom: 100px;
+				background-color: #000;
+				background-image: url('../../img/ostern/close.png');
+				background-repeat: no-repeat;
+				background-position: bottom center;
+			}
+
+			#kringel {
+				position: absolute;
+				pointer-events: none;
+			}
+
+			.text {
+				max-width: 70%;
+				margin: auto;
+			}
+
+			.text > ::content img {
+				max-width: 100%;
+			}
+		</style>
 		<template is="dom-if" if="{{hasInvalidPositionOrSize(top, left, height, width)}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
 			attributes <code>top</code>, <code>left</code>, <code>height</code>, and <code>width</code> (or any of these
