@@ -2,102 +2,68 @@
 	
 	<template>
 		<style>
-			.box {
-				color: #fff;
-				position: absolute;
-				top: 0px;
-				left: 0px;
-				width: 100%;
-				z-index: 10;
-				padding: 10px;
-				padding-bottom: 100px;
-				background-color: #000;
-				background-image: url('../../img/ostern/close.png');
-				background-repeat: no-repeat;
-				background-position: bottom center;
-			}
-
 			#kringel {
 				position: absolute;
 				pointer-events: none;
 			}
 
-			.text {
-				max-width: 70%;
-				margin: auto;
-			}
-
-			.text > ::content img {
-				max-width: 100%;
-			}
 		</style>
 		<template is="dom-if" if="{{hasInvalidPositionOrSize(top, left, height, width)}}">
 			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
 			attributes <code>top</code>, <code>left</code>, <code>height</code>, and <code>width</code> (or any of these
 			attributes are less than 0).
 		</template>
-		<template is="dom-if" if="{{!name}}">
-			<strong>Error:</strong> There is an <code>oster-ei</code> in this <code>oster-bild</code> without the mandatory
-			element <code>h3</code> as first child.
-		</template>
 		<template is="dom-if" if="{{found}}">
 			<div id="kringel" style$="{{position}}">
 				<img src="{{foundimage}}">
 			</div>
 		</template>
-		<template is="dom-if" if="{{shown}}">
-			<div class="box">
-				<div class="text">
-					<content></content>
-				</div>
-			</div>
-		</template>
+		
 	</template>
 	
 	<script>
+	   var all = 0;
 		Polymer({
 			is: 'oster-ei',
 			properties: {
 				top: {
 					type: Number,
-					value: -1
+					value: -1,
 				},
 				left: {
 					type: Number,
-					value: -1
+					value: -1,
 				},
 				height: {
 					type: Number,
-					value: -1
+					value: -1,
 				},
 				width: {
 					type: Number,
-					value: -1
+					value: -1,
 				},
 				found: {
 					type: Boolean,
-					value: false
+					value: false,
 				},
-				foundimage: String
+				foundimage: String,
+				name: String,
 			},
 			listeners: {
-				tap: 'hide'
+				tap: 'hide',
+				"show-text": 'handleShowText',
 			},
-			shown: false,
 			hasInvalidPositionOrSize: function(top, left, height, width) {
 				return top < 0 || left < 0 || height < 0 || width < 0;
 			},
 			ready: function() {
-				var h3 = Polymer.dom(this).querySelector('h3');
-				if (h3) {
-					this.name = h3.textContent;
-				}
 				var rotation = Math.floor(Math.random() * 18) * 20; // random rotation in 18 steps of 20 degrees
 				this.position = 'top:' + (this.top - 25 + this.height/2) + 'px; ' +
 					'left: ' + (this.left - 25 + this.width/2) + 'px; ' +
 					'-webkit-transform: rotate(' + rotation + 'deg); ' + // Chrome, Safari
 					'-ms-transform: rotate(' + rotation + 'deg); ' + // IE 9
 					'transform: rotate(' + rotation + 'deg);' // IE 10, Firefox 16+, Opera 12.1+
+				this.name = this.top + "" + this.left + "" + this.height + "" + this.width; 
 			},
 			handleTap: function(top, left) {
 				if (top < this.top) return;
@@ -107,7 +73,6 @@
 				this.show();
 			},
 			show: function() {
-				this.shown = true;
 				this.found = true;
 				this.fire('show-ei');
 			},

@@ -17,8 +17,9 @@
 			mandatory element <code>h2</code> as first child.
 		</template>
 		<div hidden$="{{!active}}">
-			<content select="oster-ei"></content>
 			<img src="{{src}}" alt="">
+			<slot name="oster-ei"></slot>
+			<slot name="oster-text"></slot>
 		</div>
 	</template>
 	
@@ -43,7 +44,7 @@
 				foundall: {
 					type: Boolean,
 					value: false
-				}
+				},
 			},
 			listeners: {
 				tap: 'handleTapEvent',
@@ -72,25 +73,36 @@
 							number = (this.name.charCodeAt(0) + i) % 5;
 						}
 						switch (number) {
-						case 0:
-							image += 'blau';
-							break;
-						case 1:
-							image += 'gelb';
-							break;
-						case 2:
-							image += 'gruen';
-							break;
-						case 3:
-							image += 'rot';
-							break;
-						default:
-							image += 'schwarz';
+							case 0:
+								image += 'blau';
+								break;
+							case 1:
+								image += 'gelb';
+								break;
+							case 2:
+								image += 'gruen';
+								break;
+							case 3:
+								image += 'rot';
+								break;
+							case 4:
+								image += 'blau';
+								break;
+							case 5:
+								image += 'gruen';
+								break;
+							case 6:
+								image += 'rot';
+								break;
+							case 7:
+								image += 'gelb';
+								break;
+							default:
+								image += 'schwarz';
 						}
 						image += '.png';
 						this.eis[i].foundimage = image;
 					}
-					
 					if (this.developer) {
 						alert('Willkommen im Developer-Modus. Hier kannst du einfach und schnell ' +
 							'die Koordinaten der Eier finden. Bitte klicke den allerobersten Punkt ' +
@@ -101,7 +113,7 @@
 			handleTapEvent: function(event) {
 				var coordinates = this.getBoundingClientRect();
 				var left = event.detail.x - Math.floor(coordinates.left);
-			    var top = event.detail.y - Math.floor(coordinates.top);
+				var top = event.detail.y - Math.floor(coordinates.top);
 				for (var i = 0; i < this.eis.length; i++) {
 					this.eis[i].handleTap(top, left);
 				}
@@ -122,8 +134,8 @@
 						var shouldContinue = prompt('Unten wird nun der Ei-Tag angezeigt. ' +
 							'Du kannst ihn in das Bild-Element kopieren und anpassen. Möchtest ' +
 							'du mit der Bestimmung des nächsten Eis fortfahren?',
-							'<oster-ei top=' + coords.top + ' left=' + coords.left +
-							' height=' + coords.height + ' width=' + coords.width + '>');
+							'<oster-ei slot="oster-ei" top="' + coords.top + '" left="' + coords.left +
+							'" height="' + coords.height + '" width="' + coords.width + '">');
 						if (shouldContinue) {
 							coords.top = null;
 							coords.left = null;
@@ -153,6 +165,8 @@
 				if (foundEis == totalEis) {
 					this.foundall = true;
 					this.fire('foundall-bild');
+					var text = Polymer.dom(this).querySelector('oster-text');	
+					text.fire('show-text');
 				}
 			}
 		});

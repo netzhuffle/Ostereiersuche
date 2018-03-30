@@ -1,6 +1,3 @@
-<link rel="import" href="../../js/ostern/bower_components/polymer/polymer.html">
-<link rel="import" href="../../js/ostern/oster-ei.html">
-<link rel="import" href="../../js/ostern/oster-bild.html">
 <!-- <link rel="import" href="../../js/ostern/oster-hpfc-menu.php"> -->
 
 <style>
@@ -40,7 +37,7 @@
 				padding: 0.125em 0.3125em;
 				text-align: center;
 			}
-
+			
 			header {
 				height: 200px;
 			}
@@ -90,7 +87,7 @@
 			<h1>
 				<img src="{{headerlogo}}" alt="{{headertext}}">
 			</h1>
-			<h2>{{currentShown.name}}</h2>
+			<h2>{{ currentShownName }}</h2>
 		</header>
 		<div id="stage">
 			<template is="dom-if" if="{{!headerlogo}}">
@@ -106,12 +103,13 @@
 				Error: mandatory first child element <code>h1</code> in <code>oster-projekt</code>
 				is missing.
 			</template>
-			<content select="oster-bild"></content>
+			<slot name="oster-bild"></slot>
 		</div>
 		<nav>
-			<img id="zurueck" on-tap="previousBild" src="../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
-			<img id="vor" on-tap="nextBild" src="../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
+			<img id="zurueck" on-tap="previousBild" src="../../../img/ostern/pfeil-zurueck.png" alt="Letztes Bild anzeigen">
+			<img id="vor" on-tap="nextBild" src="../../../img/ostern/pfeil-vor.png" alt="Nächstes Bild anzeigen">
 			<a href$="{{impressumhref}}">Impressum</a>
+			<a href="/">Zurück zum HP-FC</a> 
 		</nav>
 	</template>
 	
@@ -128,96 +126,99 @@
 				'hide-ei': 'handleHideEi',
 				'foundall-bild': 'checkArrows'
 			},
-            ready: function() {
-            	var h1 = Polymer.dom(this).querySelector('h1');
-            	if (h1) {
-            		this.headertext = h1.textContent;
-            	}
-            },
-            attached: function() {
-            	this.async(function() {
-		            this.images = Polymer.dom(this).querySelectorAll('oster-bild');
-	            	this.loadCookie();
-	            	var newestImage = 0;
-	            	for (var i = 0; i < this.images.length; i++) {
-	            		if (this.foundList[this.images[i].name]) {
-	            			newestImage = i;
-	            			this.images[i].loadfound = this.foundList[this.images[i].name];
-	            		}
-	            	}
-					this.showBild(newestImage);
-	            	this.currentImage.active = true;
+			ready: function() {
+				var h1 = Polymer.dom(this).querySelector('h1');
+				if (h1) {
+					this.headertext = h1.textContent;
+				}
+			},
+			attached: function() {
+				this.async(function() {
+					this.images = Polymer.dom(this).querySelectorAll('oster-bild');
+					this.loadCookie();
+					this.newestImage = 0;
+					for (var i = 0; i < this.images.length; i++) {
+						if (this.foundList[this.images[i].querySelector('h2').textContent]) {
+							this.newestImage = i;
+							this.images[i].loadfound = this.foundList[this.images[i].querySelector('h2').textContent];
+						}
+					}
+					this.showBild(this.newestImage);
+					this.currentImage.active = true;
 					this.checkArrows();
-            	});
-            },
-            showBild: function(number) {
-            	if (this.currentImage) {
-            		this.currentImage.active = false;
-            	}
-            	
-            	this.currentImageNumber = number;
-            	this.currentImage = this.images[number];
-            	this.currentImage.active = true;
-            	this.currentShown = this.currentImage;
-            },
-           	handleShowEi: function(event) {
-           		var ei = Polymer.dom(event).localTarget;
-            	this.currentShown = ei;
-            	var bild = Polymer.dom(ei).parentNode;
-            	this.foundList[bild.name][ei.name] = true;
-            	this.storeCookie();
-            },
-            handleHideEi: function() {
-            	this.currentShown = this.currentImage;
-            },
-            nextBild: function() {
-            	this.showBild(this.currentImageNumber + 1);
-            	this.checkArrows();
-            	if (!this.foundList[this.currentImage.name]) {
-            		this.foundList[this.currentImage.name] = {};
-            		this.storeCookie();
-            	}
-            },
-            previousBild: function() {
-            	this.showBild(this.currentImageNumber - 1);
-        		this.checkArrows();
-            },
-            checkArrows: function() {
-        		if (this.currentImageNumber != 0) {
-        			this.$.zurueck.removeAttribute('hidden');
-        		} else {
-            		this.$.zurueck.setAttribute('hidden', 'hidden');
-        		}
-        		
-            	if (this.currentImage.foundall && this.images[this.currentImageNumber + 1]) {
-            		this.$.vor.removeAttribute('hidden');
-            	} else {
-            		this.$.vor.setAttribute('hidden', 'hidden');
-            	}
-            },
-            storeCookie: function() {
-           		var date = new Date();
-           		date.setTime(date.getTime() + (100 * 365 * 24 * 60 * 60 * 1000));
-           		var expires = "; expires=" + date.toGMTString();
-            	document.cookie = this.cookiename + "=" + JSON.stringify(this.foundList) + expires + "; path=/";
-            },
-            loadCookie: function() {
-            	if (document.cookie.length > 0) {
-            		var start = document.cookie.indexOf(this.cookiename + "=");
-            		if (start != -1) {
-            			start = start + this.cookiename.length + 1;
-            			var end = document.cookie.indexOf(";", start);
-            			if (end == -1) {
-            				end = document.cookie.length;
-            			}
-            			this.foundList = JSON.parse(unescape(document.cookie.substring(start, end)));
-            			return;
-            		}
-            	}
-            	this.foundList = {};
-            	this.foundList[this.images[0].name] = {};
-            }
-        });
+				});
+			},
+			showBild: function(number) {
+				if (this.currentImage) {
+					this.currentImage.active = false;
+				}
+				this.currentImageNumber = number;
+				this.currentImage = this.images[number];
+				this.currentImage.active = true;
+				this.currentShown = this.currentImage;
+				this.currentShownName = this.currentShown.querySelector('h2').textContent;
+			},
+			handleShowEi: function(event) {
+				var ei = Polymer.dom(event).localTarget;
+				var text = Polymer.dom(event).event.srcElement.nextElementSibling;
+				var bild = Polymer.dom(ei).parentNode;
+				this.foundList[bild.name][ei.name] = true;
+				this.storeCookie();
+			},
+			handleHideEi: function() {
+				this.currentShown = this.currentImage;
+				this.currentShownName = this.currentShown.name;
+			},
+			nextBild: function() {
+				this.showBild(this.currentImageNumber + 1);
+				this.checkArrows();
+				if (!this.foundList[this.currentImage.name]) {
+					this.foundList[this.currentImage.name] = {};
+					this.storeCookie();
+				}
+			},
+			previousBild: function() {
+				this.showBild(this.currentImageNumber - 1);
+				this.checkArrows();
+			},
+			checkArrows: function(event) {
+				if (this.currentImageNumber != 0) {
+					this.$.zurueck.removeAttribute('hidden');
+				} else {
+					this.$.zurueck.setAttribute('hidden', 'hidden');
+				}
+				if (this.currentImage.foundall) {
+					this.currentShownName = Polymer.dom(event).localTarget.querySelector('oster-text h3').textContent;
+				}
+				if (this.currentImage.foundall && this.images[this.currentImageNumber + 1]) {
+					this.$.vor.removeAttribute('hidden');
+				} else {
+					this.$.vor.setAttribute('hidden', 'hidden');
+				}
+			},
+			storeCookie: function() {
+				var date = new Date();
+				date.setTime(date.getTime() + (100 * 365 * 24 * 60 * 60 * 1000));
+				var expires = "; expires=" + date.toGMTString();
+				document.cookie = this.cookiename + "=" + JSON.stringify(this.foundList) + expires + "; path=/";
+			},
+			loadCookie: function() {
+				if (document.cookie.length > 0) {
+					var start = document.cookie.indexOf(this.cookiename + "=");
+					if (start != -1) {
+						start = start + this.cookiename.length + 1;
+						var end = document.cookie.indexOf(";", start);
+						if (end == -1) {
+							end = document.cookie.length;
+						}
+						this.foundList = JSON.parse(unescape(document.cookie.substring(start, end)));
+						return;
+					}
+				}
+				this.foundList = {};
+				this.foundList[this.images[0].querySelector('h2').textContent] = {};
+			}
+		});
 	</script>
 	
 </dom-module>

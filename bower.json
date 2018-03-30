@@ -1,18 +1,28 @@
-{
+﻿{
   "name": "Ostereiersuche",
-  "version": "0.1.0",
-  "homepage": "https://github.com/netzhuffle/Ostereiersuche",
+  "version": "0.1.0", 
   "authors": [
     "Jannis Grimm <jannis@gje.ch>"
   ],
-  "main": "de/ostern/2014/index.html",
+  "description": "Ostereiersuche für den HP-FC",
+  "main": "de/ostern/2018/index.html",
+  "keywords": [
+    "Ostereier",
+    "HP-FC",
+    "Harry",
+    "Potter"
+  ],
   "license": "MIT",
+  "homepage": "https://github.com/netzhuffle/Ostereiersuche",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0"
+  },
+  "private": true,
   "ignore": [
     "**/.*",
-    "js/ostern/bower_components"
-  ],
-  "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0"
-  },
-  "private": true
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }

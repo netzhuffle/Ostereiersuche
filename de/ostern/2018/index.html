@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>HP-FC – Ostereiersuche 2018</title>
+<meta name="keywords" content="Ostereier, Ostern, Harry, Potter, HP-FC">
+<meta name="description" content="In der Ostereiersuche des HP-FCs hat der Osterhase viele Ostereier versteckt. Finde die Oster-Eier in den selbsgemalten Bildern um zu sehen, was sich hinter ihnen verbirgt! Es gibt Geschichten, Gedichte, Bastelanleitungen und Backrezepte zu finden. Findest du alle Eier?">
+<script src="../../../js/ostern/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="../../../js/ostern/bower_components/polymer/polymer.html">
+<link rel="import" href="../../../js/ostern/bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="../../../js/ostern/oster-projekt.html">
+<link rel="import" href="../../../js/ostern/oster-bild.html">
+<link rel="import" href="../../../js/ostern/oster-text.html">
+<link rel="import" href="../../../js/ostern/oster-ei.html">
+</head>
+
+<body>
+	<!--[if lt IE 10]><div style="background-color: #ebebeb;">Dein Browser unterstützt die Ostereiersuche leider nicht. Bitte verwende einen modernen Browser.</div><![endif]--><!--[if gte IE 10]> -->
+	<oster-hpfc-menu></oster-hpfc-menu>
+	<oster-projekt
+		headerlogo="../../../img/ostern/2018/logo.gif"
+		impressumhref="impressum.html"
+		cookiename="ostern2018">
+		<h1>HP-FC – Ostereiersuche 2018</h1>
+		<oster-bild slot="oster-bild" src="../../../img/ostern/2018/rav-suchbild.jpg" developer>
+			<h2></h2>
+			<oster-ei slot="oster-ei" ></oster-ei>
+			
+			<oster-text slot="oster-text">
+				<h3></h3>
+			</oster-text>			
+		</oster-bild>
+	</oster-projekt>
+	
+	<!-- <![endif]-->
+</body>
+</html>

@@ -1,0 +1,66 @@
+<dom-module id="oster-text">
+	<template>
+		<template is="dom-if" if={{shown}}>
+			<style>
+				.box {
+					color: #fff;
+					position: absolute;
+					top: 0px;
+					left: 0px;
+					width: 100%;
+					z-index: 10;
+					padding: 10px;
+					padding-bottom: 100px;
+					background-color: #000;
+					background-image: url('../../../img/ostern/close.png');
+					background-repeat: no-repeat;
+					background-position: bottom center;
+				}
+	
+				.text {
+					max-width: 70%;
+					margin: auto;
+				}
+	
+				.text > ::content img {
+					max-width: 100%;
+				}
+			</style>
+			<div class="box">
+					<div class="text">
+						<slot></slot>
+					</div>
+				</div>
+		</template>
+	</template>
+	
+	<script>
+		Polymer({
+			is: 'oster-text',
+			properties: {
+				shown: {
+					Boolean,
+					value: false,	
+				}
+			},
+			listeners: {
+				tap: 'hide',
+				"show-text": 'handleShowText', 
+			},
+			ready: function() {
+				var h3 = Polymer.dom(this).querySelector('h3');
+				if (h3) {
+					this.name = h3.textContent;
+				}
+			},
+			hide: function() {
+				this.shown = false;
+				this.fire('hide-ei');
+			},
+			handleShowText: function(){
+				this.shown = true;
+			}
+        });
+	</script>
+	
+</dom-module>
